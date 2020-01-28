@@ -32,7 +32,7 @@ client.once('ready', () => {
 });
 
 client.on('message', m => {
-  if (m.content.startsWith(`${prefix}ping`)) {
+  if (m.content.startsWith(`{prefix}ping`)) {
     m.channel.send('🏓 | Pong.I'm alive!');
   }
 });

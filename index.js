@@ -60,6 +60,6 @@ for (let i = 0; i < pingTypes.length; i++) {
 
 let pongName = pingNames[Math.floor(Math.random()* pingNames.length)];
 var pong=pongName;
-message.channel.send(pong);
+m.channel.send(pong);
   }
 });

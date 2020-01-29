@@ -47,7 +47,7 @@ const pingMultiply = [
   250,
   244,
   5,
-  1
+  1,
 ];
 
 let pingNames = [];

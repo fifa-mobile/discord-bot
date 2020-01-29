@@ -58,15 +58,8 @@ for (let i = 0; i < pingTypes.length; i++) {
   }
 }
 
-const pack = () => {
-  out.innerHTML = pingNames[
-   Math.floor(Math.random()* pingNames.length)
-  ];
-}
-
-
-let playerName = pingNames[Math.floor(Math.random()* pingNames.length)];
-var pong=pingNames;
+let pongName = pingNames[Math.floor(Math.random()* pingNames.length)];
+var pong=pongName;
 message.channel.send(pong);
 
   }

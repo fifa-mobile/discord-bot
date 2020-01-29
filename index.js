@@ -62,5 +62,5 @@ let pongName = pingNames[Math.floor(Math.random()* pingNames.length)];
 var pong=pongName;
 m.channel.send(pong);
   }else if (m.content.startsWith(`${prefix}help`)) {
-m.channel.send("`Mod Command List` \\n **1.Info.**-`help` `ping` ;\n **2.League**-`league`")  }
+m.channel.send("`Mod Command List` \n\n **1.Info.**-`help` `ping` ;\n **2.League**-`league`")  }
 });

@@ -1,2 +1,3 @@
-require('./web.js');
-require('./bot.js');
+const y = require('./y')();
+require('./web.js')(y);
+require('./bot.js')(y);

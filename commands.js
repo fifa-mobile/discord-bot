@@ -1,9 +1,10 @@
-class Commands {
-  _(y, cmd, args) {
-    this.y = y;
-    this.cmd = cmd;
-    this.args = args;
+const y = require('./base');
+function commands(_y, cmd, args) {
+  try {
+    require(`./commands/${cmd}`)(_y, args);
+  } catch(e) {
+    _y.reply('command not found!');
   }
 }
 
-module.exports = (y, c, a) => new Commands(y, c, a);
+module.exports = commands;

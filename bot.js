@@ -1,5 +1,29 @@
 const y = require('./base');
 
+function ready() {
+  y.l(`logged in as ${this.y.client.user.tag}!`);
+}
+
+async function message(m) {
+  this.y.reply = text => {
+    m.channel.send(text);
+  };
+
+  const { prefix } = this.y.config;
+  if (
+    !m.content.startsWith(prefix)
+    || m.author.bot
+  ) return;
+
+  const args = m.content.slice(
+    prefix.length
+  ).split(/[\n, \s]+/);
+  const cmd = args.shift().toLowerCase();
+
+  y.l(cmd, args);
+  require('./commands')(this.y, cmd, args);
+}
+
 class Bot {
   constructor(_y) {
     this.y = _y;
@@ -7,33 +31,9 @@ class Bot {
   }
 
   init() {
-    const { prefix, token } = this.y.config;
-    const Discord = require('discord.js');
-    const client = new Discord.Client();
-
-    client.login(token);
-
-    client.once('ready', () => {
-      y.l(`logged in as ${client.user.tag}!`);
-    });
-
-    client.on('message', async m => {
-      if (
-        !m.content.startsWith(prefix)
-        || m.author.bot
-      ) return;
-
-      const args = m.content.slice(
-        prefix.length
-      ).split(/[\n, \s]+/);
-      const cmd = args.shift().toLowerCase();
-
-      y.l(cmd, args);
-      require('./commands')(this.y, cmd, args);
-    });
-  }
-
-  _() {
+    this.y.client.login(this.y.config.token);
+    this.y.client.once('ready', ready.bind(this));
+    this.y.client.on('message', message.bind(this));
   }
 }
 

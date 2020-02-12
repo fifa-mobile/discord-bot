@@ -1,12 +1,12 @@
 const y = require('./base');
 
-class Web extends y {
+class Web {
   constructor(_y) {
-    super();
     this.y = _y;
+    this.init();
   }
 
-  _() {
+  init() {
     const http = require('http');
     const server = http.createServer(
       (req, res) => {
@@ -23,7 +23,7 @@ class Web extends y {
     );
     const PORT = process.env.PORT || 5000;
     server.listen(PORT, () => {
-      y.l(`Server running on ${PORT}/`);
+      y.l(`Server running on ${PORT}`);
     });
   }
 }

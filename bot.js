@@ -9,7 +9,7 @@ async function message(m) {
     m.channel.send(text);
   };
 
-  const { prefix } = this.y.config;
+  const { prefix } = y.c;
   if (
     !m.content.startsWith(prefix)
     || m.author.bot
@@ -20,7 +20,6 @@ async function message(m) {
   ).split(/[\n, \s]+/);
   const cmd = args.shift().toLowerCase();
 
-  y.l(cmd, args);
   require('./commands')(this.y, cmd, args);
 }
 
@@ -31,9 +30,10 @@ class Bot {
   }
 
   init() {
-    this.y.client.login(this.y.config.token);
-    this.y.client.once('ready', ready.bind(this));
-    this.y.client.on('message', message.bind(this));
+    const c = this.y.client;
+    c.login(y.c.token);
+    c.once('ready', ready.bind(this));
+    c.on('message', message.bind(this));
   }
 }
 

@@ -9,8 +9,7 @@ class Y extends y{
 
   _() {
     this.client = client;
-    this.config = require('./config');
   }
 }
 
-module.exports = () => new Y();
+module.exports = new Y();

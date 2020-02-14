@@ -1,4 +1,5 @@
-const { debug } = require('./config');
+const config = require('./config');
+const { debug } = config;
 const df = require('dateformat');
 const chalk = require('chalk');
 
@@ -20,6 +21,9 @@ function caller() {
     index+2, callerLine.length
   );
 }
+
+Base.chalk = chalk;
+Base.c = config;
 
 Base.l = function l() {
   if (!debug) return;

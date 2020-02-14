@@ -1,13 +1,13 @@
-const config = require('./config');
-const { debug } = config;
-const df = require('dateformat');
-const chalk = require('chalk');
-
 class Base {
   constructor() {
     this._();
   }
 }
+
+const {debug } = Base.c = require('./config');
+Base.chalk = require('chalk');
+Base.df = require('dateformat');
+Base.fs = require('fs');
 
 function getErrorObject() {
   try { throw Error('') } catch(e) {return e;}
@@ -22,17 +22,13 @@ function caller() {
   );
 }
 
-Base.chalk = chalk;
-Base.c = config;
-
 Base.l = function l() {
   if (!debug) return;
 
-  const TIME = df(new Date(), "dd/mm/yy|HH:MM:ss")
+  const TIME = Base.df(new Date(), "dd/mm/yy|HH:MM:ss");
   const CALLER = caller();
-  const LOG_PREFIX = chalk.blue(`${TIME} ### `);
-  const LOG_SUFFIX = chalk.blue(` ### ${CALLER}`);
-  
+  const LOG_PREFIX = Base.chalk.blue(`${TIME} ### `);
+  const LOG_SUFFIX = Base.chalk.blue(` ### ${CALLER}`);
 
   let args = Array.prototype.slice.call(arguments);
   args.unshift(LOG_PREFIX);

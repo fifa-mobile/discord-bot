@@ -6,8 +6,8 @@ function commands(_y, cmd, args) {
     require(`./commands/${cmd}`)(_y, args);
   } catch(e) {
     const c = `${y.c.prefix}${cmd}`;
-    y.l(y.chalk.red(`failed! no file for it`));
-    _y.reply(`command \`${c}\` not found!`);
+    y.l(y.chalk.red(`${e.message}`));
+    _y.reply(`error executing \`${c}\` command!`);
   }
 }
 

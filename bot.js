@@ -8,18 +8,15 @@ async function message(m) {
   this.y.reply = text => {
     m.channel.send(text);
   };
-
   const { prefix } = y.c;
   if (
     !m.content.startsWith(prefix)
     || m.author.bot
   ) return;
-
   const args = m.content.slice(
     prefix.length
   ).split(/[\n, \s]+/);
   const cmd = args.shift().toLowerCase();
-
   require('./commands')(this.y, cmd, args);
 }
 

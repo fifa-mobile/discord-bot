@@ -1,3 +1,3 @@
-const y = require('./y');
-require('./web')(y);
-require('./bot')(y);
+const y = require('./core/y');
+require('./core/web')(y);
+require('./core/bot')(y);

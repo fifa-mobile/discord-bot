@@ -1,8 +1,9 @@
-```Standard Command List```
-ℹ | Use `$help [command]` if you want to get more info on a specific command.
+**```ℹ | {{prefix}}help```**
+**Use**:Used to show a list of commands.Also shows command specific help.
+**Command**:`{{prefix}}help [command]`
 
-**1.Info.**-`help` `ping` `bot` ;
-**2.League**-`league` `tour`;
-**3.Fun**- `read` `8ball`;
+**Example**:
+`{{prefix}}help`-Shows command list.
+`{{prefix}}help league`-Explains the use of the `league` command.
 
 ```>Don't include brackets when using the commands.```

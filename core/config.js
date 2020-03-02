@@ -1,6 +1,6 @@
 let config = null;
 try {
-  config = require('./config.json');
+  config = require('../config.json');
 } catch (e) {
   config = JSON.parse(process.env.config);
 }

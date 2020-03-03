@@ -38,7 +38,7 @@ function applyTemplate(template, properties) {
 
 Base.r = (path, args = {}) => {
   return applyTemplate(Base.fs.readFileSync(
-    `./commands/files/${path}.md`, 'utf8'
+    `./commands/files/${path}.txt`, 'utf8'
   ), args);
 };
 

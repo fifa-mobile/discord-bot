@@ -5,6 +5,8 @@ class Base {
 }
 
 const {debug } = Base.c = require('./config');
+Base.Discord = require('discord.js');
+Base.client = new Base.Discord.Client();
 Base.chalk = require('chalk');
 Base.df = require('dateformat');
 Base.fs = require('fs');

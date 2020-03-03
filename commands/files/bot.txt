@@ -1,0 +1,6 @@
+**```ℹ | $bot```**
+**Use**:Used to get general information on bot.
+**Command**:{{prefix}}bot
+**Example**:
+`{{prefix}}bot`-shows an embed with info on bot.
+```>Don't include brackets when using the commands.```

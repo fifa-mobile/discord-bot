@@ -1,6 +1,4 @@
 const y = require('./base');
-const Discord = require('discord.js');
-const client = new Discord.Client();
 
 class Y extends y{
   constructor() {
@@ -8,7 +6,8 @@ class Y extends y{
   }
 
   _() {
-    this.client = client;
+    this.Discord = y.Discord;
+    this.client = y.client;
   }
 }
 

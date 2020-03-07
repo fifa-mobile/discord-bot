@@ -1,3 +1,4 @@
-config.json
 *.swp
 node_modules/
+config/google.json
+config/config.json

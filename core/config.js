@@ -1,6 +1,10 @@
 let config = null;
+const dir = '../configs/';
 try {
-  config = require('../config.json');
+  config = {
+    main:   require(dir + 'config.json'),
+    google: require(dir + 'google.json'),
+  };
 } catch (e) {
   config = JSON.parse(process.env.config);
 }

@@ -1,7 +1,7 @@
 const y = require('./base');
 
 function commands(_y, cmd, args) {
-  const p = y.c.prefix;
+  const p = y.c.main.prefix;
   try {
     y.l(`executing command: ${cmd}`, args);
     const path = `/commands/${cmd}`;

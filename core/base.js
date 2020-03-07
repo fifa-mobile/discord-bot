@@ -4,7 +4,8 @@ class Base {
   }
 }
 
-const {debug } = Base.c = require('./config');
+Base.c = require('./config');
+const { debug } = Base.c.main;
 Base.Discord = require('discord.js');
 Base.client = new Base.Discord.Client();
 Base.chalk = require('chalk');

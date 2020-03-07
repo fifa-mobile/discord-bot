@@ -8,7 +8,7 @@ async function message(m) {
   this.y.reply = text => {
     m.channel.send(text);
   };
-  const { prefix } = y.c;
+  const { prefix } = y.c.main;
   if (
     !m.content.startsWith(prefix)
     || m.author.bot
@@ -28,7 +28,7 @@ class Bot {
 
   init() {
     const c = this.y.client;
-    c.login(y.c.token);
+    c.login(y.c.main.token);
     c.once('ready', ready.bind(this));
     c.on('message', message.bind(this));
   }

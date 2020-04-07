@@ -1,0 +1,8 @@
+**```ℹ | {{prefix}}read```**
+**Use**:Used to read the latest part of the history in #one_word_story which is accessible by Apprentice 3 or higher ranked users.
+**Command**:{{prefix}}read
+
+**Example**:
+`{{prefix}}read`-shows latest part of the history.
+
+```>Don't include brackets when using the commands.```

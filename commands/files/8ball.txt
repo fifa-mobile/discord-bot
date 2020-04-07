@@ -1,0 +1,8 @@
+**```ℹ | {{prefix}}8ball```**
+**Use**:Used to get an answer of a \"Yes/No\" question based on my (often controversial) opinion.
+**Command**:{{prefix}}8ball `[question]`
+
+**Example**:
+`{{prefix}}8ball Am I a bot?`-Gives an answer to the question.
+
+```> Don't include brackets when using the commands.```

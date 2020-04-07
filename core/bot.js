@@ -1,7 +1,19 @@
 const y = require('./base');
 
 function ready() {
-  y.l(`logged in as ${this.y.client.user.tag}!`);
+  const client = this.y.client;
+  y.l(`logged in as ${client.user.tag}!`);
+
+  client.user.setActivity(
+    y.c.insource.activity.content
+    , { type: y.c.insource.activity.type }
+  ).then(presence => {
+    console.log(
+      `Activity set to ${
+        presence.game ? presence.game.name : 'none'
+      }`
+    );
+  }).catch(console.error);
 }
 
 async function message(m) {

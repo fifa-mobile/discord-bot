@@ -2,7 +2,7 @@ const y = require('../core/base');
 
 module.exports = (_y, args) => {
   const p = {
-    prefix: y.c.prefix
+    prefix: y.c.main.prefix
   };
   let text = y.r(`index`, p);
   if (args.length !== 0) {

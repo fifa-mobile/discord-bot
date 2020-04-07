@@ -1,0 +1,8 @@
+**```ℹ | {{prefix}}announce```**
+**Use**: Used to make me say something (usually announcement).
+**Command**: `{{prefix}}announce [text]`
+
+**Example**:
+`{{prefix}}announce Hi!` - Command gets deleted and I say \"Hi!\".
+
+```> Don't include brackets when using the commands.```

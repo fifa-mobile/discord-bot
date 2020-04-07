@@ -17,6 +17,7 @@ function ready() {
 }
 
 async function message(m) {
+  this.y.message = m;
   this.y.reply = text => {
     m.channel.send(text);
   };

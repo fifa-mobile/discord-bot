@@ -19,8 +19,8 @@ module.exports = (_y, args) => {
       return;
     }
     x = x[x.length - 1];
-    const result = `date: ${x.date}\nconfirmed: ${x.confirmed}\n`
-      + `deaths: ${x.deaths}\nrecovered: ${x.recovered}`;
+    const result = `Date: ${x.date}\nConfirmed: ${x.confirmed}\n`
+      + `Deaths: ${x.deaths}\nRecovered: ${x.recovered}`;
     console.log(result);
     _y.reply(result);
   });

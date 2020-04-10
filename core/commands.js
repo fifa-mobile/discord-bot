@@ -18,6 +18,7 @@ function commands(_y, cmd, args) {
     require('../' + path)(_y, args);
   } catch(e) {
     const c = `${p}${cmd}`;
+    console.log(e);
     y.l(y.chalk.red(`${e.message}`));
     _y.reply(
       `Error executing \`${c}\` command!\n`

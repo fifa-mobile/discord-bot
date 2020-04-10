@@ -1,53 +1,48 @@
 const y = require('../core/base');
 
 module.exports = (_y, args) => {
-  const msg = _y.message;
+  const spreadSheet = y.c.insource.spreadSheets.tour;
   const { GoogleSpreadsheet } = require(
-    'google-spreadsheet');
+    'google-spreadsheet'
+  );
 
-  const doc = new GoogleSpreadsheet(
-    y.c.insource.spreadSheets.tour);
+  const doc = new GoogleSpreadsheet(spreadSheet.id);
 
   const run = async function() {
     await doc.useServiceAccountAuth(y.c.google);
-
     await doc.loadInfo();
-    console.log(doc.title);
 
-    console.log('Loaded doc: ' + doc.title);
-
-    const sheet = doc.sheetsByIndex[0];
-    
-    console.log(
-      'sheet.title: ' + sheet.title + '\n'
-      + 'rowCount: ' + sheet.rowCount + '\n'
-      + 'columnCount: ' + sheet.columnCount + '\n'
-    );
+    const ids = spreadSheet.indexes;
+    const sheets = [
+      doc.sheetsByIndex[ids.participants],
+      doc.sheetsByIndex[ids.data],
+    ];
 
     if (!args[0]) {
       _y.reply('options: participants');
       return;
     }
 
-    if (args[0] === 'participants') {
-      const rows = await sheet.getRows();
-      let result = [
-        '  #| ign            | ahq            ',
-        '-------------------------------------',
-      ];
+    const data = require('./tour/data')(
+      await sheets[ids.data].getRows()
+    );
 
-      for (let i = 0; i < 10; i++) {
-        const row = rows[i];
-        console.log(row.ign, row.ahq);
-        const number = (i+1).toString().padStart(3, ' ');
-        const ign = row.ign.padEnd(15, ' ');
-        const ahq = row.ahq.padEnd(15, ' ');
-        const line = `${number}| ${ign}| ${ahq}`; 
-        result.push(line);
-        /*
-        */
-      }
-      _y.reply('```' + result.join('\n') + '```');
+    let teams = [];
+
+    if (
+      args[0] === 'participants'
+      ||
+      args[0] === 'draw'
+    ) {
+      teams = require('./tour/participants')(
+        _y, data, sheets[ids.participants]
+        , await sheets[ids.participants].getRows()
+        , args[0] === 'participants'
+      );
+    }
+
+    if (args[0] === 'draw' && !data.locked) {
+      require('./tour/draw')(_y, data, teams);
     }
   };
 

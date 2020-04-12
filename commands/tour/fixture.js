@@ -23,7 +23,7 @@ class Match {
   }
 
   scoreToString() {
-    let result = '    vs   ';
+    let result = '   vs.   ';
     if (this.scores.length) {
       let scores = [];
       for (let i = 0; i < this.scores.length; i++) {
@@ -126,9 +126,10 @@ module.exports = (_y, args, group, rows) => {
     teams.push(team);
   }
 
-  let increment = 0;
+  let increment = 1;
   let matches = [];
-  rows.forEach(row => {
+  for (let h = 0; h < count; h++) {
+    const row = rows[h];
     const team = find(row.team, teams);
     for (let i = 0; i < teams.length; i++) {
       const opponent = teams[i];
@@ -139,11 +140,31 @@ module.exports = (_y, args, group, rows) => {
       ) continue;
       if (team.name === opponent.name) continue;
       const dataScore = row[opponent.name];
+      if (
+        args[0] === 'score'
+        &&
+        args[2] && args[3]
+        &&
+        increment === parseInt(args[2])
+      ) {
+        _y.reply('Saving score...');
+        const save = async function(row, opponent, _y) {
+          let scores = [];
+          for(let j = 3; j < args.length; j++) {
+            scores.push(args[j]);
+          }
+          row[opponent.name] = scores.join(',');
+          await row.save();
+          _y.reply('Score saved!');
+        };
+        save(row, opponent, _y);
+        return;
+      }
       const match = new Match(team, opponent, dataScore);
       matches.push(match);
       increment++;
     }
-  });
+  };
 
   const fixture = new Fixture(teams, map, matches);
   _y.replyCode(fixture.toString());

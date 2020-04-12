@@ -34,6 +34,8 @@ module.exports = (_y, args) => {
       args[0] === 'standing'
       ||
       args[0] === 'fixture'
+      ||
+      args[0] === 'score'
     ) {
       const shuffled = require('./tour/shuffled')(
         _y, data, await sheets[ids.shuffled].getRows()
@@ -43,7 +45,11 @@ module.exports = (_y, args) => {
       );
       const group = groups[args[1] - 1];
 
-      if (args[0] === 'fixture') {
+      if (
+        args[0] === 'fixture'
+        ||
+        args[0] === 'score'
+      ) {
         require('./tour/fixture')(
           _y, args, group
           , await sheets[
@@ -54,10 +60,6 @@ module.exports = (_y, args) => {
 
       if (args[0] === 'standing') {
         require('./tour/standing')(_y, args, group);
-      }
-
-      if (args[0] === 'score') {
-        require('./tour/score')(_y, args);
       }
     }
 

@@ -21,6 +21,9 @@ async function message(m) {
   this.y.reply = text => {
     m.channel.send(text);
   };
+  this.y.replyCode = text => {
+    m.channel.send('```' + text + '```');
+  };
   const { prefix } = y.c.main;
   if (
     !m.content.startsWith(prefix)

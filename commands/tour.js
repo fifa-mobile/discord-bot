@@ -16,6 +16,9 @@ module.exports = (_y, args) => {
     const sheets = [
       doc.sheetsByIndex[ids.participants],
       doc.sheetsByIndex[ids.data],
+      doc.sheetsByIndex[ids.shuffled],
+      doc.sheetsByIndex[ids.group1],
+      doc.sheetsByIndex[ids.group2],
     ];
 
     if (!args[0]) {
@@ -26,6 +29,21 @@ module.exports = (_y, args) => {
     const data = require('./tour/data')(
       await sheets[ids.data].getRows()
     );
+
+    if (args[0] === 'standing') {
+      const shuffled = require('./tour/shuffled')(
+        _y, data, await sheets[ids.shuffled].getRows()
+      );
+      const groups = require('./tour/groups')(
+        _y, data, shuffled 
+      );
+      const group = groups[args[1] - 1];
+      require('./tour/standing')(_y, args, group);
+    }
+
+    if (args[0] === 'score') {
+      require('./tour/score')(_y, args);
+    }
 
     let teams = [];
 

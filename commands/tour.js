@@ -49,6 +49,8 @@ module.exports = (_y, args) => {
         args[0] === 'fixture'
         ||
         args[0] === 'score'
+        ||
+        args[0] === 'standing'
       ) {
         require('./tour/fixture')(
           _y, args, group
@@ -56,10 +58,6 @@ module.exports = (_y, args) => {
             ids.groups + (args[1] - 1)
           ].getRows()
         );
-      }
-
-      if (args[0] === 'standing') {
-        require('./tour/standing')(_y, args, group);
       }
     }
 

@@ -104,7 +104,6 @@ class Standings {
 }
 
 module.exports = (_y, args, group) => {
-  console.log(group);
   const standing = new Standings();
   for (let i = 0; i < group.length; i++) {
     standing.add(new Standing(group[i]));

@@ -17,8 +17,8 @@ module.exports = (_y, args) => {
       doc.sheetsByIndex[ids.participants],
       doc.sheetsByIndex[ids.data],
       doc.sheetsByIndex[ids.shuffled],
-      doc.sheetsByIndex[ids.group1],
-      doc.sheetsByIndex[ids.group2],
+      doc.sheetsByIndex[ids.groups + 0],
+      doc.sheetsByIndex[ids.groups + 1],
     ];
 
     if (!args[0]) {
@@ -30,7 +30,11 @@ module.exports = (_y, args) => {
       await sheets[ids.data].getRows()
     );
 
-    if (args[0] === 'standing') {
+    if (
+      args[0] === 'standing'
+      ||
+      args[0] === 'fixture'
+    ) {
       const shuffled = require('./tour/shuffled')(
         _y, data, await sheets[ids.shuffled].getRows()
       );
@@ -38,11 +42,23 @@ module.exports = (_y, args) => {
         _y, data, shuffled 
       );
       const group = groups[args[1] - 1];
-      require('./tour/standing')(_y, args, group);
-    }
 
-    if (args[0] === 'score') {
-      require('./tour/score')(_y, args);
+      if (args[0] === 'fixture') {
+        require('./tour/fixture')(
+          _y, args, group
+          , await sheets[
+            ids.groups + (args[1] - 1)
+          ].getRows()
+        );
+      }
+
+      if (args[0] === 'standing') {
+        require('./tour/standing')(_y, args, group);
+      }
+
+      if (args[0] === 'score') {
+        require('./tour/score')(_y, args);
+      }
     }
 
     let teams = [];

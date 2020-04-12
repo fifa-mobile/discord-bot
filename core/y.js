@@ -8,6 +8,7 @@ class Y extends y{
   _() {
     this.Discord = y.Discord;
     this.client = y.client;
+    this.c = y.c;
   }
 }
 

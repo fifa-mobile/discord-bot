@@ -1,6 +1,12 @@
 const y = require('../core/base');
 
 module.exports = (_y, args) => {
+  args = args.filter(
+    arg =>
+      !_y.Discord.MessageMentions
+        .CHANNELS_PATTERN.test(arg)
+  );
+
   const spreadSheet = y.c.insource.spreadSheets.tour;
   const { GoogleSpreadsheet } = require(
     'google-spreadsheet'
@@ -36,6 +42,8 @@ module.exports = (_y, args) => {
       args[0] === 'fixture'
       ||
       args[0] === 'score'
+      ||
+      args[0] === 'round'
     ) {
       const shuffled = require('./tour/shuffled')(
         _y, data, await sheets[ids.shuffled].getRows()
@@ -51,6 +59,8 @@ module.exports = (_y, args) => {
         args[0] === 'score'
         ||
         args[0] === 'standing'
+        ||
+        args[0] === 'round'
       ) {
         require('./tour/fixture')(
           _y, args, group

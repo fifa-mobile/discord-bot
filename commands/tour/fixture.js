@@ -107,10 +107,12 @@ class Fixture {
     }
   }
 
-  toString() {
+  toString(round = 0) {
     let result = '';
     let resultRounds = [];
     for (let i = 0; i < this.rounds.length; i++) {
+      console.log('xxxxxxx', round, i + 1);
+      if (round && parseInt(round) !== (i + 1)) continue;
       let roundText = '';
       const roundNumber = (i + 1).toString().padStart(
         3, ' '
@@ -218,6 +220,8 @@ class Standing {
 }
 
 module.exports = (_y, args, group, rows) => {
+  const ch = _y.message.mentions.channels.first();
+
   const count = group.length;
   const map = _y.c.insource.tour.maps[count];
 
@@ -250,7 +254,11 @@ module.exports = (_y, args, group, rows) => {
         &&
         increment === parseInt(args[2])
       ) {
-        _y.reply('Saving score...');
+        if (ch) {
+          ch.send('Saving score...');
+        } else {
+          _y.reply('Saving score...');
+        }
         const save = async function(row, opponent, _y) {
           let scores = [];
           for(let j = 3; j < args.length; j++) {
@@ -258,7 +266,11 @@ module.exports = (_y, args, group, rows) => {
           }
           row[opponent.name] = scores.join(',');
           await row.save();
-          _y.reply('Score saved!');
+          if (ch) {
+            ch.send('Score saved!');
+          } else {
+            _y.reply('Score saved!');
+          }
         };
         save(row, opponent, _y);
         return;
@@ -271,8 +283,29 @@ module.exports = (_y, args, group, rows) => {
 
   const fixture = new Fixture(teams, map, matches);
   if (args[0] === 'standing') {
-    _y.replyCode(standing.toString());
+    if (ch) {
+      ch.send('```' + standing.toString() + '```');
+    } else {
+      _y.replyCode(standing.toString());
+    }
     return;
   }
-  _y.replyCode(fixture.toString());
+  console.log(ch);
+  if (ch) {
+    if (args[0] === 'round') {
+      console.log('aaaaa');
+      ch.send('```' + fixture.toString(args[2]) + '```');
+      return;
+    }
+    console.log('bbbbbb');
+    ch.send('```' + fixture.toString() + '```');
+  } else {
+    if (args[0] === 'round') {
+      console.log('cccccc');
+      _y.replyCode(fixture.toString(args[2]));
+      return;
+    }
+    console.log('ddddddd');
+    _y.replyCode(fixture.toString());
+  }
 };

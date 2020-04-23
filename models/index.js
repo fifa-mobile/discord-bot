@@ -5,14 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-let config = null;
-try {
-  config = require(
-    __dirname + '/../configs/sequelize.json'
-  )[env];
-} catch (e) {
-  config = JSON.parse(process.env.sequelize);
-}
+const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
 let sequelize;

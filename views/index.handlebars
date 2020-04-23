@@ -1,0 +1,12 @@
+<h1>URL Shortener</h1>
+
+<form method="POST" action="/url">
+  <input type="text" name="url" />
+  <input type="submit" />
+</form>
+
+<ul>
+  {{#each urlObjs}}
+  <li>{{this.url}} -- <b>{{this.shortUrl}}</b></li>
+  {{/each}}
+</ul>

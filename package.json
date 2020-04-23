@@ -19,11 +19,22 @@
   },
   "homepage": "https://github.com/fifa-mobile/discord-bot#readme",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
     "async": "^3.2.0",
     "chalk": "^3.0.0",
     "dateformat": "^3.0.3",
     "discord.js": "^11.5.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
     "google-spreadsheet": "^3.0.10",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "node-url-shortener": "^1.0.1",
+    "pg": "^8.0.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.7",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "handlebars": "^4.5.0"
   }
 }

@@ -27,14 +27,14 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.3",
     "google-spreadsheet": "^3.0.10",
+    "handlebars": "^4.7.6",
     "node-fetch": "^2.6.0",
     "node-url-shortener": "^1.0.1",
     "pg": "^8.0.3",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.7",
     "sequelize-cli": "^5.5.1",
-    "handlebars": "^4.7.6"
+    "string-argv": "^0.3.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

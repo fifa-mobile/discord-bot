@@ -1,6 +1,35 @@
 const y = require('./base');
 
-function ready() {
+const currency = new y.Discord.Collection();
+const db = require('../models/index.js');
+const User = db.User;
+
+Reflect.defineProperty(currency, 'getBalance', {
+  value: function getBalance(id) {
+    const user = currency.get(id);
+    return user ? user.coins : 0;
+  },
+});
+
+Reflect.defineProperty(currency, 'add', {
+  value: async function add(id, amount) {
+    const user = currency.get(id);
+    if (user) {
+      user.coins += Number(amount);
+      return user.save();
+    }
+    const newUser = await User.create({
+      uid: id, coins: amount
+    });
+    currency.set(id, newUser);
+    return newUser;
+  },
+});
+
+async function ready() {
+  const storedCoins = await User.findAll();
+  storedCoins.forEach(b => currency.set(b.uid, b));
+
   const client = this.y.client;
   y.l(`logged in as ${client.user.tag}!`);
 
@@ -24,15 +53,24 @@ async function message(m) {
   this.y.replyCode = text => {
     m.channel.send('```' + text + '```');
   };
+  this.y.currency = currency;
   const { prefix } = y.c.main;
+  if (
+    !m.content.startsWith(prefix)
+    &&
+    !m.author.bot
+  ) currency.add(m.author.id, 1);
   if (
     !m.content.startsWith(prefix)
     || m.author.bot
   ) return;
-  const args = m.content.slice(
-    prefix.length
-  ).split(/[\n, \s]+/);
-  const cmd = args.shift().toLowerCase();
+
+  const input = m.content.slice(prefix.length).trim();
+  const { parseArgsStringToArgv } = require(
+    'string-argv'
+  );
+  const args = parseArgsStringToArgv(input);
+  const cmd = args.shift();
   require('./commands')(this.y, cmd, args);
 }
 

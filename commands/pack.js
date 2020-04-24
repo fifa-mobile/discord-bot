@@ -10,42 +10,78 @@ module.exports = async (_y, args) => {
 
   const data = [
     [],
-    [400  , ":brown_circle:|Bronze"],
-    [300  , ":white_circle:|Silver"],
-    [200  , ":yellow_circle:|Gold"],
-    [100  , ":red_circle:|Elite 80-85 OVR"],
-    [50   , ":red_circle:|Elite 85+ OVR"],
-    [25   , ":purple_circle:|Master 90-95 OVR"],
-    [10   , ":purple_circle:|Master 95+ OVR"],
-    [2    , ":black_circle:|Legendary"],
-    [16   , ":star:|Icon"],
-    [1    , ":star2:|Prime Icon"],
+    [400  , 1     , ":brown_circle:│Bronze"],
+    [300  , 5     , ":white_circle:│Silver"],
+    [200  , 10    , ":yellow_circle:│Gold"],
+    [100  , 15    , ":red_circle:│Elite 80-85"],
+    [50   , 30    , ":red_circle:│Elite 85+"],
+    [25   , 50    , ":purple_circle:│Master 90-95"],
+    [10   , 100   , ":purple_circle:│Master 95+"],
+    [2    , 5000  , ":black_circle:│Legendary"],
+    [16   , 200   , ":star:│Icon"],
+    [1    , 10000 , ":star2:│Prime Icon"],
   ];
+
+  if (cmd === 'sell') {
+    const id = args[1];
+    const amount = Number(args[2]);
+    if (!id) {
+      return _y.reply('id required, see `info`');
+    }
+    if (!amount && isNaN(amount) && amount < 1) {
+      return _y.reply('Amount number needed!');
+    }
+    const pack = await user.getPack(id);
+    if (!pack || !pack.amount) {
+      return _y.reply(
+        `You don't have ${data[id][2]} player`
+      );
+    }
+    if (amount > pack.amount) {
+      return _y.reply(
+        `You only have **${pack.amount}**`
+        + ` ${data[id][2]} player`
+      );
+    }
+    const price = data[id][1];
+    await user.addPack(id, amount);
+    curr.add(uid, price * amount);
+    return _y.reply(`you get $${price * amount} coins!`);
+  }
 
   if (cmd === 'info') {
     let total = 0;
     for (let i = 0; i < data.length; i++) {
       const item = data[i];
       if (!item.length) continue;
-      const [possibility, type] = item;
+      const [possibility,, type] = item;
       total += possibility;
     }
     for (let i = 0; i < data.length; i++) {
       const item = data[i];
       if (!item.length) continue;
-      const [possibility, type] = item;
+      const [possibility,, type] = item;
       const percentage = possibility / total * 100;
       data[i].push(percentage);
     }
-    let lines = [];
-    for (let i = 0; i < data.length; i++) {
+    let lines = [
+      '`·id│price   │ chance %`'
+    ];
+    for (let i = data.length - 1; i >= 0; i--) {
       const item = data[i];
       if (!item.length) continue;
-      let [,type, percentage] = item;
+      let [, price, type, percentage] = item;
+      const id = String(i).padStart(2, ' ');
+      price = String(
+        price
+      ).substring(0, 5).padStart(6, ' ');
       percentage = String(
         percentage
-      ).substring(0, 5).padEnd(5, '0');
-      const line = `\`${percentage}\`% - ${type}`;
+      ).substring(0, 6).padEnd(6, '0');
+      const line =
+        `\`·${id}│$${price} │ ${percentage} %\` │`
+        + `${type}`
+      ;
       lines.push(line);
     }
     return _y.reply(lines.join('\n'));
@@ -59,14 +95,21 @@ module.exports = async (_y, args) => {
     let lines = [];
     for (let i = 0; i < packs.length; i++) {
       const pack = packs[i];
-      const [,type] = data[pack.packid];
-      const amount = '`' + String(
+      const [,,type] = data[pack.packid];
+      const amount = '`' + '·' + String(
         pack.amount
       ).padStart(4, ' ') + '`';
       const line = `${amount} - ${type}`;
       lines.push(line);
     }
     return _y.reply(lines.join('\n'));
+  }
+
+  if (cmd) {
+    return _y.reply(
+      `option **${cmd}** not found, `
+      + `try, \`list / info\``
+    );
   }
 
   if (!user || cost > balance) {

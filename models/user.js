@@ -1,5 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+  const { Op } = require("sequelize");
   const User = sequelize.define('User', {
     uid: DataTypes.STRING,
     coins: DataTypes.INTEGER
@@ -34,13 +35,19 @@ module.exports = (sequelize, DataTypes) => {
       });
     };
 
-    User.prototype.addPack = async function(packid) {
+    User.prototype.addPack = async function(
+      packid, reduce = 0
+    ) {
       const pack = await Pack.findOne({
         where: {userid: this.id, packid: packid}
       });
 
       if (pack) {
-        pack.amount += 1;
+        if (reduce) {
+          pack.amount -= reduce;
+        } else {
+          pack.amount += 1;
+        }
         return pack.save();
       }
 
@@ -49,10 +56,21 @@ module.exports = (sequelize, DataTypes) => {
       });
     };
 
+    User.prototype.getPack = function(packid) {
+      return Pack.findOne({
+        where: {userid: this.id, packid: packid},
+      });
+    };
+
     User.prototype.getPacks = function() {
       return Pack.findAll({
-        where: {userid: this.id},
-        order: [['packid']],
+        where: {
+          userid: this.id,
+          amount: {
+            [Op.gt]: 0,
+          },
+        },
+        order: [['packid', 'DESC']],
       });
     };
   };

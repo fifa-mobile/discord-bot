@@ -42,7 +42,7 @@ module.exports = async (_y, args) => {
   const name = args[1];
   const cost = Number(args[2]);
 
-  if (cmd === 'add' || cmd === 'update') {
+  if (cmd === 'add' || cmd === 'update' && member.hasPermission('ADMINISTRATOR')) {
     if (!name || !cost) {
       return _y.reply(`name and cost required!`);
     }

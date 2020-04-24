@@ -121,7 +121,7 @@ module.exports = async (_y, args) => {
   let players = [];
   for (let i = 0; i < data.length; i++) {
     if (!data[i].length) continue;
-    const [multiplier, player] = data[i];
+    const [multiplier,, player] = data[i];
     for (let j = 0; j < multiplier; j++) {
       players.push({id: i, type: player});
     }

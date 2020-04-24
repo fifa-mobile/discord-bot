@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
 
   User.associate = function(models) {
-    const {Shop, UserShop} = models;
+    const {Shop, UserShop, Pack} = models;
 
     UserShop.belongsTo(Shop, {
       foreignKey: 'shopid', as: 'item'
@@ -31,6 +31,27 @@ module.exports = (sequelize, DataTypes) => {
       return UserShop.findAll({
         where: {userid: this.id},
         include: ['item'],
+      });
+    };
+
+    User.prototype.addPack = async function(packid) {
+      const pack = await Pack.findOne({
+        where: {userid: this.id, packid: packid}
+      });
+
+      if (pack) {
+        pack.amount += 1;
+        return pack.save();
+      }
+
+      return await Pack.create({
+        userid: this.id, packid: packid, amount: 1
+      });
+    };
+
+    User.prototype.getPacks = function() {
+      return Pack.findAll({
+        where: {userid: this.id},
       });
     };
   };

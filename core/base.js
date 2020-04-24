@@ -59,4 +59,57 @@ Base.l = function l() {
   console.log.apply(console, args);
 };
 
+function generate(data, isHeader) {
+  let items = [];
+  let separators = [];
+  for (let i = 0; i < data.length; i++) {
+    let [name, length, isStart] = data[i];
+    if (typeof name === 'function') {
+      name = name()[1];
+    }
+    const string = String(name).substring(0, length);
+    let item = string.padEnd(length, ' ');
+    if (!isHeader && isStart) {
+      item = string.padStart(length, ' ');
+    }
+    const separator = ''.padEnd(length, '─');
+    items.push(item);
+    separators.push(separator);
+  }
+  const baseValue = items.join('│');
+  if (baseValue.length > 40) {
+    throw new Error('table length exceeded!');
+  }
+  if (!isHeader) return baseValue;
+  return baseValue + '\n' + separators.join('┼');
+}
+
+Base.table = function(data, map) {
+  let lines = [generate(map, true)];
+  for (let i = 0; i < data.length; i++) {
+    const item = data[i];
+    let line = [];
+    for (let j = 0; j < map.length; j++) {
+      const [key, length, isStart] = map[j];
+      let value = item[key];
+      if (typeof key === 'function') {
+        value = key(item[key()[1]])[0];
+      }
+      line.push([value, length, isStart]);
+    }
+    lines.push(generate(line));
+  }
+  return '```' + lines.join('\n') + '```';
+};
+
+Base.uname = function(m, uid) {
+  const user = Base.client.users.get(uid);
+  if (!user) return 'unknown';
+  const member = m.guild.member(user);
+  if (!member) return user.username;
+  return member.displayName ?
+    member.displayName : member.name
+  ;
+};
+
 module.exports = Base;

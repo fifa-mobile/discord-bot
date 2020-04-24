@@ -22,6 +22,35 @@ module.exports = async (_y, args) => {
     [1    , ":star2:|Prime Icon"],
   ];
 
+  if (cmd === 'info') {
+    let total = 0;
+    for (let i = 0; i < data.length; i++) {
+      const item = data[i];
+      if (!item.length) continue;
+      const [possibility, type] = item;
+      total += possibility;
+    }
+    for (let i = 0; i < data.length; i++) {
+      const item = data[i];
+      if (!item.length) continue;
+      const [possibility, type] = item;
+      const percentage = possibility / total * 100;
+      data[i].push(percentage);
+    }
+    let lines = [];
+    for (let i = 0; i < data.length; i++) {
+      const item = data[i];
+      if (!item.length) continue;
+      let [,type, percentage] = item;
+      percentage = String(
+        percentage
+      ).substring(0, 5).padEnd(5, '0');
+      const line = `\`${percentage}\`% - ${type}`;
+      lines.push(line);
+    }
+    return _y.reply(lines.join('\n'));
+  }
+
   if (cmd === 'list') {
     const packs = await user.getPacks();
     if (!packs.length) {
@@ -31,7 +60,9 @@ module.exports = async (_y, args) => {
     for (let i = 0; i < packs.length; i++) {
       const pack = packs[i];
       const [,type] = data[pack.packid];
-      const amount = pack.amount;
+      const amount = '`' + String(
+        pack.amount
+      ).padStart(4, ' ') + '`';
       const line = `${amount} - ${type}`;
       lines.push(line);
     }

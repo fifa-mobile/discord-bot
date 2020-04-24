@@ -52,6 +52,7 @@ module.exports = (sequelize, DataTypes) => {
     User.prototype.getPacks = function() {
       return Pack.findAll({
         where: {userid: this.id},
+        order: [['packid']],
       });
     };
   };

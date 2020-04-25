@@ -226,11 +226,12 @@ module.exports = async (_y, args) => {
   curr.add(uid, -cost);
   await user.addPack(choosen.id);
 
-  _y.reply(`You got a ${choosen.type} player`);
+  const title = `You got a ${choosen.type} player`;
 
   const D = y.Discord;
   const embed = new D.RichEmbed()
     .setColor('#0099ff')
+    .setTitle(title)
     .setImage(
 			'https://fifa-mobile.github.io/images/cards/'
 			+

@@ -1,3 +1,4 @@
+const y = require('../core/base');
 const {User} = require('../models/index.js');
 
 module.exports = async (_y, args) => {
@@ -20,6 +21,94 @@ module.exports = async (_y, args) => {
     [2    , 5000  , ":black_circle:│Legendary"],
     [16   , 200   , ":star:│Icon"],
     [1    , 10000 , ":star2:│Prime Icon"],
+  ];
+
+  const cards = [
+    [],
+    //'bronze',
+    [
+      21229429,
+      21245862,
+      21233667,
+      21248268,
+      21248272,
+      21251867,
+      21242106,
+      21242874,
+      21243898,
+      21244927,
+      21251840,
+    ],
+    //'silver',
+    [
+      21239631,
+      21245008,
+      21228625,
+      21232360,
+      21235689,
+    ],
+    //'gold',
+    [
+      21217605,
+      21188166,
+      21236920,
+      21215417,
+      21238095,
+      21184501,
+      21213353,
+      21192883,
+    ],
+    //'elite',
+    [
+      21500257,
+      21206113,
+      21500684,
+      21501964,
+      21501710,
+    ],
+    //'elite85',
+    [
+      21502425,
+      21501408,
+      21502350,
+      21500565,
+    ],
+    //'master',
+    [
+      21500962,
+      21501987,
+      21501220,
+      21501347,
+      21500742,
+    ],
+    //'master95',
+    [
+      21501958,
+      21501720,
+      21501511,
+      21500728,
+      21501769,
+      21501868,
+    ],
+    //'legend',
+    [
+      21502272,
+      21502458,
+      21502385,
+    ],
+    //'icon',
+    [
+      21502635,
+      21502193,
+      21502634,
+      21502631,
+    ],
+    //'prime',
+    [
+      21500198,
+      21501546,
+      21502457,
+    ]
   ];
 
   if (cmd === 'sell') {
@@ -130,9 +219,23 @@ module.exports = async (_y, args) => {
   const choosen = players[
     Math.floor(Math.random() * players.length)
   ];
+  const card = cards[choosen.id][
+    Math.floor(Math.random() * cards[choosen.id].length)
+  ];
 
   curr.add(uid, -cost);
   await user.addPack(choosen.id);
 
   _y.reply(`You got a ${choosen.type} player`);
+
+  const D = y.Discord;
+  const embed = new D.RichEmbed()
+    .setColor('#0099ff')
+    .setImage(
+			'https://fifa-mobile.github.io/images/cards/'
+			+
+			`${card}.png`
+		)
+  ;
+	_y.reply(embed);
 };

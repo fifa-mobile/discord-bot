@@ -22,7 +22,91 @@ module.exports = async (_y, args) => {
     chessDisplay = new Chess()
   ;
 
-  let status = gameClient.getStatus();
+  const {KeyValue} = require('../models/index');
+
+  const chessData = await KeyValue.findOne({
+    where: {key: 'chess'}
+  });
+
+  let moves = [];
+
+  const cmd = args[0];
+  const newMove = args[1];
+
+  if (chessData) {
+    moves = JSON.parse(chessData.value);
+    if (!moves || cmd === 'new') {
+      moves = [];
+    }
+  } else {
+    await KeyValue.create({
+      key: 'chess'
+    });
+  }
+
+  let turn = 'white';
+  let move = false;
+  let validMoves = [];
+  let addNew = false;
+  let movesIndex = -1;
+
+  if (moves.length) {
+    movesIndex = 0;
+  }
+
+  do {
+    validMoves = [];
+
+    Object.keys(
+      gameClient.notatedMoves
+    ).forEach(notation => {
+      validMoves.push('`' + notation + '`');
+    });
+
+    if (
+      movesIndex > -1
+      &&
+      movesIndex < moves.length
+    ) {
+      move = moves[movesIndex];
+    } else if (cmd === 'move') {
+      move = newMove;
+      addNew = true;
+    } else if (movesIndex === moves.length) {
+      move = false;
+    }
+
+    if (
+      move
+      &&
+      validMoves.indexOf('`' + move + '`') !== -1
+    ) {
+      if (turn === 'white') {
+        turn = 'black';
+      } else {
+        turn = 'white';
+      }
+      gameClient.move(move);
+      validMoves = [];
+      Object.keys(
+        gameClient.notatedMoves
+      ).forEach(notation => {
+        validMoves.push('`' + notation + '`');
+      });
+      movesIndex++;
+      if (addNew) {
+        moves.push(move);
+        break;
+      }
+    }
+  } while(move);
+
+  for (let i = 0; i < moves.length; i++) {
+    chessDisplay.move(moves[i]);
+  }
+
+  chessData.value = JSON.stringify(moves);
+  chessData.save();
 
   const boardArray = toArray(chessDisplay.toAscii());
 
@@ -81,15 +165,6 @@ module.exports = async (_y, args) => {
   const attachment = new D.Attachment(
     canvas.toBuffer(), 'img.png'
   );
-
-  let validMoves = [];
-  Object.keys(
-    gameClient.notatedMoves
-  ).forEach(notation => {
-    validMoves.push('`' + notation + '`');
-  });
-
-  let turn = 'white';
 
   _y.message.channel.send(
     `Valid **_${turn}_** moves:`

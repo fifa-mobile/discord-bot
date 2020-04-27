@@ -98,6 +98,8 @@ module.exports = async (_y, args) => {
         moves.push(move);
         break;
       }
+    } else if (cmd === 'move') {
+      return _y.reply(`Invalid move!`);
     }
   } while(move);
 

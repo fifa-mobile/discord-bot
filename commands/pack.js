@@ -218,7 +218,7 @@ module.exports = async (_y, args) => {
     const id = args[1];
     const amount = Number(args[2]);
     if (!id) {
-      return _y.reply('id required, see `info`');
+      return _y.reply('Id required, see `info`.');
     }
     if (!amount && isNaN(amount) && amount < 1) {
       return _y.reply('Amount number needed!');
@@ -226,19 +226,19 @@ module.exports = async (_y, args) => {
     const pack = await user.getPack(id);
     if (!pack || !pack.amount) {
       return _y.reply(
-        `You don't have ${data[id][2]} player`
+        `You don't have ${data[id][2]} player.`
       );
     }
     if (amount > pack.amount) {
       return _y.reply(
-        `You only have **${pack.amount}**`
+        `You only have **${pack.amount}**.`
         + ` ${data[id][2]} player`
       );
     }
     const price = data[id][1];
     await user.addPack(id, amount);
     curr.add(uid, price * amount);
-    return _y.reply(`you get $${price * amount} coins!`);
+    return _y.reply(`You get $${price * amount} coins!`);
   }
 
   if (cmd === 'info') {
@@ -282,7 +282,7 @@ module.exports = async (_y, args) => {
   if (cmd === 'list') {
     const packs = await user.getPacks();
     if (!packs.length) {
-      return _y.reply(`You don't have any player`);
+      return _y.reply(`You don't have any player.`);
     }
     let lines = [];
     for (let i = 0; i < packs.length; i++) {
@@ -299,14 +299,14 @@ module.exports = async (_y, args) => {
 
   if (cmd) {
     return _y.reply(
-      `option **${cmd}** not found, `
+      `Option **${cmd}** not found, `
       + `try, \`list / info\``
     );
   }
 
   if (!user || cost > balance) {
     return _y.reply(
-      `You don't have enough coins! cost: $${cost}`
+      `You don't have enough coins! Cost: $${cost}`
     );
   }
 

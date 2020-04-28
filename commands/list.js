@@ -42,7 +42,7 @@ module.exports = async (_y, args) => {
       image: "master95",
     },
     8: {
-      price: 5000,
+      price: 500,
       image: "legend",
     },
     9: {
@@ -50,7 +50,7 @@ module.exports = async (_y, args) => {
       image: "icon",
     },
     10: {
-      price: 10000,
+      price: 2000,
       image: "prime",
     },
   };

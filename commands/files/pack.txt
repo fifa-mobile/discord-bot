@@ -1,0 +1,9 @@
+**```ℹ | {{prefix}}pack (info/sell)```**
+**Use**:Used to perform several pack commands.
+**Command**:`{{prefix}}pack (info/sell [id] [number])`
+
+**Example**:
+`{{prefix}}pack`-Opens a pack that costs 10 bot coins.
+`{{prefix}}pack info`-Gives information on $pack,including player qualities,chances,prices and players' id.
+`{{prefix}}pack sell 1 5`-Sells 5 players with the 1 id (bronze).
+```>Don't include brackets when using the commands.```

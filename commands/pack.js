@@ -18,9 +18,9 @@ module.exports = async (_y, args) => {
     [50   , 30    , ":red_circle:│Elite 85+"],
     [25   , 50    , ":purple_circle:│Master 90-95"],
     [10   , 100   , ":purple_circle:│Master 95+"],
-    [2    , 5000  , ":black_circle:│Legendary"],
+    [2    , 500  , ":black_circle:│Legendary"],
     [16   , 200   , ":star:│Icon"],
-    [1    , 10000 , ":star2:│Prime Icon"],
+    [1    , 2000 , ":star2:│Prime Icon"],
   ];
 
   const cards = [

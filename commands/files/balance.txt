@@ -1,0 +1,8 @@
+**```ℹ | {{prefix}}balance```**
+**Use**:Used to show the user's bot coins balance.
+**Command**:`{{prefix}}balance`
+
+**Example**:
+`{{prefix}}balance`-Show the user's bot coins balance.
+
+```>Don't include brackets when using the commands.```

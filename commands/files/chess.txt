@@ -1,0 +1,20 @@
+**```ℹ | {{prefix}}chess (new/move [move])```**
+**Use**:Used to play chess.Check!
+**Command**:`{{prefix}}chess (new/move [move])`
+
+**Example**:
+`{{prefix}}chess (new)`-Starts a new chess match.
+`{{prefix}}chess move Nc3`-Moves knight to C3.
+
+**Move's Legend**:
+`K`-king
+`Q`-queen
+`B`-bishop
+`N`-knight
+`R`-rook
+`0-0`-castling
+`0-0-0`-long castling
+`x`-get opponent's piece
+`No prefix`-pawn
+
+```>Don't include brackets when using the commands.```

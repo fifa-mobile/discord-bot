@@ -1,0 +1,8 @@
+**```ℹ | {{prefix}}list```**
+**Use**:Used to show a list of $pack players in the user's inventory and the inventory's value.
+**Command**:`{{prefix}}list`
+
+**Example**:
+`{{prefix}}list`-Shows a list of $pack players in your inventory their value.
+
+```>Don't include brackets when using the commands.```

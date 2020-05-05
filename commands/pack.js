@@ -220,7 +220,7 @@ module.exports = async (_y, args) => {
     if (!id) {
       return _y.reply('Id required, see `info`.');
     }
-    if (!amount && isNaN(amount) && amount < 1) {
+    if (!amount) {
       return _y.reply('Amount number needed!');
     }
     const pack = await user.getPack(id);

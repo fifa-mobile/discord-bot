@@ -1,0 +1,15 @@
+  #wrapper {
+    position: relative;
+  }
+  #vegeta {
+    display: block;
+    width: 200px;
+    border-bottom: 1px solid rgba(0, 0, 0, .7);
+  }
+  #lottie {
+    width: 256px;
+    height: 256px;
+    position: absolute;
+    left: 44px;
+    top: -16px;
+  }

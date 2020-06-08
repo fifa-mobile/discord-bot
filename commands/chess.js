@@ -44,6 +44,12 @@ module.exports = async (_y, args) => {
     });
   }
 
+  if (cmd === 'undo' && moves.length) {
+    moves.pop();
+    chessData.value = JSON.stringify(moves);
+    chessData.save();
+  }
+
   let turn = 'white';
   let move = false;
   let validMoves = [];
@@ -113,7 +119,7 @@ module.exports = async (_y, args) => {
   const boardArray = toArray(chessDisplay.toAscii());
 
   const Canvas = require('canvas');
-  const canvas = Canvas.createCanvas(578, 578);
+  const canvas = Canvas.createCanvas(640, 640);
   const ctx = canvas.getContext('2d');
 
   ctx.fillStyle = '#000';

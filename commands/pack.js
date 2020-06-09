@@ -331,15 +331,17 @@ module.exports = async (_y, args) => {
 
   const title = `You got a ${choosen.type} player`;
 
+  const url =
+    'https://fifa-mobile.github.io/images/cards/'
+    +
+    `${card}.png`
+  ;
   const D = y.Discord;
   const embed = new D.RichEmbed()
     .setColor('#0099ff')
     .setTitle(title)
-    .setImage(
-			'https://fifa-mobile.github.io/images/cards/'
-			+
-			`${card}.png`
-		)
+    .setImage(url)
+    .setURL(url)
   ;
 	_y.reply(embed);
 };

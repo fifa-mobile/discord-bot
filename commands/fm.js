@@ -173,14 +173,16 @@ module.exports = (_y, args) => {
 		Math.floor(Math.random() * ids.length)
 	];
   const D = y.Discord;
+  const url = 
+    'https://fifa-mobile.github.io/images/cards/'
+    +
+    `${id}.png`
+  ;
   const embed = new D.RichEmbed()
     .setColor('#0099ff')
     .setTitle('Free Pack')
-    .setImage(
-			'https://fifa-mobile.github.io/images/cards/'
-			+
-			`${id}.png`
-		)
+    .setImage(url)
+    .setURL(url)
   ;
 	_y.reply(embed);
 };

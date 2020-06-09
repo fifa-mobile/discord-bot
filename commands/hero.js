@@ -46,11 +46,61 @@ module.exports = async (_y, args) => {
   const y = require('../core/base');
   const D = y.Discord;
 
+  const {
+    createCanvas, loadImage, Image
+  } = require('canvas');
+  const w = 1024;
+  const h = 320;
+  const canvas = createCanvas(w, h);
+  const ctx = canvas.getContext('2d');
+
+  ctx.font = 'bold 32px monospace';
+  ctx.textBaseline = 'top';
+  ctx.fillStyle = '#eee';
+  ctx.strokeStyle = '#111';
+  ctx.lineWidth = 4;
+
+  const img = await loadImage(hero.img);
+  ctx.drawImage(img, 0, 0);
+
+  let posY = 0;
+  for (let i = 0; i < stats.length; i++) {
+    const stat = stats[i];
+    const percent = stat[1]/100;
+
+    if (stat[1] === '0') continue;
+
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#eee';
+
+    ctx.strokeText(stat[0], 320, posY);
+    ctx.fillText(stat[0], 320, posY);
+
+    const green = Math.round(255 * percent);
+    const red = Math.round(255 * (1 - percent));
+    const rgb = `rgb(${red}, ${green}, 0)`;
+    console.log(
+      'red', red, 'green', green, 'rgb', rgb
+    );
+    ctx.fillStyle = rgb;
+
+    ctx.textAlign = 'right';
+    ctx.strokeText(stat[1], 670, posY);
+    ctx.fillText(stat[1], 670, posY);
+    
+    ctx.fillRect(680, posY, 320 * percent, 32);
+    posY += 48;
+  }
+
+  const buffer = canvas.toBuffer('image/png');
+  const attachment = new D.Attachment(buffer, 'x.png');
+
   const embed = new D.RichEmbed()
-    .setTitle('You are ' + hero.name)
+    .setTitle('You are: ' + hero.name)
     .setURL(url)
-    .setImage(hero.img);
+    .attachFiles([attachment])
+    .setImage('attachment://x.png');
   ;
 
-  _y.message.channel.send(embed);
+  return _y.message.channel.send(embed);
 };

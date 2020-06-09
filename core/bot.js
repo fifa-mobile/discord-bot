@@ -45,7 +45,7 @@ async function ready() {
   }).catch(console.error);
 }
 
-async function message(m) {
+function message(m) {
   this.y.message = m;
   this.y.reply = text => {
     m.channel.send(text);
@@ -56,6 +56,10 @@ async function message(m) {
   this.y.currency = currency;
   const { prefix } = y.c.main;
   if (
+    m.channel.name !== 'emoji-spam'
+    &&
+    m.channel.name !== 'one_word_story'
+    &&
     !m.content.startsWith(prefix)
     &&
     !m.author.bot

@@ -21,8 +21,10 @@
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "async": "^3.2.0",
+    "axios": "^0.19.2",
     "canvas": "^2.6.1",
     "chalk": "^3.0.0",
+    "cheerio": "^1.0.0-rc.3",
     "chess": "^0.4.3",
     "chess-base": "^1.2.0",
     "dateformat": "^3.0.3",

@@ -290,7 +290,11 @@ module.exports = async (_y, args) => {
       const item = data[i];
       if (!item.length) continue;
       const [possibility,, type] = item;
-      const percentage = possibility / total * 100;
+      const percentage = (
+        possibility / total * 100
+      ).toLocaleString(
+          undefined, {minimumFractionDigits: 1}
+      );
       data[i].push(percentage);
     }
     let lines = [
@@ -306,7 +310,7 @@ module.exports = async (_y, args) => {
       ).substring(0, 5).padStart(6, ' ');
       percentage = String(
         percentage
-      ).substring(0, 6).padEnd(6, '0');
+      ).substring(0, 6).padStart(6, ' ');
       const line =
         `\`·${id}│$${price} │ ${percentage} %\` │`
         + `${type}`

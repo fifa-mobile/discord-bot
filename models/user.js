@@ -7,11 +7,50 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
 
   User.associate = function(models) {
-    const {Shop, UserShop, Pack} = models;
+    const {
+      Shop, UserShop, Pack, Hero
+    } = models;
 
     UserShop.belongsTo(Shop, {
       foreignKey: 'shopid', as: 'item'
     });
+
+    User.prototype.getHero = function() {
+      return Hero.findOne({
+        where: {userid: this.id},
+      });
+    };
+
+    User.prototype.removeHero = async function() {
+      const hero = await Hero.findOne({
+        where: {userid: this.id}
+      });
+
+      if (hero) {
+        hero.userid = null;
+        if ((await hero.save()).userid === null) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      return true;
+    };
+
+    User.prototype.assignHero = async function(source) {
+      const hero = await Hero.findOne({
+        where: {userid: this.id}
+      });
+
+      if (hero) {
+        return hero;
+      }
+
+      return await Hero.create({
+        userid: this.id, source: source
+      });
+    };
 
     User.prototype.addItem = async function(item) {
       const useritem = await UserShop.findOne({

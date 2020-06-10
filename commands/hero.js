@@ -1,4 +1,28 @@
+const {User} = require('../models/index.js');
+
 module.exports = async (_y, args) => {
+  const cmd = args[0];
+  const uid = _y.message.author.id;
+  const user = await User.findOne({where: {uid: uid}});
+  const curr = _y.currency;
+  const balance = curr.getBalance(uid);
+
+  if (cmd === 'suicide') {
+    let reply = `Something right, you're not dead!`;
+    const status = await user.removeHero();
+    if (status) {
+      reply =
+        `You killed yourself... `
+        + `you reborn as puny human`;
+    }
+    return _y.reply(reply);
+  }
+
+  let savedHero = await user.getHero();
+
+  //remove used heroes from array
+  return;
+
   const site = 'https://www.superherodb.com';
   const heroes = [
     '/loki-mcu/10-12508/',
@@ -10,9 +34,25 @@ module.exports = async (_y, args) => {
     '/wong-mcu/10-13900/',
     '/groot-mcu/10-12501/',
   ];
-  const url = site + heroes[
-    Math.floor(Math.random() * heroes.length)
-  ];
+
+  let choosenHero = false;
+
+  if (savedHero) {
+    console.log('... loading hero from db', savedHero);
+  } else {
+    console.log('... assigning you a hero ...');
+    const choosenIndex = Math.floor(
+      Math.random() * heroes.length
+    );
+    source = heroes[choosenIndex];
+    savedHero = await user.assignHero(source);
+  }
+
+  console.log(choosenHero, savedHero.source);
+
+  return;
+
+  //const url = site + heroes[];
 
   const axios = require('axios');
   const cheerio = require('cheerio');

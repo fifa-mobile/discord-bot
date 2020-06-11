@@ -5,8 +5,24 @@ module.exports = (sequelize, DataTypes) => {
     source: DataTypes.STRING,
     hp: DataTypes.INTEGER
   }, {});
+
   Hero.associate = function(models) {
-    // associations can be defined here
+    const {
+      User
+    } = models;
+
+    Hero.belongsTo(User, {
+      foreignKey: 'userid'
+    });
+
+    const {Op} = require('sequelize');
+
+    Hero.prototype.getAssigned = function() {
+      return Hero.findAll({
+        where: {userid: {[Op.not]: null}},
+      });
+    };
   };
+
   return Hero;
 };

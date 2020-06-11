@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'shopid', as: 'item'
     });
 
+    const y = require('../core/base');
+
+    User.prototype.uname = function(m) {
+      return y.uname(m, this.uid);
+    };
+
     User.prototype.getHero = function() {
       return Hero.findOne({
         where: {userid: this.id},

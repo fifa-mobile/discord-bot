@@ -30,8 +30,8 @@ module.exports = async (_y, args) => {
   ctx.font = 'Normal 24px Sans-Serif';
   ctx.lineWidth = 4;
   [posX, posY] = [0, 48];
+  var space;
   for (let i = 0; i < 10; i++){
-    var space;
     if(i<9){
     space=" ";
     }

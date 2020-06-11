@@ -30,12 +30,8 @@ module.exports = async (_y, args) => {
   ctx.font = 'Normal 24px Sans-Serif';
   ctx.lineWidth = 4;
   [posX, posY] = [0, 48];
-  let space;
   for (let i = 0; i < 10; i++){
-    if(i<9){
-    space=" ";
-    }
-    text = `${i + 1}.` + space + " xxxxxxxxx";
+    text = `${i + 1}. xxxxxxxxx`;
     ctx.strokeText(text, posX, posY);
     ctx.fillText  (text, posX, posY);
     posY += 28;

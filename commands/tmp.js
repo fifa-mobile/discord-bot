@@ -32,7 +32,7 @@ module.exports = async (_y, args) => {
   [posX, posY] = [0, 48];
   for (let i = 0; i < 10; i++){
     var space;
-    if(i<10){
+    if(i<9){
     space=" ";
     }
     text = `${i + 1}.` + space + ` xxxxxxxxx`;

@@ -35,7 +35,7 @@ module.exports = async (_y, args) => {
     if(i<9){
     space=" ";
     }
-    text = "${i + 1}." + space + " xxxxxxxxx";
+    text = `${i + 1}.` + space + " xxxxxxxxx";
     ctx.strokeText(text, posX, posY);
     ctx.fillText  (text, posX, posY);
     posY += 28;

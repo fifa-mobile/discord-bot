@@ -46,10 +46,13 @@ module.exports = (sequelize, DataTypes) => {
 
     User.prototype.assignHero = async function(source) {
       const hero = await Hero.findOne({
-        where: {userid: this.id}
+        where: {source: source}
       });
 
       if (hero) {
+        hero.hp = 100;
+        hero.userid = this.id;
+        await hero.save();
         return hero;
       }
 

@@ -38,6 +38,7 @@
     "node-url-shortener": "^1.0.1",
     "pg": "^8.0.3",
     "pg-hstore": "^2.3.3",
+    "random-selector": "^1.0.12",
     "sequelize": "^5.21.7",
     "sequelize-cli": "^5.5.1",
     "string-argv": "^0.3.1"

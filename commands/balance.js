@@ -2,8 +2,6 @@ const db = require('../models/index.js');
 const User = db.User;
 
 function getUser(client, str) {
-	if (!str) return false;
-
   if (
     str.startsWith('<@') && str.endsWith('>')
   ) {
@@ -18,10 +16,10 @@ function getUser(client, str) {
 }
 
 module.exports = async (_y, args) => {
-  const uid = _y.message.author.id;
-  const user = await User.findOne({where: {uid: uid}});
+  const uid1 = _y.message.author.id;
+  const user = await User.findOne({where: {uid: uid1}});
   if (!user) {
-    return _y.reply(`user not found!`);
+    return _y.reply(`User not found!`);
   }
   if(!args[1]){
   return _y.reply(`$${user.coins}`);

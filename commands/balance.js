@@ -1,4 +1,4 @@
-/* Juve's nub idea*/
+/* Juve's nub idea
 const db = require('../models/index.js');
 const User = db.User;
 
@@ -30,8 +30,8 @@ module.exports = async (_y, args) => {
   }
   return _y.reply(`$${user.coins}`);
 
-};
-/* Real code
+};*/
+/* Real code*/
 const db = require('../models/index.js');
 const User = db.User;
 
@@ -43,4 +43,3 @@ module.exports = async (_y, args) => {
   }
   return _y.reply(`$${user.coins}`);
 };
-*/

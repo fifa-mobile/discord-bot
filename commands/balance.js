@@ -11,14 +11,14 @@ function getUser(str) {
 			str = str.slice(1);
 		}
 
-		return client.users.get(str);
+		return str;
 	}
 }
 
 module.exports = async (_y, args) => {
   const uid1 = _y.message.author.id;
   const user = await User.findOne({where: {uid1: uid}});
-  let uid2;
+  var uid2 = getUser(args[1]);
   if (!user) {
     return _y.reply(`User not found!`);
   }

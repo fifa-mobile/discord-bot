@@ -18,6 +18,7 @@ function getUser(str) {
 module.exports = async (_y, args) => {
   const uid1 = _y.message.author.id;
   const user = await User.findOne({where: {uid1: uid}});
+  let uid2;
   if (!user) {
     return _y.reply(`User not found!`);
   }
@@ -25,7 +26,7 @@ module.exports = async (_y, args) => {
   return _y.reply(`$${user.coins}`);
   }else{
   const user2 = await User.findOne({
-      where: {uid: getUser(args[1])}
+      where: {uid2: getUser(args[1])}
     });
   return _y.reply(`$${user2.coins}`);
   }

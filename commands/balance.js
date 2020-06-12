@@ -42,3 +42,4 @@ module.exports = async (_y, args) => {
   }
   return _y.reply(`$${user.coins}`);
 };
+*/

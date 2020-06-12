@@ -38,8 +38,12 @@ module.exports = async (_y, args) => {
         if (!hero) continue;
         line +=
           (
-            hero.name.replace('(MCU)', '')
-            + `(${hero.fullName})`
+            hero.name
+            + (
+              (hero.name !== hero.fullName)
+              ? ` (${hero.fullName})`
+              : ''
+            )
           ).substr(0, 20).padEnd(20, ' ')
         ;
         line += '| ';
@@ -82,7 +86,10 @@ module.exports = async (_y, args) => {
     const user2 = await User.findOne({
       where: {uid: getUser(args[1])}
     });
-    if (user.uid === user2.uid) {
+    if (
+      user.uid === user2.uid
+      && cmd === 'fight'
+    ) {
       return _y.reply(`You can't fight yourself!`);
     }
     let otherHero = false;
@@ -177,8 +184,38 @@ async function crawl() {
     '/iron-man-mcu/10-12496/',
     '/mysterio-mcu/10-15699/',
     */
+    /*
     '/kid-goku/10-12646/',
     '/goku/10-1284/',
+    */
+    '/valkyrie-mcu/10-12730/',
+    '/nick-fury-mcu/10-16352/',
+    '/star-lord-mcu/10-12500/',
+    '/ant-man-ii-mcu/10-12594/',
+    '/maria-hill-mcu/10-13884/',
+    '/spider-man-mcu/10-12514/',
+    '/black-widow-mcu/10-12499/',
+    '/iron-spider-mcu/10-12563/',
+    '/jane-foster-mcu/10-13883/',
+    '/quicksilver-mcu/10-12507/',
+    '/war-machine-mcu/10-12511/',
+    '/bucky-barnes-mcu/10-12601/',
+    '/peggy-carter-mcu/10-13969/',
+    '/black-panther-mcu/10-12586/',
+    '/scarlet-witch-mcu/10-12506/',
+    '/captain-marvel-mcu/10-12611/',
+    '/doctor-strange-mcu/10-12588/',
+    '/professor-hulk-mcu/10-16756/',
+    '/rocket-raccoon-mcu/10-12503/',
+    '/winter-soldier-mcu/10-12728/',
+    '/captain-america-mcu/10-12495/',
+    '/ronan-the-accuser-mcu/10-13069/',
+    '/drax-the-destroyer-mcu/10-12591/',
+    '/iron-man-model-prime-mcu/10-13701/',
+    '/captain-america-worthy-mcu/10-16755/',
+    '/thanos-infinity-gauntlet-mcu/10-14396/',
+    '/bruce-banner-hulkbuster-mcu/10-12616/',
+    '/star-lord-celestial-power-mcu/10-15124/',
   ];
 
   const axios = require('axios');
@@ -291,8 +328,12 @@ async function showHero(_y, savedHero, name = false) {
   if (name) person = `${name} is`;
   const embed = new D.RichEmbed()
     .setTitle(
-      person + ': ' + hero.name.replace('(MCU)', '')
-      + `(${hero.fullName})`
+      person + ': ' + hero.name
+      + (
+        (hero.name !== hero.fullName)
+        ? ` (${hero.fullName})`
+        : ''
+      )
     )
     .setURL(site + hero.key)
     .attachFiles([attachment])
@@ -361,7 +402,7 @@ async function fight(
   } else if (firstHero.dead) {
     result = 'You are dead!';
   } else if (secondHero.dead) {
-    result = 'You killed ' + secondHero.name.replace('(MCU)', '');
+    result = 'You killed ' + secondHero.name;
   } else {
     result = 'You both survived!';
   }
@@ -447,7 +488,7 @@ async function fight(
 
   const embed = new D.RichEmbed()
     .setTitle(
-      firstHero.name.replace('(MCU)', '')
+      firstHero.name
       + ' ~ VS ~ '
       + secondHero.name
     )

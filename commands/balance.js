@@ -1,3 +1,4 @@
+/* Juve's nub idea*/
 const db = require('../models/index.js');
 const User = db.User;
 
@@ -17,18 +18,27 @@ function getUser(str) {
 
 module.exports = async (_y, args) => {
   var uid;
-  const user = await User.findOne({where: {uid1: uid}});
+  if(!args[1]){
+  uid = _y.message.author.id;
+  }else{ 
+  uid = getUser(args[1]);
+  }
+  const user = await User.findOne({where: {uid: uid}});
   if (!user) {
     return _y.reply(`User not found!`);
   }
-  if(!args[1]){
-  uid = _y.message.author.id;
   return _y.reply(`$${user.coins}`);
-  }else{ 
-  uid = getUser(args[1]);
-  const user2 = await User.findOne({
-      where: {uid: getUser(args[1])}
-    });
-  return _y.reply(`$${user2.coins}`);
+
+};
+/* Real code
+const db = require('../models/index.js');
+const User = db.User;
+
+module.exports = async (_y, args) => {
+  const uid = _y.message.author.id;
+  const user = await User.findOne({where: {uid: uid}});
+  if (!user) {
+    return _y.reply(`User not found!`);
   }
+  return _y.reply(`$${user.coins}`);
 };

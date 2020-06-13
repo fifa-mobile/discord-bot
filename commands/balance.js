@@ -2,20 +2,6 @@
 const db = require('../models/index.js');
 const User = db.User;
 
-function getUser(str) {
-  if (
-    str.startsWith('<@') && str.endsWith('>')
-  ) {
-		str = str.slice(2, -1);
-
-		if (str.startsWith('!')) {
-			str = str.slice(1);
-		}
-
-		return str;
-	}
-}
-
 module.exports = async (_y, args) => {
   var uid;
   if(!args[1]){
@@ -30,6 +16,21 @@ module.exports = async (_y, args) => {
   return _y.reply(`$${user.coins}`);
 
 };
+
+function getUser(str) {
+  if (
+    str.startsWith('<@') && str.endsWith('>')
+  ) {
+		str = str.slice(2, -1);
+
+		if (str.startsWith('!')) {
+			str = str.slice(1);
+		}
+
+		return str;
+	}
+}
+
 /* Real code
 const db = require('../models/index.js');
 const User = db.User;

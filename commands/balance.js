@@ -20,11 +20,10 @@ module.exports = async (_y, args) => {
   var uid;
   if(!args[1]){
   uid = _y.message.author.id;
-  const user = await User.findOne({where: {uid: uid}});
   }else{ 
   uid = getUser(args[1]);
-  const user = await User.findOne({where: {uid: uid}});
   }
+  const user = await User.findOne({where: {uid: uid}});
   if (!user) {
     return _y.reply(`User not found!`);
   }

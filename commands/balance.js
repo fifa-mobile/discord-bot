@@ -13,7 +13,7 @@ module.exports = async (_y, args) => {
   if (!user) {
     return _y.reply(`User not found!`);
   }
-  return _y.reply(`$${user.coins}`);
+  return _y.reply(`$${user.coins}`+ user);
 
 };
 

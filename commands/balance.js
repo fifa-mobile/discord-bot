@@ -1,4 +1,4 @@
-/* Juve's nub idea*/
+/* Juve's nub idea
 const db = require('../models/index.js');
 const User = db.User;
 
@@ -10,7 +10,7 @@ module.exports = async (_y, args) => {
   if(!args[1]){
   const user = await User.findOne({where: {uid: uid}});
   }else{
-  const user = await User.findOne({where: {uid: uid2}});
+  const user = await User.findOne({where: {uid2: uid2}});
   }
    if (!user) {
     return _y.reply(`User not found!`);
@@ -32,8 +32,8 @@ function getUser(str) {
 		return str;
 	}
 }
-
-/* Real code
+*/
+/* Real code*/
 const db = require('../models/index.js');
 const User = db.User;
 
@@ -45,4 +45,4 @@ module.exports = async (_y, args) => {
   }
   return _y.reply(`$${user.coins}`);
 };
-*/
+

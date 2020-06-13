@@ -3,14 +3,16 @@ const db = require('../models/index.js');
 const User = db.User;
 
 module.exports = async (_y, args) => {
-  var uid;
-  if(!args[1]){
-  uid = _y.message.author.id;
-  }else{
-  uid = args[1];
+  const uid = _y.message.author.id;
+  if(args[1]){
+  const uid2 = getUser(args[1]);
   }
+  if(!args[1]){
   const user = await User.findOne({where: {uid: uid}});
-  if (!user) {
+  }else{
+  const user = await User.findOne({where: {uid2: uid}});
+  }
+   if (!user) {
     return _y.reply(`User not found!`);
   }
   return _y.reply(`$${user.coins}`);

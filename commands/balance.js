@@ -10,7 +10,7 @@ module.exports = async (_y, args) => {
   if(!args[1]){
   const user = await User.findOne({where: {uid: uid}});
   }else{
-  const user = await User.findOne({where: {uid2: uid2}});
+  const user = await User.findOne({where: {uid: uid2}});
   }
    if (!user) {
     return _y.reply(`User not found!`);

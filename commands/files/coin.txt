@@ -1,7 +1,7 @@
 **```ℹ | {{prefix}}coin```**
 
 **Use**:Used to change the coin balance of users.
-**Command**:{{prefix}}help [id] [balance]
+**Command**:`{{prefix}}coin [id] [balance]`
 
 **Example**:
 `{{prefix}}coin x y`-Adds y coins to the user with the x id.

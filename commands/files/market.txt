@@ -1,0 +1,11 @@
+```ℹ️  | {{prefix}}market (buy/sell/price(s))```
+
+Use:Used to perform several market commands.
+Command:`{{prefix}}market (price(s)/buy [id] [amount]/sell [id] [amount])`
+
+Example:
+`{{prefix}}market price(s)`-Shows a list of market prices.
+`{{prefix}}market sell 1 3`-Sells 3 players with id 1.
+`{{prefix}}market buy 2 5`-Buys 5 players with id 2.
+
+```>Don't include brackets when using the commands.```

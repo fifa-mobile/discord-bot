@@ -95,7 +95,7 @@ module.exports = async (_y, args) => {
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#fff691";
   
-   ctx.fillText("Market Prices", 200, 420);
+   ctx.fillText("Market Prices", 250, 420);
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.Attachment(buffer, 'x.png');
@@ -142,4 +142,34 @@ if (cmd === 'sell') {
     curr.add(uid, price * amount);
     return _y.reply(`You get $${price * amount} coins!`);
   }
+  
+ /* if (cmd === 'buy') {
+      const data = [
+    [],
+    [400  , 1     , ":brown_circle:│Bronze"],
+    [300  , 7     , ":white_circle:│Silver"],
+    [175  , 13    , ":yellow_circle:│Gold"],
+    [50   , 20    , ":red_circle:│Elite 80-85"],
+    [30   , 39    , ":red_circle:│Elite 85+"],
+    [20   , 65    , ":purple_circle:│Master 90-95"],
+    [10   , 130   , ":purple_circle:│Master 95+"],
+    [2    , 650  , ":black_circle:│Legendary"],
+    [12   , 260   , ":star:│Icon"],
+    [1    , 2600 , ":star2:│Prime Icon"],
+  ];
+    const id = args[1];
+    const amount = Number(args[2]);
+    if (!id) {
+      return _y.reply('Id required, see `$pack info`.');
+    }
+    if (!amount || amount < 1) {
+      return _y.reply('Amount number needed!');
+    }
+    const pack = await user.getPack(id);
+    const price = data[id][1];
+    await user.addPack(id, amount);
+    curr.add(uid, price * amount * -1);
+    return _y.reply(`You get $${price * amount} coins!`);
+  }
 }
+*/

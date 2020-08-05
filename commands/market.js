@@ -19,43 +19,43 @@ module.exports = async (_y, args) => {
 
   const types = {
     1: {
-      price: 1,
+      price: 2,
       image: "bronze",
     },
     2: {
-      price: 7,
+      price: 8,
       image: "silver",
     },
     3: {
-      price: 13,
+      price: 15,
       image: "gold",
     },
     4: {
-      price: 20,
+      price: 23,
       image: "elite",
     },
     5: {
-      price: 39,
+      price: 45,
       image: "elite85",
     },
     6: {
-      price: 65,
+      price: 75,
       image: "master",
     },
     7: {
-      price: 130,
+      price: 150,
       image: "master95",
     },
     8: {
-      price: 650,
+      price: 750,
       image: "legend",
     },
     9: {
-      price: 260,
+      price: 300,
       image: "icon",
     },
     10: {
-      price: 2600,
+      price: 3000,
       image: "prime",
     },
   };
@@ -143,19 +143,19 @@ if (cmd === 'sell') {
     return _y.reply(`You get $${price * amount} coins!`);
   }
   
- /* if (cmd === 'buy') {
+    if (cmd === 'buy') {
       const data = [
     [],
-    [400  , 1     , ":brown_circle:│Bronze"],
-    [300  , 7     , ":white_circle:│Silver"],
-    [175  , 13    , ":yellow_circle:│Gold"],
-    [50   , 20    , ":red_circle:│Elite 80-85"],
-    [30   , 39    , ":red_circle:│Elite 85+"],
-    [20   , 65    , ":purple_circle:│Master 90-95"],
-    [10   , 130   , ":purple_circle:│Master 95+"],
-    [2    , 650  , ":black_circle:│Legendary"],
-    [12   , 260   , ":star:│Icon"],
-    [1    , 2600 , ":star2:│Prime Icon"],
+    [400  , 2     , ":brown_circle:│Bronze"],
+    [300  , 8     , ":white_circle:│Silver"],
+    [175  , 15    , ":yellow_circle:│Gold"],
+    [50   , 23    , ":red_circle:│Elite 80-85"],
+    [30   , 45    , ":red_circle:│Elite 85+"],
+    [20   , 75    , ":purple_circle:│Master 90-95"],
+    [10   , 150   , ":purple_circle:│Master 95+"],
+    [2    , 750  , ":black_circle:│Legendary"],
+    [12   , 300   , ":star:│Icon"],
+    [1    , 3000 , ":star2:│Prime Icon"],
   ];
     const id = args[1];
     const amount = Number(args[2]);
@@ -167,8 +167,8 @@ if (cmd === 'sell') {
     }
     const pack = await user.getPack(id);
     const price = data[id][1];
-    await user.addPack(id, amount);
-    curr.add(uid, price * amount * -1);
+    await user.addPack(id, -amount);
+    curr.add(uid, -1 * price * amount);
     return _y.reply(`You get $${price * amount} coins!`);
-  } */
+  }
 }

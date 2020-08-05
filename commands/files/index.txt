@@ -1,7 +1,7 @@
 ```Standard Command List```
 ℹ | Use `{{prefix}}help [command]` if you want to get more info on a specific command.
 
-**1.Info.**-`help` `ping` `bot` `user`;
+**1.Info.**-`help` `ping` `bot` `user` `cv`;
 **2.Fun**- `read` `8ball` `chess` `hero`;
 **3.Admin**- `announce` `coin`;
 **4.Pack**- `balance` `list` `pack` `market`;

@@ -93,9 +93,9 @@ module.exports = async (_y, args) => {
   ctx.font = 'bold 50pt serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
-  ctx.fillStyle = "#fff691";
+  ctx.fillStyle = "#fffe4c";
   
-   ctx.fillText("Market Prices", 300, 420);
+   ctx.fillText("Market Prices", 500, 420);
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.Attachment(buffer, 'x.png');

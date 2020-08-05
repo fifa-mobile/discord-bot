@@ -81,8 +81,8 @@ module.exports = async (_y, args) => {
     const type = types[i];
     const path = `./images/pack/${type.image}.png`;
     const img = await loadImage(path);
-    ctx.strokeText(type.price, posX - 5, posY + 60);
-    ctx.fillText(type.price, posX - 5, posY + 60);
+    ctx.strokeText(type.price + '$', posX - 5, posY + 60);
+    ctx.fillText(type.price + '$', posX - 5, posY + 60);
     ctx.drawImage(img, posX, posY, 128, 128);
     posX += 256;
   }

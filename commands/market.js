@@ -64,17 +64,11 @@ module.exports = async (_y, args) => {
   ctx.strokeStyle = '#111';
   ctx.lineWidth = 16;
 
-  const packs = await user.getPacks();
   let [posX, posY] = [128, 8];
   let resetX = true;
   for (let i = 10; i > 0; i--) {
-    const pack = packs.filter(
-      pack => pack.packid === i
-    );
-    let amount = 0;
-    if (pack.length) {
-      amount = pack[0].amount;
-    }
+    
+   }
     if (i < 6) {
       posY = 180;
       if (resetX) {
@@ -85,8 +79,8 @@ module.exports = async (_y, args) => {
     const type = types[i];
     const path = `./images/pack/${type.image}.png`;
     const img = await loadImage(path);
-    ctx.strokeText(amount, posX - 5, posY + 60);
-    ctx.fillText(amount, posX - 5, posY + 60);
+    ctx.strokeText(type.price, posX - 5, posY + 60);
+    ctx.fillText(type.price, posX - 5, posY + 60);
     ctx.drawImage(img, posX, posY, 128, 128);
     posX += 256;
   }

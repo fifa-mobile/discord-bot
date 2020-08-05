@@ -95,7 +95,7 @@ module.exports = async (_y, args) => {
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#fff691";
   
-   ctx.fillText("Market Prices", 250, 420);
+   ctx.fillText("Market Prices", 300, 420);
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.Attachment(buffer, 'x.png');
@@ -169,6 +169,6 @@ if (cmd === 'sell') {
     const price = data[id][1];
     await user.addPack(id, -amount);
     curr.add(uid, -1 * price * amount);
-    return _y.reply(`You get $${price * amount} coins!`);
+    return _y.reply(`You purchased ${amount} ${data[id][2]} players.`);
   }
 }

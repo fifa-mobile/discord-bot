@@ -99,7 +99,7 @@ module.exports = async (_y, args) => {
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#eee";
 
-  ctx.fillText("total value: $", 90, 410);
+  ctx.fillText("Total value: $", 90, 410);
 
   ctx.font = 'bold 50pt monospace';
   ctx.fillStyle = "#fffe4c";

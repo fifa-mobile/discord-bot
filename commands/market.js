@@ -4,6 +4,7 @@ module.exports = async (_y, args) => {
   const user = await User.findOne({where: {uid: uid}});
   const y = require('../core/base');
   const D = y.Discord;
+  const cmd = args[0];
   
   if(cmd === 'price' || cmd === 'prices'){
   const { createCanvas, loadImage } = require('canvas');

@@ -93,10 +93,50 @@ module.exports = async (_y, args) => {
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#fff691";
   
-   ctx.fillText("Market Prices", 145, 420);
+   ctx.fillText("Market Prices", 200, 420);
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.Attachment(buffer, 'x.png');
   _y.reply({files: [attachment]});
 };
 }
+
+if (cmd === 'sell') {
+      const data = [
+    [],
+    [400  , 1     , ":brown_circle:│Bronze"],
+    [300  , 5     , ":white_circle:│Silver"],
+    [175  , 10    , ":yellow_circle:│Gold"],
+    [50   , 15    , ":red_circle:│Elite 80-85"],
+    [30   , 30    , ":red_circle:│Elite 85+"],
+    [20   , 50    , ":purple_circle:│Master 90-95"],
+    [10   , 100   , ":purple_circle:│Master 95+"],
+    [2    , 500  , ":black_circle:│Legendary"],
+    [12   , 200   , ":star:│Icon"],
+    [1    , 2000 , ":star2:│Prime Icon"],
+  ];
+    const id = args[1];
+    const amount = Number(args[2]);
+    if (!id) {
+      return _y.reply('Id required, see `info`.');
+    }
+    if (!amount || amount < 1) {
+      return _y.reply('Amount number needed!');
+    }
+    const pack = await user.getPack(id);
+    if (!pack || !pack.amount) {
+      return _y.reply(
+        `You don't have ${data[id][2]} player.`
+      );
+    }
+    if (amount > pack.amount) {
+      return _y.reply(
+        `You only have **${pack.amount}**.`
+        + ` ${data[id][2]} player`
+      );
+    }
+    const price = data[id][1];
+    await user.addPack(id, amount);
+    curr.add(uid, price * amount);
+    return _y.reply(`You get $${price * amount} coins!`);
+  }

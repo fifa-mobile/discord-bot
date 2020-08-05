@@ -4,6 +4,6 @@
 **1.Info.**-`help` `ping` `bot` `user`;
 **2.Fun**- `read` `8ball` `chess`;
 **3.Admin**- `announce` `coin`;
-**4.Pack**- `balance` `list` `pack`;
+**4.Pack**- `balance` `list` `pack` `market`;
 
 ```>Don't include brackets when using the commands.```

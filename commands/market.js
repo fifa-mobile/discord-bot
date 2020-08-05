@@ -88,7 +88,7 @@ module.exports = async (_y, args) => {
   ctx.fillStyle = "#eee";
   ctx.fillRect(0, 340, canvas.width, 8);
 
-  ctx.font = 'bold 20pt serif';
+  ctx.font = 'bold 30pt serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#eee";

@@ -95,11 +95,11 @@ module.exports = async (_y, args) => {
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#fffe4c";
   
-  ctx.fillText("Market Prices", 350, 420);
+  ctx.fillText("Market Prices", 400, 420);
   
   const coinpath = `./commands/currency_Item_COIN.png`;
   const coinimg = await loadImage(coinpath);
-  ctx.drawImage(coinimg, 180, 370, 128, 128);
+  ctx.drawImage(coinimg, 230, 370, 128, 128);
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.Attachment(buffer, 'x.png');

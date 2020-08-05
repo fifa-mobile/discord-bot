@@ -5,6 +5,8 @@ module.exports = async (_y, args) => {
   const y = require('../core/base');
   const D = y.Discord;
   const cmd = args[0];
+  const curr = _y.currency;
+  const balance = curr.getBalance(uid);
   
   if(cmd === 'price' || cmd === 'prices'){
   const { createCanvas, loadImage } = require('canvas');
@@ -118,7 +120,7 @@ if (cmd === 'sell') {
     const id = args[1];
     const amount = Number(args[2]);
     if (!id) {
-      return _y.reply('Id required, see `info`.');
+      return _y.reply('Id required, see `$pack info`.');
     }
     if (!amount || amount < 1) {
       return _y.reply('Amount number needed!');

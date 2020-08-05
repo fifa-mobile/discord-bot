@@ -89,9 +89,9 @@ module.exports = async (_y, args) => {
   ctx.fillRect(0, 340, canvas.width, 8);
 
   ctx.font = 'bold 50pt serif';
-  ctx.textAlign = 'left';
+  ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillStyle = "#32aec9";
+  ctx.fillStyle = "#f7ffbf";
   
    ctx.fillText("Market Prices", 90, 410);
 

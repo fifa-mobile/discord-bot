@@ -93,7 +93,7 @@ module.exports = async (_y, args) => {
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#fff691";
   
-   ctx.fillText("Market Prices", 100, 420);
+   ctx.fillText("Market Prices", 145, 420);
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.Attachment(buffer, 'x.png');

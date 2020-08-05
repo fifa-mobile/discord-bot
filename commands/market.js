@@ -170,6 +170,5 @@ if (cmd === 'sell') {
     await user.addPack(id, amount);
     curr.add(uid, price * amount * -1);
     return _y.reply(`You get $${price * amount} coins!`);
-  }
+  } */
 }
-*/

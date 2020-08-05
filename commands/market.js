@@ -99,7 +99,7 @@ module.exports = async (_y, args) => {
   const attachment = new D.Attachment(buffer, 'x.png');
   _y.reply({files: [attachment]});
 };
-}
+
 
 if (cmd === 'sell') {
       const data = [
@@ -140,3 +140,4 @@ if (cmd === 'sell') {
     curr.add(uid, price * amount);
     return _y.reply(`You get $${price * amount} coins!`);
   }
+}

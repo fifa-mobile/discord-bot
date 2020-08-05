@@ -251,33 +251,6 @@ module.exports = async (_y, args) => {
     ]
   ];
 
-  if (cmd === 'sell') {
-    const id = args[1];
-    const amount = Number(args[2]);
-    if (!id) {
-      return _y.reply('Id required, see `info`.');
-    }
-    if (!amount || amount < 1) {
-      return _y.reply('Amount number needed!');
-    }
-    const pack = await user.getPack(id);
-    if (!pack || !pack.amount) {
-      return _y.reply(
-        `You don't have ${data[id][2]} player.`
-      );
-    }
-    if (amount > pack.amount) {
-      return _y.reply(
-        `You only have **${pack.amount}**.`
-        + ` ${data[id][2]} player`
-      );
-    }
-    const price = data[id][1];
-    await user.addPack(id, amount);
-    curr.add(uid, price * amount);
-    return _y.reply(`You get $${price * amount} coins!`);
-  }
-
   if (cmd === 'info') {
     let total = 0;
     for (let i = 0; i < data.length; i++) {

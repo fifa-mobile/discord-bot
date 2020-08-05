@@ -1,0 +1,9 @@
+```ℹ️  | {{prefix}}cv [country]```
+
+Use:Used to get data on SARS CoV-2 pandemic in selected country.
+Command:`{{prefix}}cv [country]`
+
+Example:
+`{{prefix}}cv Italy`-Gives data on SARS CoV-2 pandemic in Italy.
+
+>Don't include brackets when using the commands.

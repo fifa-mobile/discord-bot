@@ -58,7 +58,7 @@ module.exports = async (_y, args) => {
     },
   };
 
-  ctx.font = 'bold 20pt monospace';
+  ctx.font = 'bold 30pt monospace';
   ctx.textAlign = 'right';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = '#eee';
@@ -92,6 +92,11 @@ module.exports = async (_y, args) => {
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = "#eee";
+  
+   ctx.fillText("Market Prices", 90, 410);
+
+  ctx.font = 'bold 50pt monospace';
+  ctx.fillStyle = "#fffe4c";
 
 
   const buffer = canvas.toBuffer('image/png');

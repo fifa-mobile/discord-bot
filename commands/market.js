@@ -88,16 +88,12 @@ module.exports = async (_y, args) => {
   ctx.fillStyle = "#eee";
   ctx.fillRect(0, 340, canvas.width, 8);
 
-  ctx.font = 'bold 30pt serif';
+  ctx.font = 'bold 50pt serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
-  ctx.fillStyle = "#eee";
+  ctx.fillStyle = "#32aec9";
   
    ctx.fillText("Market Prices", 90, 410);
-
-  ctx.font = 'bold 50pt monospace';
-  ctx.fillStyle = "#fffe4c";
-
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.Attachment(buffer, 'x.png');

@@ -69,7 +69,6 @@ module.exports = async (_y, args) => {
   let resetX = true;
   for (let i = 10; i > 0; i--) {
     
-   }
     if (i < 6) {
       posY = 180;
       if (resetX) {

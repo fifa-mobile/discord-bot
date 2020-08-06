@@ -103,14 +103,19 @@ module.exports = async (_y, args) => {
     const data = require('../data/pack/buy');
     const id = args[1];
     const amount = Number(args[2]);
+    const price = data[id][1];
+    const cost = price * amount;
+
     if (!id) {
       return _y.reply('Id required, see `$pack info`.');
     }
     if (!amount || amount < 1) {
       return _y.reply('Amount number needed!');
     }
+    if (cost > balance) {
+      return _y.reply('You don\'t have enough coins!');
+    }
     const pack = await user.getPack(id);
-    const price = data[id][1];
     await user.addPack(id, -amount);
     curr.add(uid, -1 * price * amount);
     return _y.reply(

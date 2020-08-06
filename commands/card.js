@@ -21,7 +21,7 @@ module.exports = (_y, args) => {
   ;
   const embed = new D.RichEmbed()
     .setColor('#0099ff')
-    .setTitle('Free Pack')
+    .setTitle('Get this card using $pack command!')
     .setImage(url)
     .setURL(url)
   ;

@@ -8,7 +8,7 @@ module.exports = async (_y, args) => {
   const curr = _y.currency;
   const balance = curr.getBalance(uid);
   
-  if(cmd === 'price' || cmd === 'prices' || cmd === NULL){
+  if(cmd === 'price' || cmd === 'prices' || !cmd){
     const {
       createCanvas, loadImage
     } = require('canvas');

@@ -1,3 +1,3 @@
-# discord-bot
+# AHQ Discord BoT
 
 ToDo: write one!

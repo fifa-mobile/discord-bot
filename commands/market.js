@@ -134,29 +134,22 @@ module.exports = async (_y, args) => {
      let choices = require ('. data/cards/elite85.js');
      }else if(id === 6){
      let choices = require ('. data/cards/master.js');
-     }(id === 1){
-     let choices = require ('. data/cards/master95.js');
      }else if(id === 7){
-     let choices = require ('. data/cards/legend.js');
+     let choices = require ('. data/cards/master95.js');
      }else if(id === 8){
-     let choices = require ('. data/cards/icon.js');
+     let choices = require ('. data/cards/legend.js');
      }else if(id ===9){
-     let choices = require ('. data/cards/prime.js');
+     let choices = require ('. data/cards/icon.js');
      }else{
-     let choices = require ('. data/cards/bronze.js');
+     let choices = require ('. data/cards/prime.js');
      }
     
-         let players = [];
-  for (let i = 0; i < choices.length; i++) {
-    
-  }
+  
 
-  const choosen = players[
+  const card = choices[
     Math.floor(Math.random() * choices.length)
   ];
-  const card = cards[choosen.id][
-    Math.floor(Math.random() * choices[choosen.id].length)
-  ];
+
    const title = `You purchased a player`;
    const url =
     'https://fifa-mobile.github.io/images/cards/'

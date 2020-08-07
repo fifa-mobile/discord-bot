@@ -35,3 +35,29 @@ Database migration
 Run the app
 
 `$ npm start`
+
+---
+
+### heroku cli
+
+login
+
+`$ heroku login -i`
+
+enter you login info
+
+creating database on heroku
+
+`heroku addons:create heroku-postgresql:hobby-dev -a appname`
+
+connect with heroku database
+
+`$ heroku pg:psql -a appname`
+
+running migration
+
+`$ heroku run bash -a appname`
+`$ sequelize db:migrate`
+
+
+

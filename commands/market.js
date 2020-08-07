@@ -122,22 +122,42 @@ module.exports = async (_y, args) => {
     curr.add(uid, -1 * price * amount);
      if(amount === 1)
      {
+     if(id === 1){
+     let choices = require ('. data/cards/bronze.js');
+     }else if(id === 2){
+     let choices = require ('. data/cards/silver.js');
+     }else if(id === 3){
+     let choices = require ('. data/cards/gold.js');
+     }else if(id === 4){
+     let choices = require ('. data/cards/elite.js');
+     }else if(id === 5){
+     let choices = require ('. data/cards/elite85.js');
+     }else if(id === 6){
+     let choices = require ('. data/cards/master.js');
+     }(id === 1){
+     let choices = require ('. data/cards/master95.js');
+     }else if(id === 7){
+     let choices = require ('. data/cards/legend.js');
+     }else if(id === 8){
+     let choices = require ('. data/cards/icon.js');
+     }else if(id ===9){
+     let choices = require ('. data/cards/prime.js');
+     }else{
+     let choices = require ('. data/cards/bronze.js');
+     }
+    
          let players = [];
-  for (let i = 0; i < data.length; i++) {
-    if (!data[i].length) continue;
-    const [multiplier,, player] = data[i];
-    for (let j = 0; j < multiplier; j++) {
-      players.push({id: i, type: player});
-    }
+  for (let i = 0; i < choices.length; i++) {
+    
   }
 
   const choosen = players[
-    Math.floor(Math.random() * players.length)
+    Math.floor(Math.random() * choices.length)
   ];
   const card = cards[choosen.id][
-    Math.floor(Math.random() * cards[choosen.id].length)
+    Math.floor(Math.random() * choices[choosen.id].length)
   ];
-   const title = `You got a ${choosen.type} player`;
+   const title = `You purchased a player`;
    const url =
     'https://fifa-mobile.github.io/images/cards/'
     +

@@ -21,7 +21,16 @@ module.exports = (_y, args) => {
     id = id.substring(34);
   }
 
-  if (ids.indexOf(id) !== -1) {
+  id = Number(id);
+
+  console.log(
+    ids
+    , typeof id
+    , id
+    , ids.indexOf(id)
+  );
+
+  if (ids.indexOf(id) < 0) {
     return _y.reply(
       `Can't find the player with id#${id}`
     );

@@ -1,5 +1,6 @@
 module.exports = async (_y, args) => {
   const {User} = require('../models/index');
+  const cards = require('../data/cards');
   const uid = _y.message.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const y = require('../core/base');
@@ -115,11 +116,40 @@ module.exports = async (_y, args) => {
     if (cost > balance) {
       return _y.reply('You don\'t have enough coins!');
     }
+    if(amount > 1 || amount === 1){
     const pack = await user.getPack(id);
     await user.addPack(id, -amount);
     curr.add(uid, -1 * price * amount);
+     if(amount === 1)
+     {
+         let players = [];
+  for (let i = 0; i < data.length; i++) {
+    if (!data[i].length) continue;
+    const [multiplier,, player] = data[i];
+    for (let j = 0; j < multiplier; j++) {
+      players.push({id: i, type: player});
+    }
+  }
+
+  const choosen = players[
+    Math.floor(Math.random() * players.length)
+  ];
+  const card = cards[choosen.id][
+    Math.floor(Math.random() * cards[choosen.id].length)
+  ];
+       const embed = new D.RichEmbed()
+    .setColor('#0099ff')
+    .setTitle(title)
+    .setImage(url)
+    .setURL(url)
+  ;
+	_y.reply(embed);
+     }
+      if(amount > 1){
     return _y.reply(
       `You purchased ${amount} ${data[id][2]} players.`
     );
-  }
+     }
+    }
+    }
 }

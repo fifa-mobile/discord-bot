@@ -12,7 +12,7 @@ module.exports = (_y, args) => {
       + '11563261320iwm1tpnosh.png'
     )
     .addField('Founders:', '- yuulye\n- juve938383')
-    .addField('MasterOfNubs:', '- Pradeep5986')
+    .addField('MasterOfNubs:', '- Pradeep#5986\n- MahadhirMahi#7683')
     .addField('Server(s):', 'AHQ Leagues', true)
     .addField('Date created:', '2nd November 2019', true)
     .addField('Use:', 'General purpose', true)

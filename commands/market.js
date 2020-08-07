@@ -138,7 +138,11 @@ module.exports = async (_y, args) => {
     Math.floor(Math.random() * cards[choosen.id].length)
   ];
    const title = `You got a ${choosen.type} player`;
-
+   const url =
+    'https://fifa-mobile.github.io/images/cards/'
+    +
+    `${card}.png`
+  ;
        const embed = new D.RichEmbed()
     .setColor('#0099ff')
     .setTitle(title)

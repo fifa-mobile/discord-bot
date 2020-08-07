@@ -11,7 +11,8 @@ module.exports = (_y, args) => {
       + 'discordbot-bot-discord-'
       + '11563261320iwm1tpnosh.png'
     )
-    .addField('Contributors:', '- yuulye\n- juve938383')
+    .addField('Founders:', '- yuulye\n- juve938383')
+    .addField('MasterOfNubs:', '- Pradeep5986')
     .addField('Server(s):', 'AHQ Leagues', true)
     .addField('Date created:', '2nd November 2019', true)
     .addField('Use:', 'General purpose', true)

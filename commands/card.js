@@ -2,6 +2,7 @@ const y = require('../core/base');
 const cards = require('../data/cards');
 
 module.exports = (_y, args) => {
+  let id = args[0];
   const ids = [];
   for (let i = 0; i < cards.length; i++) {
     const part = cards[i];
@@ -10,9 +11,22 @@ module.exports = (_y, args) => {
       ids.push(card);
     }
   }
-	const id = ids[
-		Math.floor(Math.random() * ids.length)
-	];
+  if (!id) {
+    id = ids[
+      Math.floor(Math.random() * ids.length)
+    ];
+  }
+
+  if (id.length > 20) {
+    id = id.substring(34);
+  }
+
+  if (ids.indexOf(id) !== -1) {
+    return _y.reply(
+      `Can't find the player with id#${id}`
+    );
+  }
+
   const D = y.Discord;
   const url = 
     'https://fifa-mobile.github.io/images/cards/'

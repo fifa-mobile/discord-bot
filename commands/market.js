@@ -71,7 +71,6 @@ module.exports = async (_y, args) => {
     _y.reply({files: [attachment]});
   };
 
-
   if (cmd === 'sell') {
     const data = require('../data/pack/values');
     const id = args[1];
@@ -102,7 +101,7 @@ module.exports = async (_y, args) => {
   
   if (cmd === 'buy') {
     const data = require('../data/pack/buy');
-    const id = args[1];
+    const id = Number(args[1]);
     const amount = Number(args[2]);
     const price = data[id][1];
     const cost = price * amount;
@@ -116,59 +115,87 @@ module.exports = async (_y, args) => {
     if (cost > balance) {
       return _y.reply('You don\'t have enough coins!');
     }
+
     if(amount > 1 || amount === 1){
-    const pack = await user.getPack(id);
-    await user.addPack(id, -amount);
-    curr.add(uid, -1 * price * amount);
-     if(amount === 1)
-     {
-     if(id === 1){
-     let choices = require ('. data/cards/bronze.js');
-     }else if(id === 2){
-     let choices = require ('. data/cards/silver.js');
-     }else if(id === 3){
-     let choices = require ('. data/cards/gold.js');
-     }else if(id === 4){
-     let choices = require ('. data/cards/elite.js');
-     }else if(id === 5){
-     let choices = require ('. data/cards/elite85.js');
-     }else if(id === 6){
-     let choices = require ('. data/cards/master.js');
-     }else if(id === 7){
-     let choices = require ('. data/cards/master95.js');
-     }else if(id === 8){
-     let choices = require ('. data/cards/legend.js');
-     }else if(id ===9){
-     let choices = require ('. data/cards/icon.js');
-     }else{
-     let choices = require ('. data/cards/prime.js');
-     }
-    
-  
+      const pack = await user.getPack(id);
+      await user.addPack(id, -amount);
+      curr.add(uid, -1 * price * amount);
 
-  const card = choices[
-    Math.floor(Math.random() * choices.length)
-  ];
+      let choices = [];
 
-   const title = `You purchased a player`;
-   const url =
-    'https://fifa-mobile.github.io/images/cards/'
-    +
-    `${card}.png`
-  ;
-       const embed = new D.RichEmbed()
-    .setColor('#0099ff')
-    .setTitle(title)
-    .setImage(url)
-    .setURL(url)
-  ;
-	_y.reply(embed);
-     }
+      console.log(amount, id);
+
+      if(amount === 1) {
+        if(id === 1){
+          choices = require (
+            '../data/cards/bronze.js'
+          );
+        }else if(id === 2){
+          choices = require (
+            '../data/cards/silver.js'
+          );
+        }else if(id === 3){
+          choices = require (
+            '../data/cards/gold.js'
+          );
+        }else if(id === 4){
+          choices = require (
+            '../data/cards/elite.js'
+          );
+        }else if(id === 5){
+          choices = require (
+            '../data/cards/elite85.js'
+          );
+        }else if(id === 6){
+          choices = require (
+            '../data/cards/master.js'
+          );
+        }else if(id === 7){
+          choices = require (
+            '../data/cards/master95.js'
+          );
+        }else if(id === 8){
+          choices = require (
+            '../data/cards/legend.js'
+          );
+        }else if(id === 9){
+          choices = require (
+            '../data/cards/icon.js'
+          );
+        }else if(id === 10){
+          choices = require (
+            '../data/cards/prime.js'
+          );
+        } else {
+          return _y.reply(
+          `The id ${amount} is not found!`
+          );
+        }
+
+        const card = choices[
+        Math.floor(Math.random() * choices.length)
+        ];
+
+        const title = `You purchased a player`;
+        const url =
+          'https://fifa-mobile.github.io/images/cards/'
+          +
+          `${card}.png`
+          ;
+          const embed = new D.RichEmbed()
+          .setColor('#0099ff')
+          .setTitle(title)
+          .setImage(url)
+          .setURL(url)
+          ;
+          _y.reply(embed);
+      }
+
       if(amount > 1){
-    return _y.reply(
-      `You purchased ${amount} ${data[id][2]} players.`
-    );
-     }
+        return _y.reply(
+        `You purchased ${amount} ${data[id][2]} players.`
+        );
+      }
     }
-    }
+  }
 }

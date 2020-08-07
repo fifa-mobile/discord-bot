@@ -137,6 +137,8 @@ module.exports = async (_y, args) => {
   const card = cards[choosen.id][
     Math.floor(Math.random() * cards[choosen.id].length)
   ];
+   const title = `You got a ${choosen.type} player`;
+
        const embed = new D.RichEmbed()
     .setColor('#0099ff')
     .setTitle(title)

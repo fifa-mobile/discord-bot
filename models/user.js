@@ -8,8 +8,22 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     const {
-      Shop, UserShop, Pack, Hero
+      Shop, UserShop, Pack, Hero, Pires
     } = models;
+
+    User.prototype.pires = async function() {
+      const pires = await Pires.findOne({
+        where: {userid: this.id}
+      });
+
+      if (pires) {
+        return pires;
+      }
+
+      return await Pires.create({
+        userid: this.id
+      });
+    };
 
     UserShop.belongsTo(Shop, {
       foreignKey: 'shopid', as: 'item'

@@ -1,4 +1,4 @@
-# AHQ Discord BoT
+# Answers HQ Discord BoT
 
 ---
 

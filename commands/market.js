@@ -62,7 +62,7 @@ module.exports = async (_y, args) => {
     
     ctx.fillText("Market Prices", 400, 420);
     
-    const coinpath = `./commands/currency_Item_COIN.png`;
+    const coinpath = `./images/currency_Item_COIN.png`;
     const coinimg = await loadImage(coinpath);
     ctx.drawImage(coinimg, 230, 370, 128, 128);
 

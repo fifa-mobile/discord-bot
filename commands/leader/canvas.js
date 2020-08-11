@@ -44,25 +44,25 @@ module.exports = async (_y, args, data) => {
 
     if (i > 2) {
       ctx.strokeStyle = '#00000000';
-      ctx.font = `Normal ${listHeight}px Sans-Serif`;
-
     }
     if (i === 0) {
       ctx.fillStyle = '#ffeb3c';
       ctx.strokeStyle = '#ffffac';
-      ctx.font = `Lighter ${listHeight}px Sans-Serif`;
     } else if (i === 1) {
       ctx.fillStyle = '#b1b1b1';
       ctx.strokeStyle = '#e8e8e8';
-      ctx.font = `Lighter ${listHeight}px Sans-Serif`;
     } else if (i === 2) {
       ctx.fillStyle = '#ff8e01';
       ctx.strokeStyle = '#ffcc95';
-      ctx.font = `Lighter ${listHeight}px Sans-Serif`;
 
     }
 
     const user = data[i];
+    if( i < 3){
+    ctx.font = `Lighter ${listHeight}px Sans-Serif`;
+    }else{
+    ctx.font = `Normal ${listHeight}px Sans-Serif`;
+    }
 
     ctx.textAlign = "left";
     let uname = `${i + 1}. ${user.uname}`.substring(

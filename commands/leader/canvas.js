@@ -64,8 +64,6 @@ module.exports = async (_y, args, data) => {
 
     const user = data[i];
 
-    ctx.font = `Normal ${listHeight}px Sans-Serif`;
-
     ctx.textAlign = "left";
     let uname = `${i + 1}. ${user.uname}`.substring(
       0, 26 

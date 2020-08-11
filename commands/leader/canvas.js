@@ -6,7 +6,7 @@ module.exports = async (_y, args, data) => {
 
   const titleHeight = 24;
   const listHeight = 18;
-  const listWeight = 'Normal';
+  var listWeight = 'Normal';
   const listPad = 8;
   const listTH = listHeight + listPad;
   const height = data.length * listTH + 32;

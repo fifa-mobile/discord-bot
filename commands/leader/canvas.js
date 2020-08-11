@@ -41,6 +41,7 @@ module.exports = async (_y, args, data) => {
   [posX, posY] = [4, 48];
   for (let i = 0; i < data.length; i++){
     ctx.fillStyle = '#ffffff';
+    ctx.strokeStyle = '00000000';
     if (i === 0) {
       ctx.fillStyle = '#ffffac';
       ctx.strokeStyle = '#ffeb3c';

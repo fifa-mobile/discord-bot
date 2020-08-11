@@ -41,12 +41,17 @@ module.exports = async (_y, args, data) => {
   [posX, posY] = [4, 48];
   for (let i = 0; i < data.length; i++){
     ctx.fillStyle = '#ffffff';
+    ctx.font = `Lighter ${listHeight}px Sans-Serif`;
+
     if (i > 2) {
       ctx.strokeStyle = '#00000000';
+      ctx.font = `Normal ${listHeight}px Sans-Serif`;
+
     }
     if (i === 0) {
       ctx.fillStyle = '#ffeb3c';
       ctx.strokeStyle = '#ffffac';
+      ctx.font = `Normal ${listHeight}px Sans-Serif`;
     } else if (i === 1) {
       ctx.fillStyle = '#b1b1b1';
       ctx.strokeStyle = '#e8e8e8';

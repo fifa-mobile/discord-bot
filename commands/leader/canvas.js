@@ -17,7 +17,7 @@ module.exports = async (_y, args, data) => {
   const ctx = canvas.getContext('2d');
 
   /* title */
-  let text = "Player Packs LeaderBoard";
+  let text = "PLAYER PACKS LEADERBOARD";
   let [posX, posY] = [4, 8];
 
   ctx.font = `Bold ${24}px Serif`;
@@ -40,17 +40,16 @@ module.exports = async (_y, args, data) => {
   ctx.lineWidth = 4;
   [posX, posY] = [4, 48];
   for (let i = 0; i < data.length; i++){
-    ctx.fillStyle = '#999';
-    ctx.strokeStyle = '#333';
-    if (i < 3) {
-      ctx.strokeStyle = '#000';
-    }
+    ctx.fillStyle = '#ffffff';
     if (i === 0) {
-      ctx.fillStyle = '#c9b037';
+      ctx.fillStyle = '#ffffac';
+      ctx.strokeStyle = '#ffeb3c';
     } else if (i === 1) {
-      ctx.fillStyle = '#d7d7d7';
+      ctx.fillStyle = '#e8e8e8';
+      ctx.strokeStyle = '#b1b1b1';
     } else if (i === 2) {
-      ctx.fillStyle = '#ad8a56';
+      ctx.fillStyle = '#ffcc95';
+      ctx.strokeStyle = '#ff8e01';
     }
 
     const user = data[i];

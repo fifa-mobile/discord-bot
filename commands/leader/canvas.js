@@ -17,7 +17,7 @@ module.exports = async (_y, args, data) => {
   const ctx = canvas.getContext('2d');
 
   /* title */
-  let text = "PLAYER PACKS LEADERBOARD";
+  let text = "Player Packs LeaderBoard";
   let [posX, posY] = [4, 8];
 
   ctx.font = `Bold ${24}px Serif`;
@@ -41,7 +41,9 @@ module.exports = async (_y, args, data) => {
   [posX, posY] = [4, 48];
   for (let i = 0; i < data.length; i++){
     ctx.fillStyle = '#ffffff';
-    ctx.strokeStyle = '00000000';
+    if (i > 2) {
+      ctx.strokeStyle = '#00000000';
+    }
     if (i === 0) {
       ctx.fillStyle = '#ffffac';
       ctx.strokeStyle = '#ffeb3c';

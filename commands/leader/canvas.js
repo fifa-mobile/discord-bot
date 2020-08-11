@@ -45,14 +45,14 @@ module.exports = async (_y, args, data) => {
       ctx.strokeStyle = '#00000000';
     }
     if (i === 0) {
-      ctx.fillStyle = '#ffffac';
-      ctx.strokeStyle = '#ffeb3c';
+      ctx.fillStyle = '#ffeb3c';
+      ctx.strokeStyle = '#ffffac';
     } else if (i === 1) {
-      ctx.fillStyle = '#e8e8e8';
-      ctx.strokeStyle = '#b1b1b1';
+      ctx.fillStyle = '#b1b1b1';
+      ctx.strokeStyle = '#e8e8e8';
     } else if (i === 2) {
-      ctx.fillStyle = '#ffcc95';
-      ctx.strokeStyle = '#ff8e01';
+      ctx.fillStyle = '#ff8e01';
+      ctx.strokeStyle = '#ffcc95';
     }
 
     const user = data[i];

@@ -62,7 +62,7 @@ module.exports = async (_y, args, data) => {
     if( i < 3){
     listWeight = 'Lighter';
     }
-    ctx.font = `${listWeight} ${listHeight}px Sans-Serif`;
+    ctx.font = listWeight + '${listHeight}px Sans-Serif`;
 
     ctx.textAlign = "left";
     let uname = `${i + 1}. ${user.uname}`.substring(

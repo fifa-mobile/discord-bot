@@ -6,7 +6,6 @@ module.exports = async (_y, args, data) => {
 
   const titleHeight = 24;
   const listHeight = 18;
-  var listWeight = 400;
   const listPad = 8;
   const listTH = listHeight + listPad;
   const height = data.length * listTH + 32;
@@ -61,9 +60,6 @@ module.exports = async (_y, args, data) => {
     }
 
     const user = data[i];
-   /* if( i < 3){
-    listWeight = 100;
-    } */
     ctx.font =`Normal ${listHeight}px Sans-Serif`;
 
     ctx.textAlign = "left";
@@ -93,7 +89,6 @@ module.exports = async (_y, args, data) => {
     );
 
     posY += listTH;
-    listWeight= 400;
   }
   /* list */
 

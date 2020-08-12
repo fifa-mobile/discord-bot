@@ -1,4 +1,4 @@
-```ℹ | {{prefix}}hero (list/suicide/show/fight)```
+**```ℹ | {{prefix}}hero (list/suicide/show/fight)```**
 
 Use:Used to perform several hero commands.
 Command:`{{prefix}}hero (list/suicide/show [user]/fight [user])`/`{{prefix}}heroes`

@@ -1,7 +1,7 @@
 ```ℹ | {{prefix}}hero (list/suicide/show/fight)```
 
 Use:Used to perform several hero commands.
-Command:`{{prefix}}hero (list/suicide/show [user]/fight [user])`
+Command:`{{prefix}}hero (list/suicide/show [user]/fight [user])`/`{{prefix}}heroes`
 
 Example:
 `{{prefix}}hero`-Assigns a hero.
@@ -9,5 +9,6 @@ Example:
 `{{prefix}}hero suicide`-Kills the actual hero so that you can assign yourself another one.
 `{{prefix}}hero show @Noob`-Shows Noob's hero.
 `{{prefix}}hero fight @Beaver33`-You start an epic hero fight against Beaver33.
+`{{prefix}}heroes`-Shows a list of available players.
 
 ```>Don't include brackets when using the commands.```

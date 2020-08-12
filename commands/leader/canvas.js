@@ -49,20 +49,22 @@ module.exports = async (_y, args, data) => {
     if (i === 0) {
       ctx.fillStyle = '#ffeb3c';
       ctx.strokeStyle = '#ffffac';
+      ctx.lineWidth = 2:
     } else if (i === 1) {
       ctx.fillStyle = '#b1b1b1';
       ctx.strokeStyle = '#e8e8e8';
+      ctx.lineWidth = 2:
     } else if (i === 2) {
       ctx.fillStyle = '#ff8e01';
       ctx.strokeStyle = '#ffcc95';
-
+      ctx.lineWidth = 2:
     }
 
     const user = data[i];
-    if( i < 3){
+   /* if( i < 3){
     listWeight = 100;
-    } 
-    ctx.font =`${listWeight} ${listHeight}px Sans-Serif`;
+    } */
+    ctx.font =`Normal ${listHeight}px Sans-Serif`;
 
     ctx.textAlign = "left";
     let uname = `${i + 1}. ${user.uname}`.substring(

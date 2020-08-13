@@ -9,9 +9,9 @@ module.exports = async (_y, args) => {
   const curr = _y.currency;
   const balance = curr.getBalance(uid);
   
-  const weeklyIcon = "Schmeichel";
+  const weeklyIcon = 'Schmeichel';
   const weeklyIconID = 21502635;
-  const weeklyPrime = "Zidane";
+  const weeklyPrime = 'Zidane';
   const weeklyPrimeID = 21500198;
   
   if( !cmd || cmd === list){
@@ -27,8 +27,8 @@ module.exports = async (_y, args) => {
     .addField('Elite Upgrade:', '1 Gold player+1 85+ Elite player<->1 90-95 Master player')
     .addField('Weak Master Upgrade:', '1 85+ Elite player+1 90-95 Master player<->1 95+ Master player')
     .addField('Master Upgrade:', '4 95+ Master player<->1 Legendary player')
-    .addField('Icon '+ weeklyIcon +':', '1 Gold player+1 90-95 Master player+1 95+ Master player<->1 '+${weeklyIcon}+' Icon player')
-    .addField('Prime Icon '+ weeklyPrime +':', '3 Icon players+2 Legendary players<->1 Silver player')
+    .addField('Icon '+ weeklyIcon +':', '1 Gold player+1 90-95 Master player+1 95+ Master player<->1 '+ weeklyIcon +' Icon player')
+    .addField('Prime Icon '+ weeklyPrime +':', '3 Icon players+2 Legendary players<->1 '+ weeklyPrime +' Prime Icon player')
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
   _y.reply(botEmbed);
   }

@@ -3,9 +3,9 @@ module.exports = (_y, args) => {
   const users = [
     'yuulye',
     'juve938383',
-    'Pradeep#5986',
-    'MahadhirMahi#7683',
-    'John <3 Genesis',
+    'Pradeep',
+    'MahadhirMahi',
+    'Genesis',
   ];
   const botEmbed = new Discord.RichEmbed()
     .setColor('#1d9eaf')

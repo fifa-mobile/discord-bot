@@ -15,7 +15,7 @@ module.exports = async (_y, args) => {
   const weeklyPrimeID = 21500198;
   
   if( !cmd || cmd === list){
-  const botEmbed = new Discord.RichEmbed()
+  const botEmbed = new D.RichEmbed()
     .setColor('#74b4c3')
     .setTitle('SBC')
     .setDescription('Use $sbc complete [id] to complete a SBC.')
@@ -32,6 +32,7 @@ module.exports = async (_y, args) => {
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
   _y.reply(botEmbed);
   }
+  
   
   
   }

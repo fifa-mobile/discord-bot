@@ -19,7 +19,7 @@ module.exports = async (_y, args) => {
     .setColor('#74b4c3')
     .setTitle('SBC')
     .setDescription('Use $sbc complete [id] to complete a SBC.')
-    .setThumbnail('https://github.com/fifa-mobile/discord-bot/blob/master/images/sbc.jpg')
+    .setThumbnail('https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/sbc.jpg')
     .addField('Bronze Upgrade:', '4 Bronze players<->1 Silver player')
     .addField('Silver Upgrade:', '3 Bronze players+1 Silver player<->1 Gold player')
     .addField('Gold Upgrade:', '2 Bronze players+1 Gold player<->1 Elite 80-85 player')

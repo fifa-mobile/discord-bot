@@ -16,10 +16,10 @@ module.exports = async (_y, args) => {
   
   if( !cmd || cmd === list){
   const botEmbed = new Discord.RichEmbed()
-    .setColor('#1d9eaf')
+    .setColor('#74b4c3')
     .setTitle('SBC')
     .setDescription('Use $sbc complete [id] to complete a SBC.')
-    .setThumbnail('./images/sbc.jpg')
+    .setThumbnail('../images/sbc.jpg')
     .addField('Bronze Upgrade:', '4 Bronze players<->1 Silver player')
     .addField('Silver Upgrade:', '3 Bronze players+1 Silver player<->1 Gold player')
     .addField('Gold Upgrade:', '2 Bronze players+1 Gold player<->1 Elite 80-85 player')

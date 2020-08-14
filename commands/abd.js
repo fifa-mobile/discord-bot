@@ -158,7 +158,8 @@ module.exports = async (_y, args) => {
  const canvas = createCanvas(w, h);
  const ctx = canvas.getContext('2d');
   
- const switchArrows = `./images/switchArrows.png`;
+ const path = `./images/switchArrows.png`;
+ const switchArrows = await loadImage(path);
  ctx.drawImage(switchArrows, 640, 250, 320, 320);
  ctx.drawImage(imgR, 1040, 250, 400, 400);
  const insertSize = 128;

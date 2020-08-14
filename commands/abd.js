@@ -157,8 +157,9 @@ module.exports = async (_y, args) => {
  const h = 500;
  const canvas = createCanvas(w, h);
  const ctx = canvas.getContext('2d');
-    
- ctx.drawImage(`./images/switchArrows.png`, 640, 250, 320, 320);
+  
+ const switchArrows = `./images/switchArrows.png`;
+ ctx.drawImage(switchArrows, 640, 250, 320, 320);
  ctx.drawImage(imgR, 1040, 250, 400, 400);
  const insertSize = 128;
  const totalAmount = amount1 + amount2 + amount3;

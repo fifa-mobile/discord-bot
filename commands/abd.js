@@ -132,7 +132,6 @@ module.exports = async (_y, args) => {
  const img1 = `./images/pack/gold.png`;
  const img2 = `./images/pack/master.png`
  const img3 = `./images/pack/master95.png`
- const imgR = `./images/pack/silver.png`;
  const imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
 }else  if(args[1] === 9){
  const id1 = 9;

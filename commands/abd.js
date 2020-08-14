@@ -32,6 +32,9 @@ module.exports = async (_y, args) => {
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
   _y.reply(botEmbed);
   }
+ 
+  if( cmd === 'complete'){ 
+  const amountR = 1;
  var img1;
  var img2;
  var img3;
@@ -45,8 +48,6 @@ module.exports = async (_y, args) => {
  var id3;
  var amount3;
  var idR;
-  if( cmd === 'complete'){ 
-  const amountR = 1;
   if(!args[1] || args[1] > 9 || args[1] < 1){
   _y.reply('Invalid ID.Check `$sbc` or `$sbc list` for IDs.');
   }

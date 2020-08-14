@@ -44,7 +44,7 @@ module.exports = async (_y, args) => {
  var amount2;
  var id3;
  var amount3;
- vard idR;
+ var idR;
   if( cmd === 'complete'){ 
   const amountR = 1;
   if(!args[1] || args[1] > 9 || args[1] < 1){

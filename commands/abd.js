@@ -14,7 +14,7 @@ module.exports = async (_y, args) => {
   const weeklyPrime = 'Zidane';
   const weeklyPrimeID = 21500198;
   
-  if(!cmd || cmd === list){
+  if(!cmd || cmd === 'list'){
   const botEmbed = new D.RichEmbed()
     .setColor('#74b4c3')
     .setTitle('SBC')
@@ -32,7 +32,7 @@ module.exports = async (_y, args) => {
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
   _y.reply(botEmbed);
   }
-  if( cmd === complete){ 
+  if( cmd === 'complete'){ 
   const amountR = 1;
   if(!args[1] || args[1] > 9 || args[1] < 1){
   _y.reply('Invalid ID.Check `$sbc` or `$sbc list` for IDs.');

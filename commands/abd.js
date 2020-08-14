@@ -174,27 +174,33 @@ module.exports = async (_y, args) => {
  const path = `./images/switchArrows.png`;
  const switchArrows = await loadImage(path);
  ctx.drawImage(switchArrows, 640, 250, 320, 320);
- ctx.drawImage(imgR, 1040, 250, 400, 400);
+ const canImgR = await loadImage(imgR);
+ ctx.drawImage(canImgR, 1040, 250, 400, 400);
+ const canImg1 = await loadImage(img1);
+ const canImg2 = await loadImage(img2);
+ const canImg3 = await loadImage(img3);
+ const canImg4 = await loadImage(img4);
+ const canImg5 = await loadImage(img5);
  const insertSize = 128;
  const totalAmount = amount1 + amount2 + amount3;
  if(totalAmount === 2){
- ctx.drawImage(img1, 176, 250, insertSize, insertSize);
- ctx.drawImage(img2, 304, 250, insertSize, insertSize);
+ ctx.drawImage(canImg1, 176, 250, insertSize, insertSize);
+ ctx.drawImage(canImg2, 304, 250, insertSize, insertSize);
  }else if(totalAmount === 3){
- ctx.drawImage(img1, 176, 186, insertSize, insertSize);
- ctx.drawImage(img2, 304, 186, insertSize, insertSize);
- ctx.drawImage(img3, 240, 314, insertSize, insertSize);
+ ctx.drawImage(canImg1, 176, 186, insertSize, insertSize);
+ ctx.drawImage(canImg2, 304, 186, insertSize, insertSize);
+ ctx.drawImage(canImg3, 240, 314, insertSize, insertSize);
  }else if(totalAmount === 4){
- ctx.drawImage(img1, 176, 186, insertSize, insertSize);
- ctx.drawImage(img2, 304, 186, insertSize, insertSize);
- ctx.drawImage(img3, 176, 314, insertSize, insertSize);
- ctx.drawImage(img4, 304, 314, insertSize, insertSize);
+ ctx.drawImage(canImg1, 176, 186, insertSize, insertSize);
+ ctx.drawImage(canImg2, 304, 186, insertSize, insertSize);
+ ctx.drawImage(canImg3, 176, 314, insertSize, insertSize);
+ ctx.drawImage(canImg4, 304, 314, insertSize, insertSize);
  }else if(totalAmount === 5){
- ctx.drawImage(img1, 112, 186, insertSize, insertSize);
- ctx.drawImage(img2, 240, 186, insertSize, insertSize);
- ctx.drawImage(img3, 368, 186, insertSize, insertSize);
- ctx.drawImage(img4, 176, 314, insertSize, insertSize);
- ctx.drawImage(img5, 304, 314, insertSize, insertSize);
+ ctx.drawImage(canImg1, 112, 186, insertSize, insertSize);
+ ctx.drawImage(canImg2, 240, 186, insertSize, insertSize);
+ ctx.drawImage(canImg3, 368, 186, insertSize, insertSize);
+ ctx.drawImage(canImg4, 176, 314, insertSize, insertSize);
+ ctx.drawImage(canImg5, 304, 314, insertSize, insertSize);
  }
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

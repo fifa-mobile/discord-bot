@@ -32,121 +32,134 @@ module.exports = async (_y, args) => {
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
   _y.reply(botEmbed);
   }
+ var img1;
+ var img2;
+ var img3;
+ var img4;
+ var img5;
+ var imgR;
+ var id1;
+ var amount1;
+ var id2;
+ var amount2;
+ var id3;
+ var amount3;
+ vard idR;
   if( cmd === 'complete'){ 
   const amountR = 1;
   if(!args[1] || args[1] > 9 || args[1] < 1){
   _y.reply('Invalid ID.Check `$sbc` or `$sbc list` for IDs.');
   }
  if(args[1] === 1){
- const id1 = 1;
- const amount1 = 4;
- const id2 = 0;
- const amount2 = 0;
- const id3 = 0;
- const amount3 = 0;
- const idR = 2;
- const img1 = `./images/pack/bronze.png`;
- const img2 = img1;
- const img3 = img1;
- const img4 = img1;
- const imgR = `./images/pack/silver.png`;
+ id1 = 1;
+ amount1 = 4;
+ id2 = 0;
+ amount2 = 0;
+ id3 = 0;
+ amount3 = 0;
+ idR = 2;
+ img1 = `./images/pack/bronze.png`;
+ img2 = img1;
+ img3 = img1;
+ img4 = img1;
+ imgR = `./images/pack/silver.png`;
 }else  if(args[1] === 2){
- const id1 = 1;
- const amount1 = 3;
- const id2 = 2;
- const amount2 = 1;
- const id3 = 0;
- const amount3 = 0;
- const idR = 3;
- const img1 = `./images/pack/bronze.png`;
- const img2 = img1;
- const img3 = img1;
- const img4 = `./images/pack/silver.png`;
- const imgR = `./images/pack/gold.png`;
+ id1 = 1;
+ amount1 = 3;
+ id2 = 2;
+ amount2 = 1;
+ id3 = 0;
+ amount3 = 0;
+ idR = 3;
+ img1 = `./images/pack/bronze.png`;
+ img2 = img1;
+ img3 = img1;
+ img4 = `./images/pack/silver.png`;
+ imgR = `./images/pack/gold.png`;
 }else  if(args[1] === 3){
- const id1 = 1;
- const amount1 = 2;
- const id2 = 3;
- const amount2 = 1;
- const id3 = 0;
- const amount3 = 0;
- const idR = 4;
- const img1 = `./images/pack/bronze.png`;
- const img2 = img1;
- const img3 = `./images/pack/gold.png`;
- const imgR = `./images/pack/elite.png`;
+ id1 = 1;
+ amount1 = 2;
+ id2 = 3;
+ amount2 = 1;
+ id3 = 0;
+ amount3 = 0;
+ idR = 4;
+ img1 = `./images/pack/bronze.png`;
+ img2 = img1;
+ img3 = `./images/pack/gold.png`;
+ imgR = `./images/pack/elite.png`;
 }else  if(args[1] === 4){
- const id1 = 3;
- const amount1 = 1;
- const id2 = 4;
- const amount2 = 1;
- const id3 = 0;
- const amount3 = 0;
- const idR = 5;
- const img1 = `./images/pack/gold.png`;
- const img2 = `./images/pack/elite.png`;
- const imgR = `./images/pack/elite85.png`;
+ id1 = 3;
+ amount1 = 1;
+ id2 = 4;
+ amount2 = 1;
+ id3 = 0;
+ amount3 = 0;
+ idR = 5;
+ img1 = `./images/pack/gold.png`;
+ img2 = `./images/pack/elite.png`;
+ imgR = `./images/pack/elite85.png`;
 }else  if(args[1] === 5){
- const id1 = 3;
- const amount1 = 1;
- const id2 = 5;
- const amount2 = 1;
- const id3 = 0;
- const amount3 = 0;
- const idR = 6;
- const img1 = `./images/pack/gold.png`;
- const img2 = `./images/pack/elite85.png`;
- const imgR = `./images/pack/master.png`;
+ id1 = 3;
+ amount1 = 1;
+ id2 = 5;
+ amount2 = 1;
+ id3 = 0;
+ amount3 = 0;
+ idR = 6;
+ img1 = `./images/pack/gold.png`;
+ img2 = `./images/pack/elite85.png`;
+ imgR = `./images/pack/master.png`;
 }else if(args[1] === 6){
- const id1 = 5;
- const amount1 = 1;
- const id2 = 6;
- const amount2 = 1;
- const id3 = 0;
- const amount3 = 0;
- const idR = 7;
- const img1 = `./images/pack/elite85.png`;
- const img2 = `./images/pack/master.png`;
- const imgR = `./images/pack/master95.png`;
+ id1 = 5;
+ amount1 = 1;
+ id2 = 6;
+ amount2 = 1;
+ id3 = 0;
+ amount3 = 0;
+ idR = 7;
+ img1 = `./images/pack/elite85.png`;
+ img2 = `./images/pack/master.png`;
+ imgR = `./images/pack/master95.png`;
 }else  if(args[1] === 7){
- const id1 = 7;
- const amount1 = 4;
- const id2 = 0;
- const amount2 = 0;
- const id3 = 0;
- const amount3 = 0;
- const idR = 8;
- const img1 = `./images/pack/master95.png`;
- const img2 = img1;
- const img3 = img1;
- const img4 = img1;
- const imgR = `./images/pack/legend.png`;
+ id1 = 7;
+ amount1 = 4;
+ id2 = 0;
+ amount2 = 0;
+ id3 = 0;
+ amount3 = 0;
+ idR = 8;
+ img1 = `./images/pack/master95.png`;
+ img2 = img1;
+ img3 = img1;
+ img4 = img1;
+ imgR = `./images/pack/legend.png`;
 }else  if(args[1] === 8){
- const id1 = 3;
- const amount1 = 1;
- const id2 = 6;
- const amount2 = 1;
- const id3 = 7;
- const amount3 = 1;
- const idR = 9;
- const img1 = `./images/pack/gold.png`;
- const img2 = `./images/pack/master.png`
- const img3 = `./images/pack/master95.png`
- const imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
+ id1 = 3;
+ amount1 = 1;
+ id2 = 6;
+ amount2 = 1;
+ id3 = 7;
+ amount3 = 1;
+ idR = 9;
+ img1 = `./images/pack/gold.png`;
+ img2 = `./images/pack/master.png`
+ img3 = `./images/pack/master95.png`
+ imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
 }else  if(args[1] === 9){
- const id1 = 9;
- const amount1 = 3;
- const id2 = 8;
- const amount2 = 2;
- const id3 = 0;
- const amount3 = 0;
- const idR = 10;
- const img1 = `./images/pack/icon.png`;
- const img2 = img1;
- const img3 = img1;
- const img4 = `./images/pack/legend.png`;
- const img5 = img4;
- const imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyPrimeID}.png`
+ id1 = 9;
+ amount1 = 3;
+ id2 = 8;
+ amount2 = 2;
+ id3 = 0;
+ amount3 = 0;
+ idR = 10;
+ img1 = `./images/pack/icon.png`;
+ img2 = img1;
+ img3 = img1;
+ img4 = `./images/pack/legend.png`;
+ img5 = img4;
+ imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyPrimeID}.png`
 }
   
  const {

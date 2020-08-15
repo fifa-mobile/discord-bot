@@ -52,8 +52,8 @@ module.exports = async (_y, args) => {
  var idR;
   if(!args[1] || args[1] > 9 || args[1] < 1){
   _y.reply('Invalid ID.Check `$sbc` or `$sbc list` for IDs.');
-  }
- if(args[1] === 1){
+  console.log("invalid");
+  }else if(args[1] === 1){
  id1 = 1;
  amount1 = 4;
  id2 = 0;

@@ -31,10 +31,12 @@ module.exports = async (_y, args) => {
     .addField('9.Prime Icon '+ weeklyPrime +':', '3 Icon players+2 Legendary players<->1 '+ weeklyPrime +' Prime Icon player')
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
   _y.reply(botEmbed);
+  console.log("list");
   }
  
   if( cmd === 'complete'){ 
   const amountR = 1;
+  console.log("complete");
  var img1;
  var img2;
  var img3;

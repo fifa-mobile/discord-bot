@@ -64,6 +64,7 @@ module.exports = async (_y, args) => {
  img3 = img1;
  img4 = img1;
  imgR = `./images/pack/silver.png`;
+ console.log("choice1");
 }else  if(args[1] === 2){
  id1 = 1;
  amount1 = 3;
@@ -77,6 +78,7 @@ module.exports = async (_y, args) => {
  img3 = img1;
  img4 = `./images/pack/silver.png`;
  imgR = `./images/pack/gold.png`;
+ console.log("choice2");
 }else  if(args[1] === 3){
  id1 = 1;
  amount1 = 2;
@@ -89,6 +91,7 @@ module.exports = async (_y, args) => {
  img2 = img1;
  img3 = `./images/pack/gold.png`;
  imgR = `./images/pack/elite.png`;
+ console.log("choice3");
 }else  if(args[1] === 4){
  id1 = 3;
  amount1 = 1;
@@ -100,6 +103,7 @@ module.exports = async (_y, args) => {
  img1 = `./images/pack/gold.png`;
  img2 = `./images/pack/elite.png`;
  imgR = `./images/pack/elite85.png`;
+ console.log("choice4");
 }else  if(args[1] === 5){
  id1 = 3;
  amount1 = 1;
@@ -111,6 +115,7 @@ module.exports = async (_y, args) => {
  img1 = `./images/pack/gold.png`;
  img2 = `./images/pack/elite85.png`;
  imgR = `./images/pack/master.png`;
+ console.log("choice5");
 }else if(args[1] === 6){
  id1 = 5;
  amount1 = 1;
@@ -122,6 +127,7 @@ module.exports = async (_y, args) => {
  img1 = `./images/pack/elite85.png`;
  img2 = `./images/pack/master.png`;
  imgR = `./images/pack/master95.png`;
+ console.log("choice6");
 }else  if(args[1] === 7){
  id1 = 7;
  amount1 = 4;
@@ -135,6 +141,7 @@ module.exports = async (_y, args) => {
  img3 = img1;
  img4 = img1;
  imgR = `./images/pack/legend.png`;
+ console.log("choice7");
 }else  if(args[1] === 8){
  id1 = 3;
  amount1 = 1;
@@ -147,6 +154,7 @@ module.exports = async (_y, args) => {
  img2 = `./images/pack/master.png`
  img3 = `./images/pack/master95.png`
  imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
+ console.log("choice8");
 }else  if(args[1] === 9){
  id1 = 9;
  amount1 = 3;
@@ -161,6 +169,7 @@ module.exports = async (_y, args) => {
  img4 = `./images/pack/legend.png`;
  img5 = img4;
  imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyPrimeID}.png`
+ console.log("choice9");
 }
   
  const {
@@ -187,21 +196,25 @@ module.exports = async (_y, args) => {
  if(totalAmount === 2){
  ctx.drawImage(canImg1, 176, 250, insertSize, insertSize);
  ctx.drawImage(canImg2, 304, 250, insertSize, insertSize);
+ console.log("total2");
  }else if(totalAmount === 3){
  ctx.drawImage(canImg1, 176, 186, insertSize, insertSize);
  ctx.drawImage(canImg2, 304, 186, insertSize, insertSize);
  ctx.drawImage(canImg3, 240, 314, insertSize, insertSize);
+ console.log("total3")
  }else if(totalAmount === 4){
  ctx.drawImage(canImg1, 176, 186, insertSize, insertSize);
  ctx.drawImage(canImg2, 304, 186, insertSize, insertSize);
  ctx.drawImage(canImg3, 176, 314, insertSize, insertSize);
  ctx.drawImage(canImg4, 304, 314, insertSize, insertSize);
+ console.log("total4")
  }else if(totalAmount === 5){
  ctx.drawImage(canImg1, 112, 186, insertSize, insertSize);
  ctx.drawImage(canImg2, 240, 186, insertSize, insertSize);
  ctx.drawImage(canImg3, 368, 186, insertSize, insertSize);
  ctx.drawImage(canImg4, 176, 314, insertSize, insertSize);
  ctx.drawImage(canImg5, 304, 314, insertSize, insertSize);
+ console.log("total5")
  }
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

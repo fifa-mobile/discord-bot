@@ -96,18 +96,7 @@ module.exports = async (_y, args) => {
   let choosen = {};
   let card = -1;
 
-  const pires = await user.pires();
-
-  console.log(
-    'pires packed?', pires.packed
-  );
-
-  if (!pires.packed) {
-    choosen = players[players.length - 1];
-    card = 21504675;
-    pires.packed = true;
-    await pires.save();
-  } else {
+ 
     choosen = players[
       Math.floor(Math.random() * players.length)
     ];
@@ -116,7 +105,7 @@ module.exports = async (_y, args) => {
         Math.random() * cards[choosen.id].length
       )
     ];
-  }
+
 
   curr.add(uid, -cost);
   await user.addPack(choosen.id);

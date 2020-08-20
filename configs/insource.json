@@ -4,6 +4,13 @@
     "content": "FIFA ⚽ 21 on PlayStation 🎮 5"
   },
   "spreadSheets": {
+    "chance": {
+      "id": "1HtCTsnGT2RDCGdi9J2LPZZ7mzOPm_AjpaBwVokgx8ow",
+      "indexes": {
+        "dummy": 0,
+        "anotherDummy": 1
+      }
+    },
     "tour": {
       "id": "1KndSWLbYWy1trm2NXy4-5yTUt1exmqv35CF8YE7gCJw",
       "indexes": {

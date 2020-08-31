@@ -46,6 +46,45 @@ async function ready() {
 }
 
 function message(m) {
+  /* #22 emoji only message deletion feature */
+  console.log('reading a messsage:', m.content);
+  let oldStr = str = m.content;
+  const re =
+    /(:[^:\s]+:|<:[^:\s]+:[0-9]+>|<a:[^:\s]+:[0-9]+>)/g;
+  str = str.replace(re, '');
+
+  if (oldStr !== str) {
+    console.log('server emojis removed', str);
+  }
+
+  str = str.replace(
+    /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, ''
+  );
+
+  str = str.replace(/\s/g, "");
+
+  let newStr = str.replace(
+    String.fromCharCode(65039), ''
+  );
+
+  let count = 0;
+  while (str !== newStr) {
+    str = newStr;
+    newStr = str.replace(String.fromCharCode(65039), '');
+    if (count > 10) break;
+  }
+
+  if (str.length === 0) {
+    console.log('empty content detected!');
+    y.client.channels.get('636253531812134942').send(
+      `a message from <@${m.author.id}> on `
+      + `<#${m.channel.id}> deleted:` + '\n'
+      + m.content
+    );
+    m.delete();
+  }
+  /* #22 emoji only message deletion feature */
+
   this.y.message = m;
   this.y.reply = text => {
     m.channel.send(text);

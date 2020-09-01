@@ -3,7 +3,8 @@ const y = require('../core/base');
 module.exports = async (_y, args) => {
   const m = _y.message;
   if (m.member.roles.find(r => r.name === 'Staff')) {
-    if (!args[0]) {
+    const attachments = Array.from(m.attachments);
+    if (!args[0] && !attachments.length) {
       m.channel.send(
       'What do you want to announce?'
       );
@@ -13,7 +14,6 @@ module.exports = async (_y, args) => {
     const axios = require('axios');
 
     const toAttach = [];
-    const attachments = Array.from(m.attachments);
     for (let i = 0; i < attachments.length; i++) {
       try {
         const a = attachments[i][1];
@@ -39,7 +39,7 @@ module.exports = async (_y, args) => {
 
     m.channel.send(
       _y.message.content.replace(
-        /.announce\s+/, ''
+        /.announce\s?/, ''
       )
       , {
         files: toAttach

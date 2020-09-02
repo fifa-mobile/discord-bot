@@ -16,12 +16,10 @@ module.exports = async (_y, args) => {
   const weeklyPrimeID = 21500198;
 
 
- img1 = `./images/pack/master95.png`;
- img2 = img1;
- img3 = img1;
- img4 = img1;
- imgR = `./images/pack/legend.png`;
-  
+ img1 = `./images/pack/gold.png`;
+ img2 = `./images/pack/elite85.png`;
+ imgR = `./images/pack/master.png`;
+
 const {
       createCanvas, loadImage
     } = require('canvas');
@@ -38,13 +36,9 @@ const {
  ctx.drawImage(canImgR, 840, 50, 400, 400);
  const canImg1 = await loadImage(img1);
  const canImg2 = await loadImage(img2);
- const canImg3 = await loadImage(img3);
- const canImg4 = await loadImage(img4);
  const insertSize = 128;
- ctx.drawImage(canImg1, 112, 122, insertSize, insertSize);
- ctx.drawImage(canImg2, 240, 122, insertSize, insertSize);
- ctx.drawImage(canImg3, 176, 250, insertSize, insertSize);
- ctx.drawImage(canImg4, 240, 250, insertSize, insertSize);
+ ctx.drawImage(canImg1, 112, 186, insertSize, insertSize);
+ ctx.drawImage(canImg2, 240, 186, insertSize, insertSize);
  
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

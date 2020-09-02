@@ -44,18 +44,18 @@ const {
  const switchArrows = await loadImage(path);
  ctx.drawImage(switchArrows, 480, 90, 320, 320);
  const canImgR = await loadImage(imgR);
- ctx.drawImage(canImgR, 1040, 250, 400, 400);
+ ctx.drawImage(canImgR, 840, 50, 400, 400);
  const canImg1 = await loadImage(img1);
  const canImg2 = await loadImage(img2);
  const canImg3 = await loadImage(img3);
  const canImg4 = await loadImage(img4);
  const canImg5 = await loadImage(img5);
  const insertSize = 128;
- ctx.drawImage(canImg1, 112, 186, insertSize, insertSize);
- ctx.drawImage(canImg2, 240, 186, insertSize, insertSize);
- ctx.drawImage(canImg3, 368, 186, insertSize, insertSize);
- ctx.drawImage(canImg4, 176, 314, insertSize, insertSize);
- ctx.drawImage(canImg5, 304, 314, insertSize, insertSize);
+ ctx.drawImage(canImg1, 48, 122, insertSize, insertSize);
+ ctx.drawImage(canImg2, 176, 122, insertSize, insertSize);
+ ctx.drawImage(canImg3, 304, 122, insertSize, insertSize);
+ ctx.drawImage(canImg4, 112, 250, insertSize, insertSize);
+ ctx.drawImage(canImg5, 340, 250, insertSize, insertSize);
  
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

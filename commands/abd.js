@@ -208,7 +208,7 @@ module.exports = async (_y, args) => {
  }else if(totalAmount === 4){
  ctx.drawImage(canImg1, 112, 122, insertSize, insertSize);
  ctx.drawImage(canImg2, 240, 122, insertSize, insertSize);
- ctx.drawImage(canImg3, 176, 250, insertSize, insertSize);
+ ctx.drawImage(canImg3, 112, 250, insertSize, insertSize);
  ctx.drawImage(canImg4, 240, 250, insertSize, insertSize);
  console.log("total4")
  }else if(totalAmount === 5){

@@ -186,9 +186,9 @@ module.exports = async (_y, args) => {
   
  const path = `./images/switchArrows.png`;
  const switchArrows = await loadImage(path);
- ctx.drawImage(switchArrows, 640, 250, 320, 320);
+ ctx.drawImage(switchArrows, 480, 90, 320, 320);
  const canImgR = await loadImage(imgR);
- ctx.drawImage(canImgR, 1040, 250, 400, 400);
+ ctx.drawImage(canImgR, 840, 50, 400, 400);
  const canImg1 = await loadImage(img1);
  const canImg2 = await loadImage(img2);
  const canImg3 = await loadImage(img3);
@@ -197,26 +197,26 @@ module.exports = async (_y, args) => {
  const insertSize = 128;
  const totalAmount = amount1 + amount2 + amount3;
  if(totalAmount === 2){
- ctx.drawImage(canImg1, 176, 250, insertSize, insertSize);
- ctx.drawImage(canImg2, 304, 250, insertSize, insertSize);
- console.log("total2");
- }else if(totalAmount === 3){
- ctx.drawImage(canImg1, 176, 186, insertSize, insertSize);
- ctx.drawImage(canImg2, 304, 186, insertSize, insertSize);
- ctx.drawImage(canImg3, 240, 314, insertSize, insertSize);
- console.log("total3")
- }else if(totalAmount === 4){
- ctx.drawImage(canImg1, 176, 186, insertSize, insertSize);
- ctx.drawImage(canImg2, 304, 186, insertSize, insertSize);
- ctx.drawImage(canImg3, 176, 314, insertSize, insertSize);
- ctx.drawImage(canImg4, 304, 314, insertSize, insertSize);
- console.log("total4")
- }else if(totalAmount === 5){
  ctx.drawImage(canImg1, 112, 186, insertSize, insertSize);
  ctx.drawImage(canImg2, 240, 186, insertSize, insertSize);
- ctx.drawImage(canImg3, 368, 186, insertSize, insertSize);
- ctx.drawImage(canImg4, 176, 314, insertSize, insertSize);
- ctx.drawImage(canImg5, 304, 314, insertSize, insertSize);
+ console.log("total2");
+ }else if(totalAmount === 3){
+ ctx.drawImage(canImg1, 112, 122, insertSize, insertSize);
+ ctx.drawImage(canImg2, 240, 122, insertSize, insertSize);
+ ctx.drawImage(canImg3, 240, 250, insertSize, insertSize);
+ console.log("total3")
+ }else if(totalAmount === 4){
+ ctx.drawImage(canImg1, 112, 122, insertSize, insertSize);
+ ctx.drawImage(canImg2, 240, 122, insertSize, insertSize);
+ ctx.drawImage(canImg3, 176, 250, insertSize, insertSize);
+ ctx.drawImage(canImg4, 240, 250, insertSize, insertSize);
+ console.log("total4")
+ }else if(totalAmount === 5){
+ ctx.drawImage(canImg1, 48, 122, insertSize, insertSize);
+ ctx.drawImage(canImg2, 176, 122, insertSize, insertSize);
+ ctx.drawImage(canImg3, 304, 122, insertSize, insertSize);
+ ctx.drawImage(canImg4, 112, 250, insertSize, insertSize);
+ ctx.drawImage(canImg5, 240, 250, insertSize, insertSize);
  console.log("total5")
  }
  

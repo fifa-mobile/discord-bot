@@ -15,18 +15,12 @@ module.exports = async (_y, args) => {
   const weeklyPrime = 'Zidane';
   const weeklyPrimeID = 21500198;
 
-id1 = 3;
- amount1 = 1;
- id2 = 6;
- amount2 = 1;
- id3 = 7;
- amount3 = 1;
- idR = 9;
- img1 = `./images/pack/gold.png`;
- img2 = `./images/pack/master.png`
- img3 = `./images/pack/master95.png`
- imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
 
+ img1 = `./images/pack/master95.png`;
+ img2 = img1;
+ img3 = img1;
+ img4 = img1;
+ imgR = `./images/pack/legend.png`;
   
 const {
       createCanvas, loadImage
@@ -49,6 +43,7 @@ const {
  ctx.drawImage(canImg1, 112, 122, insertSize, insertSize);
  ctx.drawImage(canImg2, 240, 122, insertSize, insertSize);
  ctx.drawImage(canImg3, 176, 250, insertSize, insertSize);
+ ctx.drawImage(canImg4, 240, 250, insertSize, insertSize);
  
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

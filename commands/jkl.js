@@ -42,7 +42,7 @@ const {
   
  const path = `./images/switchArrows.png`;
  const switchArrows = await loadImage(path);
- ctx.drawImage(switchArrows, 640, 250, 160, 160);
+ ctx.drawImage(switchArrows, 480, 90, 320, 320);
  const canImgR = await loadImage(imgR);
  ctx.drawImage(canImgR, 1040, 250, 400, 400);
  const canImg1 = await loadImage(img1);

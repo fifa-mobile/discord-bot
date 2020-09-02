@@ -1,9 +1,9 @@
-**```ℹ | {{prefix}}user```**
+**```ℹ | {{prefix}}user (number)```**
 
 **Use**:Used to show a table of users' IDs and coin balance.
-**Command**:{{prefix}}user
+**Command**:{{prefix}}user (number)
 
 **Example**:
-`{{prefix}}user`-Shows a list of users and their coin balances and IDs.
+`{{prefix}}user 2`-Shows page 2 of a list of users and their coin balances and IDs.
 
 ```>Don't include brackets when using the commands.```

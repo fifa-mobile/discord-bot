@@ -46,9 +46,9 @@ const {
  const canImg2 = await loadImage(img2);
  const canImg3 = await loadImage(img3);
  const insertSize = 128;
- ctx.drawImage(canImg1, 48, 122, insertSize, insertSize);
- ctx.drawImage(canImg2, 176, 122, insertSize, insertSize);
- ctx.drawImage(canImg3, 304, 122, insertSize, insertSize);
+ ctx.drawImage(canImg1, 112, 122, insertSize, insertSize);
+ ctx.drawImage(canImg2, 240, 122, insertSize, insertSize);
+ ctx.drawImage(canImg3, 240, 250, insertSize, insertSize);
  
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

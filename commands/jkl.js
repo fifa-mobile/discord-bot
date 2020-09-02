@@ -48,7 +48,7 @@ const {
  const insertSize = 128;
  ctx.drawImage(canImg1, 112, 122, insertSize, insertSize);
  ctx.drawImage(canImg2, 240, 122, insertSize, insertSize);
- ctx.drawImage(canImg3, 240, 250, insertSize, insertSize);
+ ctx.drawImage(canImg3, 176, 250, insertSize, insertSize);
  
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

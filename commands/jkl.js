@@ -15,20 +15,17 @@ module.exports = async (_y, args) => {
   const weeklyPrime = 'Zidane';
   const weeklyPrimeID = 21500198;
 
- id1 = 9;
- amount1 = 3;
- id2 = 8;
- amount2 = 2;
- id3 = 0;
- amount3 = 0;
- idR = 10;
- img1 = `./images/pack/icon.png`;
- img2 = img1;
- img3 = img1;
- img4 = `./images/pack/legend.png`;
- img5 = img4;
- imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyPrimeID}.png`
- console.log("choice9");
+id1 = 3;
+ amount1 = 1;
+ id2 = 6;
+ amount2 = 1;
+ id3 = 7;
+ amount3 = 1;
+ idR = 9;
+ img1 = `./images/pack/gold.png`;
+ img2 = `./images/pack/master.png`
+ img3 = `./images/pack/master95.png`
+ imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
 
   
 const {
@@ -48,14 +45,10 @@ const {
  const canImg1 = await loadImage(img1);
  const canImg2 = await loadImage(img2);
  const canImg3 = await loadImage(img3);
- const canImg4 = await loadImage(img4);
- const canImg5 = await loadImage(img5);
  const insertSize = 128;
  ctx.drawImage(canImg1, 48, 122, insertSize, insertSize);
  ctx.drawImage(canImg2, 176, 122, insertSize, insertSize);
  ctx.drawImage(canImg3, 304, 122, insertSize, insertSize);
- ctx.drawImage(canImg4, 112, 250, insertSize, insertSize);
- ctx.drawImage(canImg5, 240, 250, insertSize, insertSize);
  
  
  const attachment = new D.Attachment(canvas.toBuffer(), 'img.png');

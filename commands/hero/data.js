@@ -839,5 +839,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/11/050/15124.jpg?v=1554565406'
 },
+{
+  key: '/green-arrow-cw/10-16697/',
+  name: 'Green Arrow (CW)',
+  fullName: 'Oliver Queen',
+  stats: [
+    [ 'Intelligence', '85' ],
+    [ 'Strength', '1' ],
+    [ 'Speed', '10' ],
+    [ 'Durability', '10' ],
+    [ 'Power', '18' ],
+    [ 'Combat', '100' ],
+    [ 'Tier', '1' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/11/050/15124.jpg?v=1554565406'
+},
 ];
 

@@ -14,7 +14,7 @@ install npm packages
 
 `$ npm install`
 
-setup configs files; copy *.tmp files and remove the .tmp extension
+setup configs files; copy _*_.tmp files and remove the .tmp extension
 
 ask yuulye for BoT token.
 
@@ -58,6 +58,46 @@ running migration
 
 `$ heroku run bash -a appname`
 `$ sequelize db:migrate`
+
+
+## Database Installation
+
+choose your platform example: https://www.postgresql.org/download/linux/ubuntu/
+
+```
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get -y install postgresql
+```
+
+#### Database User Creation
+
+```
+sudo -u postgres psql
+
+postgres=# CREATE USER username;
+CREATE ROLE
+
+postgres=# ALTER USER jon SUPERUSER CREATEDB;
+ALTER ROLE
+
+postgres=# \du
+
+$ createdb username
+
+$ psql
+
+username=# CREATE DATABASE dbname;
+CREATE DATABASE
+```
+
+#### Running migration
+
+```
+npx sequelize-cli db:migrate
+```
+
 
 
 

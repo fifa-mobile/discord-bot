@@ -899,5 +899,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/10444.jpg?v=1580196968'
 },
+{
+  key: '/darth-sidious/10-10462/',
+  name: 'Darth Sidious',
+  fullName: 'Sheev Palpatine',
+  stats: [
+    [ 'Intelligence', '85' ],
+    [ 'Strength', '30' ],
+    [ 'Speed', '25' ],
+    [ 'Durability', '15' ],
+    [ 'Power', '60' ],
+    [ 'Combat', '80' ],
+    [ 'Tier', '2' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/10444.jpg?v=1580196968'
+},
 ];
 

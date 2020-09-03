@@ -959,5 +959,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/639.jpg?v=1595014950'
 },
+{
+  key: '/wonder-woman/10-807/',
+  name: 'Wonder Woman',
+  fullName: 'Diana Prince',
+  stats: [
+    [ 'Intelligence', '85' ],
+    [ 'Strength', '100' ],
+    [ 'Speed', '80' ],
+    [ 'Durability', '85' ],
+    [ 'Power', '85' ],
+    [ 'Combat', '100' ],
+    [ 'Tier', '6' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/639.jpg?v=1595014950'
+},
 ];
 

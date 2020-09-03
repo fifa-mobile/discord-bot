@@ -56,7 +56,7 @@ module.exports = async (_y, args) => {
       console.log("invalid");
     }
 
-    if(args[1] === 1 || args[1] === '1'){
+    if(args[1] === '1'){
       id1 = 1;
       amount1 = 4;
       id2 = 0;
@@ -71,7 +71,7 @@ module.exports = async (_y, args) => {
       img5 = img1;
       imgR = `./images/pack/silver.png`;
       console.log("choice1");
-    }else  if(args[1] === 2){
+    }else  if(args[1] === '2'){
       id1 = 1;
       amount1 = 3;
       id2 = 2;
@@ -83,9 +83,10 @@ module.exports = async (_y, args) => {
       img2 = img1;
       img3 = img1;
       img4 = `./images/pack/silver.png`;
+      img5 = img1;
       imgR = `./images/pack/gold.png`;
       console.log("choice2");
-    }else  if(args[1] === 3){
+    }else  if(args[1] === '3'){
       id1 = 1;
       amount1 = 2;
       id2 = 3;
@@ -96,9 +97,11 @@ module.exports = async (_y, args) => {
       img1 = `./images/pack/bronze.png`;
       img2 = img1;
       img3 = `./images/pack/gold.png`;
+      img4 = img1;
+      img5 = img1;
       imgR = `./images/pack/elite.png`;
       console.log("choice3");
-    }else  if(args[1] === 4){
+    }else  if(args[1] === '4'){
       id1 = 3;
       amount1 = 1;
       id2 = 4;
@@ -108,9 +111,12 @@ module.exports = async (_y, args) => {
       idR = 5;
       img1 = `./images/pack/gold.png`;
       img2 = `./images/pack/elite.png`;
+      img3 = img1;
+      img4 = img1;
+      img5 = img1;
       imgR = `./images/pack/elite85.png`;
       console.log("choice4");
-    }else  if(args[1] === 5){
+    }else  if(args[1] === '5'){
       id1 = 3;
       amount1 = 1;
       id2 = 5;
@@ -120,9 +126,12 @@ module.exports = async (_y, args) => {
       idR = 6;
       img1 = `./images/pack/gold.png`;
       img2 = `./images/pack/elite85.png`;
+      img3 = img1;
+      img4 = img1;
+      img5 = img1;
       imgR = `./images/pack/master.png`;
       console.log("choice5");
-    }else if(args[1] === 6){
+    }else if(args[1] === '6'){
       id1 = 5;
       amount1 = 1;
       id2 = 6;
@@ -132,9 +141,12 @@ module.exports = async (_y, args) => {
       idR = 7;
       img1 = `./images/pack/elite85.png`;
       img2 = `./images/pack/master.png`;
+      img3 = img1;
+      img4 = img1;
+      img5 = img1;
       imgR = `./images/pack/master95.png`;
       console.log("choice6");
-    }else  if(args[1] === 7){
+    }else  if(args[1] === '7'){
       id1 = 7;
       amount1 = 4;
       id2 = 0;
@@ -146,9 +158,10 @@ module.exports = async (_y, args) => {
       img2 = img1;
       img3 = img1;
       img4 = img1;
+      img5 = img1;
       imgR = `./images/pack/legend.png`;
       console.log("choice7");
-    }else  if(args[1] === 8){
+    }else  if(args[1] === '8'){
       id1 = 3;
       amount1 = 1;
       id2 = 6;
@@ -159,9 +172,11 @@ module.exports = async (_y, args) => {
       img1 = `./images/pack/gold.png`;
       img2 = `./images/pack/master.png`
       img3 = `./images/pack/master95.png`
+      img4 = img1;
+      img5 = img1;
       imgR ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
       console.log("choice8");
-    }else  if(args[1] === 9){
+    }else  if(args[1] === '9'){
       id1 = 9;
       amount1 = 3;
       id2 = 8;

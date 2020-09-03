@@ -884,5 +884,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/1365.jpg?v=1596087697'
 },
+{
+  key: '/darth-vader/10-10444/',
+  name: 'Darth Vader',
+  fullName: 'Anakin Skywalker',
+  stats: [
+    [ 'Intelligence', '90' ],
+    [ 'Strength', '30' ],
+    [ 'Speed', '25' ],
+    [ 'Durability', '55' ],
+    [ 'Power', '80' ],
+    [ 'Combat', '90' ],
+    [ 'Tier', '2' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/1365.jpg?v=1596087697'
+},
 ];
 

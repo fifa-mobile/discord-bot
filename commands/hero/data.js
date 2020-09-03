@@ -914,5 +914,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/10462.jpg?v=1584838350'
 },
+{
+  key: '/kylo-ren/10-10559/',
+  name: 'Kylo Ren',
+  fullName: 'Ben Solo',
+  stats: [
+    [ 'Intelligence', '80' ],
+    [ 'Strength', '50' ],
+    [ 'Speed', '25' ],
+    [ 'Durability', '35' ],
+    [ 'Power', '100' ],
+    [ 'Combat', '90' ],
+    [ 'Tier', '1' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/10462.jpg?v=1584838350'
+},
 ];
 

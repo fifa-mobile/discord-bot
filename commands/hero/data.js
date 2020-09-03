@@ -944,5 +944,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/1388.jpg?v=1597382839'
 },
+{
+  key: '/batman/10-639/',
+  name: 'Batman',
+  fullName: 'Bruce Wayne',
+  stats: [
+    [ 'Intelligence', '95' ],
+    [ 'Strength', '25' ],
+    [ 'Speed', '25' ],
+    [ 'Durability', '40' ],
+    [ 'Power', '25' ],
+    [ 'Combat', '100' ],
+    [ 'Tier', '1' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/1388.jpg?v=1597382839'
+},
 ];
 

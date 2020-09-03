@@ -912,7 +912,7 @@ module.exports = [
     [ 'Combat', '80' ],
     [ 'Tier', '2' ]
   ],
-  img: 'https://www.superherodb.com/pictures2/portraits/10/050/10444.jpg?v=1580196968'
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/10462.jpg?v=1584838350'
 },
 ];
 

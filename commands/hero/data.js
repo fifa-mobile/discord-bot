@@ -929,5 +929,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/10559.jpg?v=1599080017'
 },
+{
+  key: '/mera/10-1388/',
+  name: 'Mera',
+  fullName: 'Mera',
+  stats: [
+    [ 'Intelligence', '80' ],
+    [ 'Strength', '30' ],
+    [ 'Speed', '40' ],
+    [ 'Durability', '50' ],
+    [ 'Power', '85' ],
+    [ 'Combat', '95' ],
+    [ 'Tier', '4' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/10559.jpg?v=1599080017'
+},
 ];
 

@@ -854,5 +854,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/16697.jpg?v=1596063823'
 },
+{
+  key: '/superman/10-791/',
+  name: 'Superman',
+  fullName: 'Kal-El',
+  stats: [
+    [ 'Intelligence', '95' ],
+    [ 'Strength', '100' ],
+    [ 'Speed', '100' ],
+    [ 'Durability', '100' ],
+    [ 'Power', '90' ],
+    [ 'Combat', '90' ],
+    [ 'Tier', '6' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/16697.jpg?v=1596063823'
+},
 ];
 

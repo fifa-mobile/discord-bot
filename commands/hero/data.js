@@ -869,5 +869,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/791.jpg?v=1598619869'
 },
+{
+  key: '/ben-10/10-1365/',
+  name: 'Ben 10',
+  fullName: 'Benjamin Kirby Tennyson',
+  stats: [
+    [ 'Intelligence', '95' ],
+    [ 'Strength', '100' ],
+    [ 'Speed', '95' ],
+    [ 'Durability', '100' ],
+    [ 'Power', '90' ],
+    [ 'Combat', '100' ],
+    [ 'Tier', '8' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/791.jpg?v=1598619869'
+},
 ];
 

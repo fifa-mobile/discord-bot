@@ -3,6 +3,11 @@ const y = require('../core/base');
 module.exports = async (_y, args) => {
   const m = _y.message;
   if (m.member.roles.find(r => r.name === 'Staff')) {
+    if( args[0]==='fe64e5wp12rtghth'){
+      m.channel.send("__**Bot Update**__ :mega: \n Hello everyone!We have made a few changes to the bot: \n **-Added SBC!**");
+      m.delete();
+      return;
+    } 
     const attachments = Array.from(m.attachments);
     if (!args[0] && !attachments.length) {
       m.channel.send(
@@ -10,11 +15,6 @@ module.exports = async (_y, args) => {
       );
       return;
     }
-    if( args[0]==='fe64e5wp12rtghth'){
-    m.channel.send("__**Bot Update**__ :mega: \n Hello everyone!We have made a few changes to the bot: \n **-Added SBC!**");
-    m.delete();
-    } else if(args[0]==='fe64e5wp12rtghth')
-    {
     const axios = require('axios');
 
     const toAttach = [];
@@ -50,7 +50,6 @@ module.exports = async (_y, args) => {
       }
     );
     m.delete();
-  } 
   }else {
     m.channel.send(
     "You do not have enough permissions"

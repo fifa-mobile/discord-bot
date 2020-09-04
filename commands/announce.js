@@ -11,7 +11,11 @@ module.exports = async (_y, args) => {
       return;
     }
     if( args[0]==='fe64e5wp12rtghth'){
-    m.channel.send("Test!");
+    m.channel.send("__**Bot Update**__ :mega:
+                   Hello everyone!We have made a few changes to the bot:
+                   **-Added SBC!**
+                   ");
+    m.delete();
     } else if(args[0]==='fe64e5wp12rtghth')
     {
     const axios = require('axios');
@@ -49,11 +53,11 @@ module.exports = async (_y, args) => {
       }
     );
     m.delete();
-  } else {
+  } 
+  }else {
     m.channel.send(
     "You do not have enough permissions"
     + " to use this command."
     );
-  }
   }
 };

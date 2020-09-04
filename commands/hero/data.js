@@ -974,5 +974,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/807.jpg?v=1597549798'
 },
+{
+  key: '/deadpool/10-835/',
+  name: 'Deadpool',
+  fullName: 'Wade Wilson',
+  stats: [
+    [ 'Intelligence', '60' ],
+    [ 'Strength', '25' ],
+    [ 'Speed', '50' ],
+    [ 'Durability', '55' ],
+    [ 'Power', '55' ],
+    [ 'Combat', '90' ],
+    [ 'Tier', '3' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/835.jpg?v=1574190685'
+},
 ];
 

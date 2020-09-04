@@ -191,7 +191,7 @@ module.exports = async (_y, args) => {
       img3 = `./images/pack/master95.png`
       img4 = img1;
       img5 = img1;
-      url ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
+      const url ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
       console.log("choice8");
     }else  if(args[1] === '9'){
       id1 = 9;
@@ -206,7 +206,7 @@ module.exports = async (_y, args) => {
       img3 = img1;
       img4 = `./images/pack/legend.png`;
       img5 = img4;
-      url ='https://fifa-mobile.github.io/images/cards/' + `${weeklyPrimeID}.png`
+      const url ='https://fifa-mobile.github.io/images/cards/' + `${weeklyPrimeID}.png`
       console.log("choice9");
     }
     imgR = url;

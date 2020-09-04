@@ -989,5 +989,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/835.jpg?v=1574190685'
 },
+{
+  key: 'hellboy/10-813/',
+  name: 'Hellboy',
+  fullName: 'Anung Un Rama',
+  stats: [
+    [ 'Intelligence', '85' ],
+    [ 'Strength', '25' ],
+    [ 'Speed', '50' ],
+    [ 'Durability', '40' ],
+    [ 'Power', '50' ],
+    [ 'Combat', '75 ],
+    [ 'Tier', '2' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/813.jpg?v=1595783506'
+},
 ];
 

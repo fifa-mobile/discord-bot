@@ -11,10 +11,7 @@ module.exports = async (_y, args) => {
       return;
     }
     if( args[0]==='fe64e5wp12rtghth'){
-    m.channel.send("__**Bot Update**__ :mega:
-                   Hello everyone!We have made a few changes to the bot:
-                   **-Added SBC!**
-                   ");
+    m.channel.send("__**Bot Update**__ :mega: \n Hello everyone!We have made a few changes to the bot: \n **-Added SBC!**");
     m.delete();
     } else if(args[0]==='fe64e5wp12rtghth')
     {

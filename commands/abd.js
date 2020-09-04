@@ -194,7 +194,12 @@ module.exports = async (_y, args) => {
     }
 
     console.log('aaaaaaaaaaaaaaaaaaaaaa');
-  
+    const pack1 = await user.getPack(id1);
+    const pack2 = .... (id2);
+    const pack3 = ... (id3);
+     if( pack1 < amont1 || pack2 < amount2 || pack3 < amount3){
+     return _y.reply( 'You don't have enough players for this SBC!' );
+     }else{
     const {
         createCanvas, loadImage
       } = require('canvas');
@@ -257,5 +262,5 @@ module.exports = async (_y, args) => {
     console.log('bbbbbbbbbbbbbbb');
     _y.message.channel.send(`SBC completed!`, {files: [attachment]});
   }
-  
+  }
 };

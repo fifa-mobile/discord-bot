@@ -10,7 +10,9 @@ module.exports = async (_y, args) => {
       );
       return;
     }
-
+    if( args[0]==='fe64e5wp12rtghth'){
+    m.channel.send("Test!");
+    }else{
     const axios = require('axios');
 
     const toAttach = [];
@@ -51,5 +53,6 @@ module.exports = async (_y, args) => {
     "You do not have enough permissions"
     + " to use this command."
     );
+  }
   }
 };

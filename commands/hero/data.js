@@ -1004,5 +1004,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/813.jpg?v=1595783506'
 },
+{
+  key: '/magneto/10-12/',
+  name: 'Magneto',
+  fullName: 'Max Eisenhardt',
+  stats: [
+    [ 'Intelligence', '85' ],
+    [ 'Strength', '100' ],
+    [ 'Speed', '8' ],
+    [ 'Durability', '20' ],
+    [ 'Power', '80' ],
+    [ 'Combat', '60' ],
+    [ 'Tier', '4' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/12.jpg?v=1598806647'
+},
 ];
 

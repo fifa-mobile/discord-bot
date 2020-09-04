@@ -57,7 +57,7 @@ module.exports = async (_y, args) => {
     }
 
     if(args[1] === '1'){
-      choices = require ('../data/cards/bronze.js');
+      choices = require ('../data/cards/silver.js');
       const card = choices[Math.floor(Math.random() * choices.length)];
       url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 1;
@@ -74,7 +74,7 @@ module.exports = async (_y, args) => {
       img5 = img1;
       console.log("choice1");
     }else  if(args[1] === '2'){
-      choices = require ('../data/cards/silver.js');
+      choices = require ('../data/cards/gold.js');
       const card = choices[Math.floor(Math.random() * choices.length)];
       url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 1;
@@ -91,7 +91,7 @@ module.exports = async (_y, args) => {
       img5 = img1;
       console.log("choice2");
     }else  if(args[1] === '3'){
-      choices = require ('../data/cards/gold.js');
+      choices = require ('../data/cards/elite.js');
       const card = choices[Math.floor(Math.random() * choices.length)];
       url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 1;
@@ -108,7 +108,7 @@ module.exports = async (_y, args) => {
       img5 = img1;
       console.log("choice3");
     }else  if(args[1] === '4'){
-     choices = require ('../data/cards/elite.js');
+     choices = require ('../data/cards/elite85.js');
       const card = choices[Math.floor(Math.random() * choices.length)];
       url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 3;
@@ -125,7 +125,7 @@ module.exports = async (_y, args) => {
       img5 = img1;
       console.log("choice4");
     }else  if(args[1] === '5'){
-      choices = require ('../data/cards/elite85.js');
+      choices = require ('../data/cards/master.js');
       const card = choices[Math.floor(Math.random() * choices.length)];
       url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 3;
@@ -142,7 +142,7 @@ module.exports = async (_y, args) => {
       img5 = img1;
       console.log("choice5");
     }else if(args[1] === '6'){
-      choices = require ('../data/cards/master.js');
+      choices = require ('../data/cards/master95.js');
       const card = choices[Math.floor(Math.random() * choices.length)];
       url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 5;
@@ -159,7 +159,7 @@ module.exports = async (_y, args) => {
       img5 = img1;
       console.log("choice6");
     }else  if(args[1] === '7'){
-      choices = require ('../data/cards/master95.js');
+      choices = require ('../data/cards/legend.js');
       const card = choices[Math.floor(Math.random() * choices.length)];
       url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 7;
@@ -176,9 +176,6 @@ module.exports = async (_y, args) => {
       img5 = img1;
       console.log("choice7");
     }else  if(args[1] === '8'){
-      choices = require ('../data/cards/legend.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 3;
       amount1 = 1;
       id2 = 6;

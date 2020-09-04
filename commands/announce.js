@@ -12,7 +12,7 @@ module.exports = async (_y, args) => {
     }
     if( args[0]==='fe64e5wp12rtghth'){
     m.channel.send("Test!");
-    } else
+    } else if(args[0]==='fe64e5wp12rtghth')
     {
     const axios = require('axios');
 

@@ -198,7 +198,7 @@ module.exports = async (_y, args) => {
     const pack2 = await user.getPack(id2);
     const pack3 = await user.getPack(id3);
      if( pack1 < amont1 || pack2 < amount2 || pack3 < amount3){
-     return _y.reply( 'You don't have enough players for this SBC!' );
+      _y.message.channel.send('You don't have enough players for this SBC!');
      }else{
     const {
         createCanvas, loadImage

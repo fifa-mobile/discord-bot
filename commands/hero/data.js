@@ -1019,5 +1019,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/12.jpg?v=1598806647'
 },
+{
+  key: '/wolverine/10-161/',
+  name: 'Wolverine',
+  fullName: 'Logan',
+  stats: [
+    [ 'Intelligence', '85' ],
+    [ 'Strength', '25' ],
+    [ 'Speed', '50' ],
+    [ 'Durability', '100' ],
+    [ 'Power', '65' ],
+    [ 'Combat', '100' ],
+    [ 'Tier', '5' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/161.jpg?v=1594898579'
+},
 ];
 

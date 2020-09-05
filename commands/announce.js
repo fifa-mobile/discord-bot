@@ -38,10 +38,16 @@ module.exports = async (_y, args) => {
 
     //console.log(toAttach);
 
+    let result = _y.message.content.replace(
+      /.announce\s?/, ''
+    );
+
+    result = result.replace(/\&([^\][]+)&/g, "<a:$1>");
+
+    console.log(result);
+
     m.channel.send(
-      _y.message.content.replace(
-        /.announce\s?/, ''
-      )
+      result
       , {
         files: toAttach
       }

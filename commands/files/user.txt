@@ -1,4 +1,4 @@
-**```ℹ | {{prefix}}user (number)```**
+**```ℹ | {{prefix}}user```**
 
 **Use**:Used to show a table of users' IDs and coin balance.
 **Command**:{{prefix}}user (number)

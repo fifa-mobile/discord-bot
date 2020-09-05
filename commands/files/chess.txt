@@ -3,7 +3,7 @@
 **Command**:`{{prefix}}chess (new/move [move])`
 
 **Example**:
-`{{prefix}}chess`-Shows actual chessboard.
+`{{prefix}}chess`-Shows current chessboard.
 `{{prefix}}chess new`-Starts a new chess match.
 `{{prefix}}chess move Nc3`-Moves knight to C3.
 

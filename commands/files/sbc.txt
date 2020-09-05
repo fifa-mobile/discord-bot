@@ -1,0 +1,9 @@
+**```ℹ | {{prefix}}sbc```**
+**Use**:Used to perform several SBC command.
+**Command**:`{{prefix}}sbc (complete [id])`
+
+**Example**:
+`{{prefix}}sbc`-Shows a list of available SBCs.
+`{{prefix}}sbc complete 3`-Completes SBC with ID 3.
+
+```>Don't include brackets when using the commands.```

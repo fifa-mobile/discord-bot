@@ -105,6 +105,11 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       if (pack) {
+        console.log(
+          packid
+          , 'pack.amount' , pack.amount
+          , 'reduce', reduce
+        );
         if (reduce) {
           pack.amount -= reduce;
         } else {

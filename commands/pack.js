@@ -96,18 +96,18 @@ module.exports = async (_y, args) => {
   let choosen = {};
   let card = -1;
 
- 
-    choosen = players[
-      Math.floor(Math.random() * players.length)
-    ];
-    card = cards[choosen.id][
-      Math.floor(
-        Math.random() * cards[choosen.id].length
-      )
-    ];
+  choosen = players[
+    Math.floor(Math.random() * players.length)
+  ];
+  card = cards[choosen.id][
+    Math.floor(
+      Math.random() * cards[choosen.id].length
+    )
+  ];
 
 
   curr.add(uid, -cost);
+  console.log('choosen.id', choosen.id);
   await user.addPack(choosen.id);
 
   const title = `You got a ${choosen.type} player`;

@@ -1,4 +1,4 @@
-**```ℹ️  | {{prefix}}market buy/sell/price(s)```**
+**```ℹ️  | {{prefix}}market```**
 
 Use:Used to perform several market commands.
 Command:`{{prefix}}market price(s)/buy [id] [amount]/sell [id] [amount]`

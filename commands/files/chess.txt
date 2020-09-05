@@ -1,9 +1,10 @@
-**```ℹ | {{prefix}}chess (new/move [move])```**
+**```ℹ | {{prefix}}chess```**
 **Use**:Used to play chess.Check!
 **Command**:`{{prefix}}chess (new/move [move])`
 
 **Example**:
-`{{prefix}}chess (new)`-Starts a new chess match.
+`{{prefix}}chess`-Shows actual chessboard.
+`{{prefix}}chess new`-Starts a new chess match.
 `{{prefix}}chess move Nc3`-Moves knight to C3.
 
 **Move's Legend**:

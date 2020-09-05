@@ -1,4 +1,4 @@
-**```ℹ️  | {{prefix}}cv [country]```**
+**```ℹ️  | {{prefix}}cv```**
 
 Use:Used to get data on SARS CoV-2 pandemic in selected country.
 Command:`{{prefix}}cv [country]`

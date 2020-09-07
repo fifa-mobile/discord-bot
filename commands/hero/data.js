@@ -1079,5 +1079,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/1120.jpg?v=1597969424'
 },
+{
+  key: '/daredevil/10-52/',
+  name: 'Daredevil',
+  fullName: 'Matt Murdock',
+  stats: [
+    [ 'Intelligence', '80' ],
+    [ 'Strength', '5' ],
+    [ 'Speed', '11' ],
+    [ 'Durability', '10' ],
+    [ 'Power', '25' ],
+    [ 'Combat', '100' ],
+    [ 'Tier', '1' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/52.jpg?v=1597399378'
+},
 ];
 

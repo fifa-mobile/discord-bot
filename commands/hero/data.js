@@ -1064,5 +1064,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/269.jpg?v=147552135'
 },
+{
+  key: '/iron-fist/10-1120/',
+  name: 'Iron Fist',
+  fullName: 'Danny Rand',
+  stats: [
+    [ 'Intelligence', '65' ],
+    [ 'Strength', '55' ],
+    [ 'Speed', '20' ],
+    [ 'Durability', '16' ],
+    [ 'Power', '65' ],
+    [ 'Combat', '100' ],
+    [ 'Tier', '2' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/1120.jpg?v=1597969424'
+},
 ];
 

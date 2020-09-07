@@ -1049,5 +1049,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/127.jpg?v=1594688029'
 },
+{
+  key: '/luke-cage/10-269/',
+  name: 'Luke Cage',
+  fullName: 'Luke Cage',
+  stats: [
+    [ 'Intelligence', '55' ],
+    [ 'Strength', '55' ],
+    [ 'Speed', '50' ],
+    [ 'Durability', '40' ],
+    [ 'Power', '55' ],
+    [ 'Combat', '65' ],
+    [ 'Tier', '2' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/269.jpg?v=147552135'
+},
 ];
 

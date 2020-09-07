@@ -1034,5 +1034,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/161.jpg?v=1594898579'
 },
+{
+  key: '/silver-surfer/10-127/',
+  name: 'Silver Surfer',
+  fullName: 'Norrin Radd',
+  stats: [
+    [ 'Intelligence', '95' ],
+    [ 'Strength', '100' ],
+    [ 'Speed', '100' ],
+    [ 'Durability', '100' ],
+    [ 'Power', '95' ],
+    [ 'Combat', '30' ],
+    [ 'Tier', '6' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/127.jpg?v=1594688029'
+},
 ];
 

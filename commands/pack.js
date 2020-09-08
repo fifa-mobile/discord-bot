@@ -62,6 +62,9 @@ module.exports = async (_y, args) => {
     for (let i = 0; i < packs.length; i++) {
       const pack = packs[i];
       const [,,type] = data[pack.packid];
+      if(type === undefined){
+      break;
+      }
       const amount = '`' + '·' + String(
         pack.amount
       ).padStart(4, ' ') + '`';

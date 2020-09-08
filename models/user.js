@@ -100,6 +100,10 @@ module.exports = (sequelize, DataTypes) => {
     User.prototype.addPack = async function(
       packid, reduce = 0
     ) {
+     if (packid < 1 || packid === undefined){
+     console.log("Invalid PackID detected");
+     return;
+     }else{
       const pack = await Pack.findOne({
         where: {userid: this.id, packid: packid}
       });
@@ -120,7 +124,7 @@ module.exports = (sequelize, DataTypes) => {
 
       return await Pack.create({
         userid: this.id, packid: packid, amount: 1
-      });
+      });}
     };
 
     User.prototype.getPack = function(packid) {

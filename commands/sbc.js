@@ -277,7 +277,7 @@ module.exports = async (_y, args) => {
     await user.addPack(id1, amount1);
     await user.addPack(id2, amount2);
     await user.addPack(id3, amount3);
-    await user.addPack(idR, -amountR); 
+    await user.addPack(idR); 
 
     console.log('bbbbbbbbbbbbbbb');
     _y.message.channel.send(`SBC completed!`, {files: [attachment]});

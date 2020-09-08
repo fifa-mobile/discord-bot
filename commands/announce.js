@@ -42,7 +42,7 @@ module.exports = async (_y, args) => {
       /.announce\s?/, ''
     );
 
-    result = result.replace(/\&([^\][]+)&/g, "<a:$1>");
+    result = result.replace(/\[([^\][]+)]/g, "<a:$1>");
 
     console.log(result);
 

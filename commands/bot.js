@@ -14,8 +14,7 @@ module.exports = (_y, args) => {
     .setDescription('Info on League Bot')
     .setThumbnail(
       'https://fifa-mobile.github.io/images/'
-      + 'discordbot-bot-discord-'
-      + '11563261320iwm1tpnosh.png'
+      + 'botIcon.jpg'
     )
     .addField('Contributors:', users.join('\n'))
     .addField('Server(s):', 'AHQ Leagues', true)

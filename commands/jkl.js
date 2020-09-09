@@ -5,7 +5,8 @@ module.exports = async (_y, args) => {
   
  const botEmbed = new D.RichEmbed()
     .setColor('#74b4c3')
-    .setTitle('SBC <a:crabDance:751080988250996736>')
+    .setTitle('SBC 🦀 <a:crabDance:751080988250996736>')
+    .setURL('https://github.com/fifa-mobile')
     .setDescription('Use $sbc complete [id] to complete a SBC. <a:crabDance:751080988250996736>')
      _y.reply(botEmbed);
      _y.reply(`<a:crabDance:751080988250996736>`);

@@ -7,7 +7,7 @@ module.exports = (_y, args) => {
     'MahadhirMahi',
     'Genesis',
   ];
-  const botEmbed = new Discord.RichEmbed()
+  const botEmbed = new Discord.MessageEmbed()
     .setColor('#1d9eaf')
     .setTitle('League Bot')
     .setURL('https://github.com/fifa-mobile')

@@ -2,7 +2,7 @@ const y = require('../core/base');
 
 module.exports = (_y, args) => {
   let msg = _y.message;
-  let channel = y.client.channels.find(
+  let channel = y.client.channels.cache.find(
     ch => ch.name === 'x' || ch.name === 'one_word_story'
   );
   if (
@@ -10,7 +10,7 @@ module.exports = (_y, args) => {
     || msg.channel.name === 'one_word_story'
     || true
   ) {
-    channel.fetchMessages().then(
+    channel.messages.fetch().then(
       messages => {
         console.log('messages count: '+messages.size);
         let story = [];

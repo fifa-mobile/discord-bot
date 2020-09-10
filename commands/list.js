@@ -66,6 +66,6 @@ module.exports = async (_y, args) => {
   ctx.fillText(total, 590, 414);
 
   const buffer = canvas.toBuffer('image/png');
-  const attachment = new D.Attachment(buffer, 'x.png');
+  const attachment = new D.MessageAttachment(buffer, 'x.png');
   _y.reply({files: [attachment]});
 };

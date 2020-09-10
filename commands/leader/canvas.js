@@ -93,7 +93,7 @@ module.exports = async (_y, args, data) => {
   /* list */
 
   const imgBuf = canvas.toBuffer('image/png');
-  const attachment = new D.Attachment(imgBuf, 'i.png');
+  const attachment = new D.MessageAttachment(imgBuf, 'i.png');
 
   _y.reply({files: [attachment]});
 };

@@ -3,7 +3,7 @@ const {User} = require('../models/index.js');
 
 module.exports = async (_y, args) => {
   if (
-    _y.message.member.roles.find(
+    _y.message.member.roles.cache.find(
       r => r.name === 'Staff'
     )
   ) {

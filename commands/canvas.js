@@ -35,6 +35,6 @@ module.exports = async (_y, args) => {
   ctx.drawImage(logo, 340, 515, 70, 70);
 
   const buffer = canvas.toBuffer('image/png');
-  const attachment = new D.Attachment(buffer, 'x.png');
+  const attachment = new D.MessageAttachment(buffer, 'x.png');
   _y.reply({files: [attachment]});
 };

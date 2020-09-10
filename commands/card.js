@@ -42,7 +42,7 @@ module.exports = (_y, args) => {
     +
     `${id}.png`
   ;
-  const embed = new D.RichEmbed()
+  const embed = new D.MessageEmbed()
     .setColor('#0099ff')
     .setTitle('Get this card using $pack command!')
     .setImage(url)

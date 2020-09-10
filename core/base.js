@@ -103,7 +103,7 @@ Base.table = function(data, map) {
 };
 
 Base.uname = function(m, uid) {
-  const user = Base.client.users.get(uid);
+  const user = Base.client.users.cache.get(uid);
   if (!user) return 'unknown';
   const member = m.guild.member(user);
   if (!member) return user.username;

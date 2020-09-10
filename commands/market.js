@@ -67,7 +67,7 @@ module.exports = async (_y, args) => {
     ctx.drawImage(coinimg, 230, 370, 128, 128);
 
     const buffer = canvas.toBuffer('image/png');
-    const attachment = new D.Attachment(buffer, 'x.png');
+    const attachment = new D.MessageAttachment(buffer, 'x.png');
     _y.reply({files: [attachment]});
   };
 
@@ -182,7 +182,7 @@ module.exports = async (_y, args) => {
           +
           `${card}.png`
           ;
-          const embed = new D.RichEmbed()
+          const embed = new D.MessageEmbed()
           .setColor('#0099ff')
           .setTitle(title)
           .setImage(url)

@@ -18,11 +18,12 @@ module.exports = async (_y, args) => {
     limit: itemsPerPage,
     offset: isNaN(offset) ? 0 : offset,
   });
+  const maxPage = Math.floor(allUsers.length/itemsPerPage) - 1;
 
-  if (page > Math.floor(allUsers.length/itemsPerPage)) {
+  if (page > maxPage) {
     return _y.reply(
       `The pagination max is`
-      + ` ${Math.floor(allUsers.length/itemsPerPage)}`
+      + ` ${maxPage}`
     );
   }
 
@@ -35,7 +36,7 @@ module.exports = async (_y, args) => {
       ['coins', 10, 1],
     ])
     + `${page === undefined ? 0 : page}`
-    + `/${Math.floor(allUsers.length/itemsPerPage)}`
+    + `/${maxPage}`
     + ` page` 
   );
 };

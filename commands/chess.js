@@ -170,7 +170,7 @@ module.exports = async (_y, args) => {
     posY += 64;
   }
 
-  const attachment = new D.Attachment(
+  const attachment = new D.MessageAttachment(
     canvas.toBuffer(), 'img.png'
   );
 

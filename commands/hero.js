@@ -83,10 +83,14 @@ module.exports = async (_y, args) => {
     if (!args[1]) {
       return _y.reply('Mention a user!');
     }
+
+    const uid2 = getUser(args[1]);
     const user2 = await User.findOne({
-      where: {uid: getUser(args[1])}
+      where: {uid: uid2}
     });
     if (
+      user2
+      &&
       user.uid === user2.uid
       && cmd === 'fight'
     ) {
@@ -97,10 +101,7 @@ module.exports = async (_y, args) => {
       otherHero = await user2.getHero();
     } catch (e) {}
 
-    if (!user2) {
-      return _y.reply('Cannot fight the user!');
-    }
-    const otherName = y.uname(_y.message, user2.uid);
+    const otherName = y.uname(_y.message, uid2);
 
     if (cmd === 'show') {
       if (otherHero)
@@ -109,6 +110,10 @@ module.exports = async (_y, args) => {
         return _y.reply(
           `${otherName} is only a puny human.`
         );
+    }
+
+    if (!user2) {
+      return _y.reply('Cannot fight the user!');
     }
 
     return fight(
@@ -148,7 +153,9 @@ function getUser(client, str) {
 			str = str.slice(1);
 		}
 
-		return client.users.get(str);
+    console.log('get user', str);
+
+		return client.users.cache.get(str);
 	}
 }
 
@@ -322,11 +329,11 @@ async function showHero(_y, savedHero, name = false) {
   }
 
   const buffer = canvas.toBuffer('image/png');
-  const attachment = new D.Attachment(buffer, 'x.png');
+  const attachment = new D.MessageAttachment(buffer, 'x.png');
 
   let person = `You are`;
   if (name) person = `${name} is`;
-  const embed = new D.RichEmbed()
+  const embed = new D.MessageEmbed()
     .setTitle(
       person + ': ' + hero.name
       + (
@@ -484,9 +491,9 @@ async function fight(
   ctx.fillText(`-${secondHero.damage}`, 602, 140);
 
   const buffer = canvas.toBuffer('image/png');
-  const attachment = new D.Attachment(buffer, 'x.png');
+  const attachment = new D.MessageAttachment(buffer, 'x.png');
 
-  const embed = new D.RichEmbed()
+  const embed = new D.MessageEmbed()
     .setTitle(
       firstHero.name
       + ' ~ VS ~ '

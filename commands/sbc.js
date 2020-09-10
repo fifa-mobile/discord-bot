@@ -15,7 +15,7 @@ module.exports = async (_y, args) => {
   const weeklyPrimeID = 21500198;
   
   if(!cmd || cmd === 'list'){
-  const botEmbed = new D.RichEmbed()
+  const botEmbed = new D.MessageEmbed()
     .setColor('#74b4c3')
     .setTitle('SBC')
     .setDescription('Use $sbc complete [id] to complete a SBC.')
@@ -270,7 +270,7 @@ module.exports = async (_y, args) => {
     }
     console.log('bbbbbbbbbbbbbbb1');
 
-    const attachment = new D.Attachment(
+    const attachment = new D.MessageAttachment(
       canvas.toBuffer(), 'img.png'
     );
 

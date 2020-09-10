@@ -121,7 +121,7 @@ module.exports = async (_y, args) => {
     `${card}.png`
   ;
   const D = y.Discord;
-  const embed = new D.RichEmbed()
+  const embed = new D.MessageEmbed()
     .setColor('#0099ff')
     .setTitle(title)
     .setImage(url)

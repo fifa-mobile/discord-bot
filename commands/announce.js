@@ -3,7 +3,7 @@ const D = y.Discord
 
 module.exports = async (_y, args) => {
   const m = _y.message;
-  if (m.member.roles.find(r => r.name === 'Staff')) {
+  if (m.member.roles.cache.find(r => r.name === 'Staff')) {
     const attachments = Array.from(m.attachments);
     if (!args[0] && !attachments.length) {
       m.channel.send(

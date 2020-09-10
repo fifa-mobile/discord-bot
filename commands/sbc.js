@@ -13,6 +13,7 @@ module.exports = async (_y, args) => {
   const weeklyIconID = 21502635;
   const weeklyPrime = 'Zidane';
   const weeklyPrimeID = 21500198;
+  const sbcEmote = '<a:sbc:751850029358121000>';
   
   if(!cmd || cmd === 'list'){
   const botEmbed = new D.MessageEmbed()
@@ -27,7 +28,7 @@ module.exports = async (_y, args) => {
         +
         '4<:bronze:752816224424951848>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         '<:silver:752816253487415326>'
     )
@@ -42,7 +43,7 @@ module.exports = async (_y, args) => {
         +
         '<:silver:752816253487415326>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         '<:gold:752816253151871016>'
     )
@@ -57,7 +58,7 @@ module.exports = async (_y, args) => {
         +
         '<:gold:752816253151871016>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         '<:elite:752803219083755570>'
     )
@@ -72,7 +73,7 @@ module.exports = async (_y, args) => {
         +
         '<:elite:752803219083755570>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         '<:elite85:752816252308684822>'
     )
@@ -87,7 +88,7 @@ module.exports = async (_y, args) => {
         +
         '<:elite85:752816252308684822>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         '<:master:752816257807548417>'
     )
@@ -102,7 +103,7 @@ module.exports = async (_y, args) => {
         +
         '<:master:752816257807548417>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         '<:master95:752816259086942270>'
     )
@@ -113,7 +114,7 @@ module.exports = async (_y, args) => {
         +
         '4<:master95:752816259086942270>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         '<:legend:752816257379860561>'
     )
@@ -132,7 +133,7 @@ module.exports = async (_y, args) => {
         +
         '<:master95:752816259086942270>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         weeklyIcon + '<:icon:752816254892507177>'
     )
@@ -147,7 +148,7 @@ module.exports = async (_y, args) => {
         +
         '2<:legend:752816257379860561>'
         +
-        ' <a:switchArrows:751815223635214416> '
+        sbcEmote
         +
         weeklyPrime + '<:prime:752816261251072040>'
     )

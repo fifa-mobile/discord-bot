@@ -18,7 +18,7 @@ module.exports = async (_y, args) => {
     limit: itemsPerPage,
     offset: isNaN(offset) ? 0 : offset,
   });
-  const maxPage = Math.floor(allUsers.length/itemsPerPage) - 1;
+  const maxPage = Math.floor(allUsers.length/itemsPerPage);
 
   if (page > maxPage) {
     return _y.reply(

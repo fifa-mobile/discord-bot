@@ -39,7 +39,7 @@ async function ready() {
   ).then(presence => {
     console.log(
       `Activity set to ${
-        presence.game ? presence.game.name : 'none'
+        presence.activities[0].name
       }`
     );
   }).catch(console.error);

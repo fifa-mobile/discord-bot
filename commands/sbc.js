@@ -20,15 +20,137 @@ module.exports = async (_y, args) => {
     .setTitle('SBC')
     .setDescription('Use $sbc complete [id] to complete a SBC.')
     .setThumbnail('https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/sbc.jpg')
-    .addField('1.Bronze Upgrade:', '4 Bronze players<->1 Silver player')
-    .addField('2.Silver Upgrade:', '3 Bronze players+1 Silver player<->1 Gold player')
-    .addField('3.Gold Upgrade:', '2 Bronze players+1 Gold player<->1 Elite 80-85 player')
-    .addField('4.Weak Elite Upgrade:', '1 Gold player+1 80-85 Elite player<->1 85+ Elite player')
-    .addField('5.Elite Upgrade:', '1 Gold player+1 85+ Elite player<->1 90-95 Master player')
-    .addField('6.Weak Master Upgrade:', '1 85+ Elite player+1 90-95 Master player<->1 95+ Master player')
-    .addField('7.Master Upgrade:', '4 95+ Master player<->1 Legendary player')
-    .addField('8.Icon '+ weeklyIcon +':', '1 Gold player+1 90-95 Master player+1 95+ Master player<->1 '+ weeklyIcon +' Icon player')
-    .addField('9.Prime Icon '+ weeklyPrime +':', '3 Icon players+2 Legendary players<->1 '+ weeklyPrime +' Prime Icon player')
+    .addField(
+      '1. Bronze Upgrade'
+      ,
+        '───┤     '
+        +
+        '4<:bronze:752816224424951848>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        '<:silver:752816253487415326>'
+    )
+    .addField(
+      '2. Silver Upgrade'
+      ,
+        '───┤     '
+        +
+        '3<:bronze:752816224424951848>'
+        +
+        ' + '
+        +
+        '<:silver:752816253487415326>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        '<:gold:752816253151871016>'
+    )
+    .addField(
+      '3. Gold Upgrade'
+      ,
+        '───┤     '
+        +
+        '2<:bronze:752816224424951848>'
+        +
+        ' + '
+        +
+        '<:gold:752816253151871016>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        '<:elite:752803219083755570>'
+    )
+    .addField(
+      '4. Weak Elite Upgrade'
+      ,
+        '───┤     '
+        +
+        '<:gold:752816253151871016>'
+        +
+        ' + '
+        +
+        '<:elite:752803219083755570>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        '<:elite85:752816252308684822>'
+    )
+    .addField(
+      '5. Elite Upgrade'
+      ,
+        '───┤     '
+        +
+        '<:gold:752816253151871016>'
+        +
+        ' + '
+        +
+        '<:elite85:752816252308684822>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        '<:master:752816257807548417>'
+    )
+    .addField(
+      '6. Weak Master Upgrade'
+      ,
+        '───┤     '
+        +
+        '<:elite85:752816252308684822>'
+        +
+        ' + '
+        +
+        '<:master:752816257807548417>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        '<:master95:752816259086942270>'
+    )
+    .addField(
+      '7. Master Upgrade'
+      ,
+        '───┤     '
+        +
+        '4<:master95:752816259086942270>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        '<:legend:752816257379860561>'
+    )
+    .addField(
+      '8. Icon ' + weeklyIcon
+      ,
+        '───┤     '
+        +
+        '<:gold:752816253151871016>'
+        +
+        ' + '
+        +
+        '<:master:752816257807548417>'
+        +
+        ' + '
+        +
+        '<:master95:752816259086942270>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        weeklyIcon + '<:icon:752816254892507177>'
+    )
+    .addField(
+      '9. Prime Icon ' + weeklyPrime
+      ,
+        '───┤     '
+        +
+        '3<:icon:752816254892507177>'
+        +
+        ' + '
+        +
+        '2<:legend:752816257379860561>'
+        +
+        ' <a:switchArrows:751815223635214416> '
+        +
+        weeklyPrime + '<:prime:752816261251072040>'
+    )
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
   _y.reply(botEmbed);
   console.log("list");

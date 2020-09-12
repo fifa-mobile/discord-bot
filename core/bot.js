@@ -58,11 +58,15 @@ function message(m) {
           +
           `\nmessage: ${y.uname(message, message.author.id)}`
           +
-          `\nonChannel: ${m.channel.name}`
+          `\nonChannel: ${m.channel.id}`
           +
-          `\nmessage: ${message.channel.name}`
+          `\nmessage: ${message.channel.id}`
           +
           `\ncontent: ${message.content}`
+          +
+          '\nlink: '
+          +`https://discord.com/channels/${message.guild.id}`
+          +`/${message.channel.id}/${message.id}`
         )
       )
       .catch(console.error)

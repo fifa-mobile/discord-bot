@@ -347,7 +347,7 @@ async function showHero(_y, savedHero, name = false) {
     .setImage('attachment://x.png');
   ;
 
-  return _y.message.channel.send(embed);
+  return _y.reply(embed);
 }
 
 async function fight(
@@ -503,7 +503,7 @@ async function fight(
     .setImage('attachment://x.png');
   ;
 
-  return _y.message.channel.send(embed);
+  return _y.reply(embed);
 }
 
 function calculateFight(

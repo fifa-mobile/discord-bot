@@ -48,10 +48,42 @@ async function ready() {
 function message(m) {
   this.y.message = m;
   this.y.reply = text => {
-    m.channel.send(text);
+    m.channel
+      .send(text)
+      .then(
+        message => console.log(
+          `------------ message sent!`
+          +
+          `\nreplyingTo: ${y.uname(m, m.author.id)}`
+          +
+          `\nmessage: ${y.uname(message, message.author.id)}`
+          +
+          `\nonChannel: ${m.channel.name}`
+          +
+          `\nmessage: ${message.channel.name}`
+          +
+          `\ncontent: ${message.content}`
+        )
+      )
+      .catch(console.error)
+    ;
   };
   this.y.replyCode = text => {
-    m.channel.send('```' + text + '```');
+    m.channel
+      .send('```' + text + '```')
+      .then(
+        message => console.log(
+          `------------ message sent!`
+          +
+          `\nreplyingTo: ${y.uname(m, m.author.id)}`
+          +
+          `\nonChannel: ${m.channel.name}`
+          +
+          `\ncontent: ${message.content}`
+        )
+      )
+      .catch(console.error)
+    ;
   };
   this.y.currency = currency;
   const { prefix } = y.c.main;

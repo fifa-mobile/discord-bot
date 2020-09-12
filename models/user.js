@@ -8,8 +8,20 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     const {
-      Shop, UserShop, Pack, Hero, Pires
+      Shop, UserShop, Pack, Hero, Pires, Quest
     } = models;
+
+    User.prototype.quests = async function() {
+      const quests = await Quest.findOne({
+        where: {userid: this.id}
+      });
+
+      if (quests) return quests;
+
+      return await Quest.create({
+        userid: this.id
+      });
+    };
 
     User.prototype.pires = async function() {
       const pires = await Pires.findOne({

@@ -16,6 +16,7 @@ module.exports = async (_y, args) => {
       const dailyRewardCoins = 10;
       quests.daily = true;
       await quests.save();
+      curr.add(uid, dailyRewardCoins);
       _y.reply(
         `You got your daily`
         + ` <a:coin:751813392989290546>`

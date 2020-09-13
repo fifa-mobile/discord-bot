@@ -34,5 +34,5 @@ module.exports = async (_y, args) => {
   curr.add(user.uid, amount);
 
   const name = y.uname(_y.message, user.uid);
-  _y.reply(`<a:check:751443477417426964> | Adding $${amount}<a:coin:751813392989290546> to ${name}`);
+  _y.reply(`<a:check:751443477417426964> | Adding ${amount}<a:coin:751813392989290546> to ${name}.`);
 };

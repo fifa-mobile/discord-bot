@@ -24,7 +24,7 @@ module.exports = (_y, args) => {
           story.push(m);
         }
         story.reverse();
-        msg.channel.send('.....'+story.join(' '));
+        msg.channel.send(':european_castle::.....'+story.join(' '));
       }
     );
   } else {

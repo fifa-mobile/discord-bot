@@ -18,7 +18,7 @@ module.exports = async (_y, args) => {
   const id = Number(args[0]);
 
   if (!id || isNaN(id)) {
-    return _y.reply(`<a:cross:751443454244159519> | User ID needed!`);
+    return _y.reply(`<a:info:751794158162935838> | User ID needed!`);
   }
 
   const user = await User.findOne({where: {id: id}});
@@ -28,7 +28,7 @@ module.exports = async (_y, args) => {
     return _y.reply(`<a:cross:751443454244159519> | User not found!`);
   }
   if (isNaN(amount)) {
-    return _y.reply(`<a:cross:751443454244159519> | Amount needed`);
+    return _y.reply(`<a:info:751794158162935838> | Amount needed`);
   }
 
   curr.add(user.uid, amount);

@@ -10,12 +10,12 @@ module.exports = async (_y, args) => {
   }
 
   if (isNaN(page)) {
-    return _y.reply(`${page} is not a number!`);
+    return _y.reply(`<a:cross:751443454244159519> | ${page} is not a number!`);
   }
 
   const maxPage = Math.floor(heroesData.length / numberPerPage);
   if (page > maxPage) {
-    return _y.reply(`The pagination max is ${maxPage}`);
+    return _y.reply(`<a:info:751794158162935838> | The pagination max is ${maxPage}`);
   }
 
   const offset = (heroesData.length - 1) - (page * numberPerPage);

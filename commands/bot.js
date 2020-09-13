@@ -1,7 +1,7 @@
 module.exports = (_y, args) => {
   const Discord = _y.Discord;
   const users = [
-    'yuulye <a:yuulye:752179480164040764>',
+    'yuulye <:yuulye:752179480164040764>',
     'juve938383',
     'Pradeep',
     'MahadhirMahi',
@@ -11,7 +11,7 @@ module.exports = (_y, args) => {
     .setColor('#1d9eaf')
     .setTitle('League Bot')
     .setURL('https://github.com/fifa-mobile')
-    .setDescription('Info on League Bot')
+    .setDescription('<:info:751794158162935838> | Info on League Bot')
     .setThumbnail(
       'https://fifa-mobile.github.io/images/'
       + 'botIcon.jpg'

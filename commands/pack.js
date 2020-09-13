@@ -31,7 +31,7 @@ module.exports = async (_y, args) => {
       data[i].push(percentage);
     }
     let lines = [
-      '·Id│<a:coin:751813392989290546>  Value│ Chance %'
+      '·Id │<a:coin:751813392989290546>Value│ Chance %'
     ];
     for (let i = data.length - 1; i >= 0; i--) {
       const item = data[i];
@@ -45,7 +45,7 @@ module.exports = async (_y, args) => {
         percentage
       ).substring(0, 6).padStart(6, ' ');
       const line =
-        `\`·${id}│${price} │ ${percentage} %\` │`
+        `\`·${id}│${price} │ ${percentage}\` │`
         + `${type}`
       ;
       lines.push(line);

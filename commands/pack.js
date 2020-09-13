@@ -31,7 +31,7 @@ module.exports = async (_y, args) => {
       data[i].push(percentage);
     }
     let lines = [
-      '`·Id│   Value│ Chance %`'
+      '·Id│<a:coin:751813392989290546>  Value│ Chance %'
     ];
     for (let i = data.length - 1; i >= 0; i--) {
       const item = data[i];
@@ -45,7 +45,7 @@ module.exports = async (_y, args) => {
         percentage
       ).substring(0, 6).padStart(6, ' ');
       const line =
-        `\`·${id}│$${price} │ ${percentage} %\` │`
+        `\`·${id}│${price} │ ${percentage} %\` │`
         + `${type}`
       ;
       lines.push(line);
@@ -56,7 +56,7 @@ module.exports = async (_y, args) => {
   if (cmd === 'list') {
     const packs = await user.getPacks();
     if (!packs.length) {
-      return _y.reply(`You don't have any player.`);
+      return _y.reply(`<:info751794158162935838> | You don't have any player.`);
     }
     let lines = [];
     for (let i = 0; i < packs.length; i++) {
@@ -76,14 +76,14 @@ module.exports = async (_y, args) => {
 
   if (cmd) {
     return _y.reply(
-      `Option **${cmd}** not found, `
+      `<:info:751794158162935838> | Option **${cmd}** not found, `
       + `try, \`list / info\``
     );
   }
 
   if (!user || cost > balance) {
     return _y.reply(
-      `You don't have enough coins! Cost: $${cost}`
+      `<:info:751794158162935838> | You don't have enough coins! Cost: ${cost}<a:coin:751813392989290546>`
     );
   }
 

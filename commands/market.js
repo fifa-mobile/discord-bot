@@ -76,27 +76,27 @@ module.exports = async (_y, args) => {
     const id = args[1];
     const amount = Number(args[2]);
     if (!id) {
-      return _y.reply('Id required, see `$pack info`.');
+      return _y.reply('<:info:751794158162935838> | Id required, see `$pack info`.');
     }
     if (!amount || amount < 1) {
-      return _y.reply('Amount number needed!');
+      return _y.reply('<:info:751794158162935838> | Amount number needed!');
     }
     const pack = await user.getPack(id);
     if (!pack || !pack.amount) {
       return _y.reply(
-        `You don't have ${data[id][2]} player.`
+        `<:info:751794158162935838> | You don't have ${data[id][2]} player.`
       );
     }
     if (amount > pack.amount) {
       return _y.reply(
-        `You only have **${pack.amount}**.`
-        + ` ${data[id][2]} player`
+        `<:info:751794158162935838> | You only have **${pack.amount}**.`
+        + ` ${data[id][2]} players.`
       );
     }
     const price = data[id][1];
     await user.addPack(id, amount);
     curr.add(uid, price * amount);
-    return _y.reply(`You get $${price * amount} coins!`);
+    return _y.reply(`<:info:751794158162935838> | You get ${price * amount}<a:coin:751813392989290546>!`);
   }
   
   if (cmd === 'buy') {
@@ -107,13 +107,13 @@ module.exports = async (_y, args) => {
     const cost = price * amount;
 
     if (!id) {
-      return _y.reply('Id required, see `$pack info`.');
+      return _y.reply('<:info:751794158162935838> | Id required, see `$pack info`.');
     }
     if (!amount || amount < 1) {
-      return _y.reply('Amount number needed!');
+      return _y.reply('<:info:751794158162935838> | Amount number needed!');
     }
     if (cost > balance) {
-      return _y.reply('You don\'t have enough coins!');
+      return _y.reply('<:info:751794158162935838> | You don\'t have enough coins!');
     }
 
     if(amount > 1 || amount === 1){
@@ -168,7 +168,7 @@ module.exports = async (_y, args) => {
           );
         } else {
           return _y.reply(
-          `The id ${amount} is not found!`
+          `<:info:751794158162935838> | The ID ${amount} is not found!`
           );
         }
 
@@ -176,7 +176,7 @@ module.exports = async (_y, args) => {
         Math.floor(Math.random() * choices.length)
         ];
 
-        const title = `You purchased a player`;
+        const title = `<a:market:752814593159725106> | You purchased a player`;
         const url =
           'https://fifa-mobile.github.io/images/cards/'
           +
@@ -193,7 +193,7 @@ module.exports = async (_y, args) => {
 
       if(amount > 1){
         return _y.reply(
-        `You purchased ${amount} ${data[id][2]} players.`
+        `<a:market:752814593159725106> | You purchased ${amount} ${data[id][2]} players.`
         );
       }
     }

@@ -15,7 +15,7 @@ module.exports = async (_y, args) => {
 
   const maxPage = Math.floor(heroesData.length / numberPerPage);
   if (page > maxPage) {
-    return _y.reply(`<a:info:751794158162935838> | The pagination max is ${maxPage}`);
+    return _y.reply(`<:info:751794158162935838> | The pagination max is ${maxPage}`);
   }
 
   const offset = (heroesData.length - 1) - (page * numberPerPage);

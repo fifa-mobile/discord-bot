@@ -1,6 +1,6 @@
 module.exports = (_y, args) => {
   if (!args[0]) {
-    _y.reply("<a:info:751794158162935838> | Country name needed.");
+    _y.reply("<:info:751794158162935838> | Country name needed.");
     return;
   }
   let text = [];

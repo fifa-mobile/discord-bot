@@ -10,7 +10,7 @@ module.exports = async (_y, args) => {
     // continue
   } else {
     return _y.reply(
-      `You don't have permission to execute this command`
+      `<a:cross:751443454244159519> | You do not have enough permissions to execute this command.`
     );
   }
 
@@ -18,21 +18,21 @@ module.exports = async (_y, args) => {
   const id = Number(args[0]);
 
   if (!id || isNaN(id)) {
-    return _y.reply(`User ID needed!`);
+    return _y.reply(`<a:cross:751443454244159519> | User ID needed!`);
   }
 
   const user = await User.findOne({where: {id: id}});
   const amount = Number(args[1]);
 
   if (!user) {
-    return _y.reply(`User not found!`);
+    return _y.reply(`<a:cross:751443454244159519> | User not found!`);
   }
   if (isNaN(amount)) {
-    return _y.reply(`Amount needed`);
+    return _y.reply(`<a:cross:751443454244159519> | Amount needed`);
   }
 
   curr.add(user.uid, amount);
 
   const name = y.uname(_y.message, user.uid);
-  _y.reply(`Adding $${amount} to ${name}`);
+  _y.reply(`<a:check:751443477417426964> | Adding $${amount}<a:coin:751813392989290546> to ${name}`);
 };

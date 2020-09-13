@@ -15,8 +15,8 @@ module.exports = (_y, args) => {
     let answer = answers[
       Math.floor(Math.random()* answers.length)
     ];
-    _y.reply('🎱 | ' + answer);
+    _y.reply('<a:8ball:751810566661734460> | ' + answer);
   } else {
-    _y.reply('What do you want to ask?');
+    _y.reply('<a:8ball:751810566661734460> | What do you want to ask?');
   }
 };

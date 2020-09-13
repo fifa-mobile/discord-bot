@@ -175,7 +175,7 @@ module.exports = async (_y, args) => {
     var idR;
     var url;
     if(!args[1] || args[1] > 9 || args[1] < 1){
-      _y.reply('Invalid ID.Check `$sbc` or `$sbc list` for IDs.');
+      _y.reply('<:info:751794158162935838> | Invalid ID.Check `$sbc` or `$sbc list` for IDs.');
       console.log("invalid");
     }
 
@@ -341,7 +341,7 @@ module.exports = async (_y, args) => {
        ||
        (pack3 && pack3.amount < amount3)
      ){
-      _y.message.channel.send(`You don't have enough players for this SBC!`);
+      _y.message.channel.send(`<:info:751794158162935838> | You don't have enough players for this SBC!`);
      }else{
     const {
         createCanvas, loadImage
@@ -403,7 +403,7 @@ module.exports = async (_y, args) => {
     await user.addPack(idR); 
 
     console.log('bbbbbbbbbbbbbbb');
-    _y.message.channel.send(`SBC completed!`, {files: [attachment]});
+    _y.message.channel.send(`<a:sbc:751850029358121000> | SBC completed!`, {files: [attachment]});
   }
   }
 };

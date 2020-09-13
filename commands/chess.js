@@ -105,7 +105,7 @@ module.exports = async (_y, args) => {
         break;
       }
     } else if (cmd === 'move') {
-      return _y.reply(`Invalid move!`);
+      return _y.reply(`<a:cross:751806445246218301> | Invalid move!`);
     }
   } while(move);
 
@@ -175,7 +175,7 @@ module.exports = async (_y, args) => {
   );
 
   _y.message.channel.send(
-    `Valid **_${turn}_** moves:`
+    `<a:chess:751820693959868517> | Valid **_${turn}_** moves:`
     + ` ${validMoves.join(' , ')}`
     , {
       files: [attachment]

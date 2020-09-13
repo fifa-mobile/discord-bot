@@ -7,6 +7,6 @@ module.exports = async (_y, args) => {
   if (!user) {
     return _y.reply(`User not found!`);
   }
-  return _y.reply('<info:751794158162935838> | You have '+`${user.coins}`+'<a:coin:751813392989290546>');
+  return _y.reply('<:info:751794158162935838> | You have '+`${user.coins}`+'<a:coin:751813392989290546>');
 };
 

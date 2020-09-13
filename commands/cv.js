@@ -1,6 +1,6 @@
 module.exports = (_y, args) => {
   if (!args[0]) {
-    _y.reply("cv [country name]");
+    _y.reply("<a:info:751794158162935838> | Country name needed.");
     return;
   }
   let text = [];
@@ -15,7 +15,7 @@ module.exports = (_y, args) => {
   .then(data => {
     let x = data[country];
     if (!x) {
-      _y.reply(`${country} data not found!`);
+      _y.reply(`<a:cross:751443454244159519> | ${country} data not found!`);
       return;
     }
     x = x[x.length - 1];

@@ -32,7 +32,7 @@ module.exports = (_y, args) => {
 
   if (ids.indexOf(id) < 0) {
     return _y.reply(
-      `<a:info:751794158162935838> | Can't find the player with id#${id}`
+      `<a:cross:751443454244159519> | Can't find the player with id#${id}`
     );
   }
 

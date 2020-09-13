@@ -405,13 +405,13 @@ async function fight(
   if (
     firstHero.dead && secondHero.dead
   ) {
-    result = '<a:hero:752812855358783560> | You are both dead!';
+    result = 'You are both dead!';
   } else if (firstHero.dead) {
-    result = '<a:hero:752812855358783560> | You are dead!';
+    result = 'You are dead!';
   } else if (secondHero.dead) {
-    result = '<a:hero752812855358783560> | You killed ' + secondHero.name;
+    result = 'You killed ' + secondHero.name;
   } else {
-    result = '<a:hero:752812855358783560> | You both survived!';
+    result = 'You both survived!';
   }
 
   const D = y.Discord;

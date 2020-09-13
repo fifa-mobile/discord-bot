@@ -71,7 +71,7 @@ module.exports = async (_y, args) => {
     const status = await user.removeHero();
     if (status) {
       reply =
-        `<a:info:751794158162935838> | You killed yourself... `
+        `<:info:751794158162935838> | You killed yourself... `
         + `you reborn as Puny Human`;
     }
     return _y.reply(reply);
@@ -81,7 +81,7 @@ module.exports = async (_y, args) => {
 
   if (cmd === 'show' || cmd === 'fight') {
     if (!args[1]) {
-      return _y.reply('<a:info:751794158162935838> | Mention a user!');
+      return _y.reply('<:info:751794158162935838> | Mention a user!');
     }
 
     const uid2 = getUser(args[1]);
@@ -108,7 +108,7 @@ module.exports = async (_y, args) => {
         return showHero(_y, otherHero, otherName);
       else
         return _y.reply(
-          `<a:info:751794158162935838> | ${otherName} is only a Puny Human.`
+          `<:info:751794158162935838> | ${otherName} is only a Puny Human.`
         );
     }
 
@@ -128,7 +128,7 @@ module.exports = async (_y, args) => {
     console.log('... assigning you a hero ...');
     if (!unusedHeroesData.length) {
       return _y.reply(
-        '<a:info:751794158162935838> | No available hero for you. Kill one!'
+        '<:info:751794158162935838> | No available hero for you. Kill one!'
       );
     }
     const choosenIndex = Math.floor(

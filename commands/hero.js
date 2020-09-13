@@ -21,7 +21,7 @@ module.exports = async (_y, args) => {
   if (cmd === 'list') {
     let reply = `Couldn't find any hero!`;
     if (usedHeroes.length) {
-      reply = `The Heroes`;
+      reply = `:information_source: | The Heroes`;
       reply += `\n`;
       reply +=
         `----------------------------------------`;
@@ -71,8 +71,8 @@ module.exports = async (_y, args) => {
     const status = await user.removeHero();
     if (status) {
       reply =
-        `You killed yourself... `
-        + `you reborn as puny human`;
+        `<a:info:751794158162935838> | You killed yourself... `
+        + `you reborn as Puny Human`;
     }
     return _y.reply(reply);
   }
@@ -81,7 +81,7 @@ module.exports = async (_y, args) => {
 
   if (cmd === 'show' || cmd === 'fight') {
     if (!args[1]) {
-      return _y.reply('Mention a user!');
+      return _y.reply('<a:info:751794158162935838> | Mention a user!');
     }
 
     const uid2 = getUser(args[1]);
@@ -94,7 +94,7 @@ module.exports = async (_y, args) => {
       user.uid === user2.uid
       && cmd === 'fight'
     ) {
-      return _y.reply(`You can't fight yourself!`);
+      return _y.reply(`<a:cross:751443454244159519> | You can't fight yourself!`);
     }
     let otherHero = false;
     try {
@@ -108,12 +108,12 @@ module.exports = async (_y, args) => {
         return showHero(_y, otherHero, otherName);
       else
         return _y.reply(
-          `${otherName} is only a puny human.`
+          `<a:info:751794158162935838> | ${otherName} is only a Puny Human.`
         );
     }
 
     if (!user2) {
-      return _y.reply('Cannot fight the user!');
+      return _y.reply('<a:cross:751443454244159519> | Cannot fight the user!');
     }
 
     return fight(
@@ -128,7 +128,7 @@ module.exports = async (_y, args) => {
     console.log('... assigning you a hero ...');
     if (!unusedHeroesData.length) {
       return _y.reply(
-        'No available hero for you. Kill one!'
+        '<a:info:751794158162935838> | No available hero for you. Kill one!'
       );
     }
     const choosenIndex = Math.floor(
@@ -331,7 +331,7 @@ async function showHero(_y, savedHero, name = false) {
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.MessageAttachment(buffer, 'x.png');
 
-  let person = `You are`;
+  let person = `<a:hero:752812855358783560> | You are`;
   if (name) person = `${name} is`;
   const embed = new D.MessageEmbed()
     .setTitle(
@@ -405,13 +405,13 @@ async function fight(
   if (
     firstHero.dead && secondHero.dead
   ) {
-    result = 'You are both dead!';
+    result = '<a:hero:752812855358783560> | You are both dead!';
   } else if (firstHero.dead) {
-    result = 'You are dead!';
+    result = '<a:hero:752812855358783560> | You are dead!';
   } else if (secondHero.dead) {
-    result = 'You killed ' + secondHero.name;
+    result = '<a:hero752812855358783560> | You killed ' + secondHero.name;
   } else {
-    result = 'You both survived!';
+    result = '<a:hero:752812855358783560> | You both survived!';
   }
 
   const D = y.Discord;

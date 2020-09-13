@@ -1,7 +1,7 @@
 module.exports = (_y, args) => {
   const Discord = _y.Discord;
   const users = [
-    'yuulye',
+    'yuulye <a:yuulye:752179480164040764>',
     'juve938383',
     'Pradeep',
     'MahadhirMahi',

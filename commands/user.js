@@ -8,7 +8,7 @@ module.exports = async (_y, args) => {
   if (page === undefined) {
     //continue;
   } else if (isNaN(Number(page))) {
-    return _y.reply(`${page} isn't a number`);
+    return _y.reply(`<:info:751794158162935838> | ${page} isn't a number`);
   }
 
   const offset = itemsPerPage * page;
@@ -22,18 +22,18 @@ module.exports = async (_y, args) => {
 
   if (page > maxPage) {
     return _y.reply(
-      `The pagination max is`
+      `<:info:751794158162935838> | The pagination max is`
       + ` ${maxPage}`
     );
   }
 
   return _y.reply(
     y.table(users, [
-      ['id', 3, 1],
+      ['ID', 3, 1],
       [(uid) => {
-        return [y.uname(_y.message, uid), 'uid']
+        return [y.uname(_y.message, uid), 'uID']
       }, 20],
-      ['coins', 10, 1],
+      ['Coins', 10, 1],
     ])
     + `${page === undefined ? 0 : page}`
     + `/${maxPage}`

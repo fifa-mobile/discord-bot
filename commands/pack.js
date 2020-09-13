@@ -45,7 +45,7 @@ module.exports = async (_y, args) => {
         percentage
       ).substring(0, 6).padStart(6, ' ');
       const line =
-        `\`·${id}│${price}   |${percentage} %\` │`
+        `\`·${id}│${price}  |${percentage} %\` │`
         + `${type}`
       ;
       lines.push(line);

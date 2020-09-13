@@ -14,12 +14,12 @@ module.exports = async (_y, args) => {
   for (let i = 0; i < 4; i++) {
     if (!args[i]) {
       return _y.reply(
-        `<a:info:751794158162935838> | 4 arguments needed:OVR1 Chem1 OVR2 Chem2`
+        `<:info:751794158162935838> | 4 arguments needed:OVR1 Chem1 OVR2 Chem2`
       );
     }
     if (isNaN(Number(args[i]))) {
       return _y.reply(
-        `<a:info:751794158162935838> | Argument #${i+1} isNaN (Not a Number)!`
+        `<:info:751794158162935838> | Argument #${i+1} isNaN (Not a Number)!`
       );
     }
   }

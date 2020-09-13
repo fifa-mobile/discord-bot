@@ -19,19 +19,19 @@ module.exports = async (_y, args) => {
       curr.add(uid, dailyRewardCoins);
       _y.reply(
         `You got your daily`
-        + ` <a:coin:751813392989290546>`
         + ` ${dailyRewardCoins}`
+        + ` <a:coin:751813392989290546>!`
       );
       claimCount++;
     }
     if (!claimCount) {
       _y.reply(
-        'You already claimed all quest\'s rewards'
+        '<:info:751821635199172638> | You have already claimed all quests\' rewards'
       );
     }
   }
 
-  let message = 'No available quest for you!';
+  let message = '<:info:751821635199172638> | No available quest for you!';
 
   const items = [
     'Daily Claim',

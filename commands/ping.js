@@ -31,5 +31,5 @@ module.exports = (_y, args) => {
     Math.floor(Math.random()* pingNames.length)
   ];
   var pong=pongName;
-  _y.reply(`🏓|**Pong.**${pong}`);
+  _y.reply(`<a:pingPong:751821635199172638> |**Pong.**${pong}`);
 };

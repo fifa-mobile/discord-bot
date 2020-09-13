@@ -29,11 +29,11 @@ module.exports = async (_y, args) => {
 
   return _y.reply(
     y.table(users, [
-      ['ID', 3, 1],
+      ['id', 3, 1],
       [(uid) => {
-        return [y.uname(_y.message, uid), 'uID']
+        return [y.uname(_y.message, uid), 'uid']
       }, 20],
-      ['Coins', 10, 1],
+      ['coins', 10, 1],
     ])
     + `${page === undefined ? 0 : page}`
     + `/${maxPage}`

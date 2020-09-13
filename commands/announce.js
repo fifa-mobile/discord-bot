@@ -7,7 +7,7 @@ module.exports = async (_y, args) => {
     const attachments = Array.from(m.attachments);
     if (!args[0] && !attachments.length) {
       m.channel.send(
-      'What do you want to announce?'
+      '<a:announce:751806445254606928> | What do you want to announce?'
       );
       return;
     }
@@ -55,7 +55,7 @@ module.exports = async (_y, args) => {
     m.delete();
   }else {
     m.channel.send(
-    "You do not have enough permissions"
+    "<a:info:751794158162935838> | You do not have enough permissions"
     + " to use this command."
     );
   }

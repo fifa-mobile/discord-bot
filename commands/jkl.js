@@ -30,7 +30,7 @@ module.exports = async (_y, args) => {
   const hasCourtois = true;
   
   
-
+console.log('var');
    if(hasBenzema){
       p1id = `21165153`;
     }else{
@@ -90,19 +90,19 @@ module.exports = async (_y, args) => {
     }else{
       p11id = `21192119B`;
     }
-
-      const p1 ='https://fifa-mobile.github.io/images/TestImg/' + `${p1id}.png`
-      const p2 ='https://fifa-mobile.github.io/images/TestImg/' + `${p2id}.png`
-      const p3 ='https://fifa-mobile.github.io/images/TestImg/' + `${p3id}.png`
-      const p4 ='https://fifa-mobile.github.io/images/TestImg/' + `${p4id}.png`
-      const p5 ='https://fifa-mobile.github.io/images/TestImg/' + `${p5id}.png`
-      const p6 ='https://fifa-mobile.github.io/images/TestImg/' + `${p6id}.png`
-      const p7 ='https://fifa-mobile.github.io/images/TestImg/' + `${p7id}.png`
-      const p8 ='https://fifa-mobile.github.io/images/TestImg/' + `${p8id}.png`
-      const p9 ='https://fifa-mobile.github.io/images/TestImg/' + `${p9id}.png`
-      const p10 ='https://fifa-mobile.github.io/images/TestImg/' + `${p10id}.png`
-      const p11 ='https://fifa-mobile.github.io/images/TestImg/' + `${p11id}.png`
-    
+console.log('id');
+      const p1 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p1id}.png`
+      const p2 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p2id}.png`
+      const p3 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p3id}.png`
+      const p4 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p4id}.png`
+      const p5 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p5id}.png`
+      const p6 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p6id}.png`
+      const p7 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p7id}.png`
+      const p8 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p8id}.png`
+      const p9 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p9id}.png`
+      const p10 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p10id}.png`
+      const p11 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p11id}.png`
+    console.log('images');
     const {createCanvas, loadImage} = require('canvas');
 
     const w = 1053;

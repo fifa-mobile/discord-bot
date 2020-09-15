@@ -105,7 +105,7 @@ console.log('id');
     console.log('images');
     const {createCanvas, loadImage} = require('canvas');
 
-    const w = 1053;
+    const w = 900;
     const h = 960;
     const canvas = createCanvas(w, h);
     const ctx = canvas.getContext('2d');
@@ -146,7 +146,7 @@ console.log('id');
 
     const attachment = new D.MessageAttachment(canvas.toBuffer(), 'img.png');
 
-    _y.message.channel.send(`Your **${challengeTeam}** reward:`, {files: [attachment]});
+    _y.message.channel.send(`Your **${challengeTeam}** collection:`, {files: [attachment]});
   
 };
   

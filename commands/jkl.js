@@ -6,17 +6,17 @@ module.exports = async (_y, args) => {
   const D = y.Discord;
   
   const challengeTeam = 'Real Madrid';
-  const p1id;
-  const p2id;
-  const p3id;
-  const p4id;
-  const p5id;
-  const p6id;
-  const p7id;
-  const p8id;
-  const p9id;
-  const p10id;
-  const p11id;
+  var p1id;
+  var p2id;
+  var p3id;
+  var p4id;
+  var p5id;
+  var p6id;
+  var p7id;
+  var p8id;
+  var p9id;
+  var p10id;
+  var p11id;
   const hasBenzema = false;
   const hasVinicius = true;
   const hasHazard = false;

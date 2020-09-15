@@ -102,7 +102,7 @@ module.exports = async (_y, args) => {
       const p11 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p11id +'.png'
     const {createCanvas, loadImage} = require('canvas');
 
-    const w = 900;
+    const w = 960;
     const h = 960;
     const canvas = createCanvas(w, h);
     const ctx = canvas.getContext('2d');

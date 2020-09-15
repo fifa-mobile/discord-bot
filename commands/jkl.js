@@ -30,7 +30,6 @@ module.exports = async (_y, args) => {
   const hasCourtois = true;
   
   
-console.log('var');
    if(hasBenzema){
       p1id = '21165153';
     }else{
@@ -90,7 +89,6 @@ console.log('var');
     }else{
       p11id = '21192119B';
     }
-console.log('id');
       const p1 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p1id +'.png'
       const p2 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p2id +'.png'
       const p3 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p3id +'.png'
@@ -102,7 +100,6 @@ console.log('id');
       const p9 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p9id +'.png'
       const p10 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p10id +'.png'
       const p11 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p11id +'.png'
-    console.log('images');
     const {createCanvas, loadImage} = require('canvas');
 
     const w = 900;
@@ -112,7 +109,6 @@ console.log('id');
     const pitch = 'https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/pitch.png'
     
     const canP1 = await loadImage(p1);
-  
     const canP2 = await loadImage(p2);
     const canP3 = await loadImage(p3);
     const canP4 = await loadImage(p4);
@@ -124,17 +120,15 @@ console.log('id');
     const canP10 = await loadImage(p10);
     const canP11 = await loadImage(p11);
     const canPitch = await loadImage(pitch);
-    
-   console.log('images loaded');
+
     
     const s = 192;
     ctx.drawImage(canPitch, 0, 0, w, h);
-    ctx.drawImage(canP1, 96, 96, s, s);
-  console.log('testSuccessful');
-    ctx.drawImage(canP2, 384, 0, s, s);
-    ctx.drawImage(canP3, 702, 96, s, s);
-    ctx.drawImage(canP4, 192, 384, s, s);
-    ctx.drawImage(canP5, 384, 384, s, s);
+    ctx.drawImage(canP3, 96, 96, s, s);
+    ctx.drawImage(canP1, 384, 0, s, s);
+    ctx.drawImage(canP2, 702, 96, s, s);
+    ctx.drawImage(canP5, 192, 384, s, s);
+    ctx.drawImage(canP4, 384, 384, s, s);
     ctx.drawImage(canP6, 576, 384, s, s);
     ctx.drawImage(canP7, 0, 702, s, s);
     ctx.drawImage(canP8, 192, 768, s, s);

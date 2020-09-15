@@ -112,6 +112,7 @@ console.log('id');
     const pitch = 'https://fifa-mobile.github.io/images/TestImg/pitch.png'
     
     const canP1 = await loadImage(p1);
+  console.log('img1 loaded');
     const canP2 = await loadImage(p2);
     const canP3 = await loadImage(p3);
     const canP4 = await loadImage(p4);

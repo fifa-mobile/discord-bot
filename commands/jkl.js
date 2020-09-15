@@ -32,9 +32,9 @@ module.exports = async (_y, args) => {
   
 console.log('var');
    if(hasBenzema){
-      p1id = `21165153`;
+      p1id = '21165153';
     }else{
-      p1id = `21165153B`;
+      p1id = '21165153B';
     }
    
    if(hasVinicius){
@@ -129,6 +129,7 @@ console.log('id');
     const s = 192;
     ctx.drawImage(canPitch, 0, 0, w, h);
     ctx.drawImage(canP1, 96, 96, s, s);
+  console.log('testSuccessful');
     ctx.drawImage(canP2, 384, 0, s, s);
     ctx.drawImage(canP3, 702, 96, s, s);
     ctx.drawImage(canP4, 192, 384, s, s);

@@ -130,11 +130,11 @@ module.exports = async (_y, args) => {
     ctx.drawImage(canP5, 192, 384, s, s);
     ctx.drawImage(canP4, 384, 384, s, s);
     ctx.drawImage(canP6, 576, 384, s, s);
-    ctx.drawImage(canP7, 0, 702, s, s);
-    ctx.drawImage(canP8, 192, 768, s, s);
-    ctx.drawImage(canP9, 576, 768, s, s);
-    ctx.drawImage(canP10, 768, 702, s, s);
-    ctx.drawImage(canP11, 384, 816, s, s);
+    ctx.drawImage(canP7, 0, 574, s, s);
+    ctx.drawImage(canP8, 192, 640, s, s);
+    ctx.drawImage(canP9, 576, 640, s, s);
+    ctx.drawImage(canP10, 768, 574, s, s);
+    ctx.drawImage(canP11, 384, 688, s, s);
      
   console.log('canvas');
 

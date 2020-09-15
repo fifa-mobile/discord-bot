@@ -91,17 +91,17 @@ console.log('var');
       p11id = `21192119B`;
     }
 console.log('id');
-      const p1 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p1id}.png`
-      const p2 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p2id}.png`
-      const p3 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p3id}.png`
-      const p4 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p4id}.png`
-      const p5 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p5id}.png`
-      const p6 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p6id}.png`
-      const p7 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p7id}.png`
-      const p8 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p8id}.png`
-      const p9 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p9id}.png`
-      const p10 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p10id}.png`
-      const p11 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + `${p11id}.png`
+      const p1 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p1id +'.png'
+      const p2 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p2id +'.png'
+      const p3 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p3id +'.png'
+      const p4 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p4id +'.png'
+      const p5 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p5id +'.png'
+      const p6 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p6id +'.png'
+      const p7 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p7id +'.png'
+      const p8 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p8id +'.png'
+      const p9 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p9id +'.png'
+      const p10 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p10id +'.png'
+      const p11 ='https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/TestImg/' + p11id +'.png'
     console.log('images');
     const {createCanvas, loadImage} = require('canvas');
 
@@ -140,6 +140,7 @@ console.log('id');
     ctx.drawImage(canP10, 768, 702, s, s);
     ctx.drawImage(canP11, 384, 816, s, s);
      
+  console.log('canvas');
 
     const attachment = new D.MessageAttachment(canvas.toBuffer(), 'img.png');
 

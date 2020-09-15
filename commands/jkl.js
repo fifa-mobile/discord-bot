@@ -144,8 +144,7 @@ module.exports = async (_y, args) => {
     const attachment = new D.MessageAttachment(canvas.toBuffer(), 'img.png');
 
     _y.message.channel.send(`Your **${challengeTeam}** reward:`, {files: [attachment]});
-  }
-  }
+  
 };
   
   

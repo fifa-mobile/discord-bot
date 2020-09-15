@@ -127,7 +127,7 @@ module.exports = async (_y, args) => {
    
     
     const s = 192;
-    ctx.drawImage(canPitch, 1053, 960, s, s);
+    ctx.drawImage(canPitch, 0, 0, w, h);
     ctx.drawImage(canP1, 96, 96, s, s);
     ctx.drawImage(canP2, 384, 0, s, s);
     ctx.drawImage(canP3, 702, 96, s, s);

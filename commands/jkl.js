@@ -109,7 +109,7 @@ console.log('id');
     const h = 960;
     const canvas = createCanvas(w, h);
     const ctx = canvas.getContext('2d');
-    const pitch = 'https://fifa-mobile.github.io/images/TestImg/pitch.png'
+    const pitch = 'https://raw.githubusercontent.com/fifa-mobile.github.io/images/TestImg/pitch.png'
     
     const canP1 = await loadImage(p1);
   

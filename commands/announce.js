@@ -11,7 +11,9 @@ module.exports = async (_y, args) => {
       );
       return;
     }
-   
+   if(args[0]==='ejiwoqhdieks'){
+   m.channel.send("Test.")
+   }else{
     const axios = require('axios');
 
     const toAttach = [];
@@ -53,6 +55,7 @@ module.exports = async (_y, args) => {
       }
     );
     m.delete();
+  }
   }else {
     m.channel.send(
     "<a:cross:751443454244159519> | You do not have enough permissions"

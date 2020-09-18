@@ -12,7 +12,7 @@ module.exports = async (_y, args) => {
       return;
     }
    if(args[0]==='ejiwoqhdieks'){
-   m.channel.send("Test.")
+   m.channel.send("Hello everyone! \n It is time for another AHQ Tournament!!! <a:1blobDance:739413657028526091> \n This time it is a special one and we will reveal more regarding reason in the upcomming days. \n So let's get to action, shall we? \n To enter the Tournament all you need to do is react below. Keep in mind that this Tournament will have some restrictions regarding team building but don't worry, they aren't too hard. See you on the virtual pitch!")
    }else{
     const axios = require('axios');
 

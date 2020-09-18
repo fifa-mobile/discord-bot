@@ -53,7 +53,7 @@ module.exports = async (_y, args) => {
       }
     );
     m.delete();
-  
+  }
   } else {
     m.channel.send(
     "<a:cross:751443454244159519> | You do not have enough permissions"

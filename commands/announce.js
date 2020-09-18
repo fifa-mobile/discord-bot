@@ -13,7 +13,7 @@ module.exports = async (_y, args) => {
     }
    if(args[0]==='ejiwoqhdieks'){
    const D = y.Discord;
-   const url = 'https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/AHQH2H.gif';
+   const url = 'https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/ezgif-2-1192d97e645f.gif';
    /*const img = await loadImage(url);*/
    const attachment = new D.MessageAttachment(url, 'AHQH2H.gif');
 

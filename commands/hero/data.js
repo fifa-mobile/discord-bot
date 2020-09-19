@@ -1109,5 +1109,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/20877.jpg?v=1597654609'
 },
+{
+  key: '/big-chill/10-20857/',
+  name: 'Big Chill',
+  fullName: 'Necrofriggian',
+  stats: [
+    [ 'Intelligence', '70' ],
+    [ 'Strength', '50' ],
+    [ 'Speed', '75' ],
+    [ 'Durability', '85' ],
+    [ 'Power', '85' ],
+    [ 'Combat', '85' ],
+    [ 'Tier', '3' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/20857.jpg?v=1597460670'
+},
 ];
 

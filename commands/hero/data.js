@@ -1094,5 +1094,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/52.jpg?v=1597399378'
 },
+{
+  key: '/swampfire/10-20877/',
+  name: 'Swampfire',
+  fullName: 'Methanosian',
+  stats: [
+    [ 'Intelligence', '65' ],
+    [ 'Strength', '75' ],
+    [ 'Speed', '25' ],
+    [ 'Durability', '100' ],
+    [ 'Power', '85' ],
+    [ 'Combat', '90' ],
+    [ 'Tier', '3' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/20877.jpg?v=1597654609'
+},
 ];
 

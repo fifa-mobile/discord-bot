@@ -1124,5 +1124,20 @@ module.exports = [
   ],
   img: 'https://www.superherodb.com/pictures2/portraits/10/050/20857.jpg?v=1597460670'
 },
+{
+  key: '/humungosaur/10-20870/',
+  name: 'Humungosaur',
+  fullName: 'Vaxasaurian',
+  stats: [
+    [ 'Intelligence', '50' ],
+    [ 'Strength', '100' ],
+    [ 'Speed', '20' ],
+    [ 'Durability', '95' ],
+    [ 'Power', '80' ],
+    [ 'Combat', '85' ],
+    [ 'Tier', '3' ]
+  ],
+  img: 'https://www.superherodb.com/pictures2/portraits/10/050/20870.jpg?v=1597656577'
+},
 ];
 

@@ -21,7 +21,7 @@ module.exports = async (_y, args) => {
   if (cmd === 'list') {
     let reply = `Couldn't find any hero!`;
     if (usedHeroes.length) {
-      reply = `:information_source: | The Heroes`;
+      reply = `ℹ | The Heroes`;
       reply += `\n`;
       reply +=
         `----------------------------------------`;

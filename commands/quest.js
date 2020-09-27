@@ -26,12 +26,12 @@ module.exports = async (_y, args) => {
     }
     if (!claimCount) {
       _y.reply(
-        '<:info:751821635199172638> | You have already claimed all quests\' rewards'
+        '<:info:751794158162935838 | You have already claimed all quests\' rewards'
       );
     }
   }
 
-  let message = '<:info:751821635199172638> | No available quest for you!';
+  let message = '<:info:751794158162935838> | No available quest for you!';
 
   const items = [
     'Daily Claim',

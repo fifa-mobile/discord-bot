@@ -26,7 +26,7 @@ module.exports = async (_y, args) => {
     }
     if (!claimCount) {
       _y.reply(
-        '<:info:751794158162935838 | You have already claimed all quests\' rewards'
+        '<:info:751794158162935838> | You have already claimed all quests\' rewards'
       );
     }
   }

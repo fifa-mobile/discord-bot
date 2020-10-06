@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node ./bin/www",
+    "devstart": "nodemon -e css,pug,ejs,js,mjs,json ./bin/www",
+    "dev": "DEBUG=discord-bot:* npm run devstart"
   },
   "repository": {
     "type": "git",
@@ -27,13 +29,18 @@
     "cheerio": "^1.0.0-rc.3",
     "chess": "^0.4.3",
     "chess-base": "^1.2.0",
+    "cookie-parser": "^1.4.5",
     "dateformat": "^3.0.3",
+    "debug": "^4.2.0",
     "discord.js": "^12.3.1",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.3",
-    "google-spreadsheet": "^3.0.10",
+    "google-spreadsheet": "^3.0.13",
     "handlebars": "^4.7.6",
+    "http-errors": "^1.8.0",
     "lottie-web": "^5.6.8",
+    "morgan": "^1.10.0",
     "node-cron": "^2.0.3",
     "node-fetch": "^2.6.0",
     "node-url-shortener": "^1.0.1",
@@ -44,5 +51,7 @@
     "sequelize-cli": "^5.5.1",
     "string-argv": "^0.3.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }

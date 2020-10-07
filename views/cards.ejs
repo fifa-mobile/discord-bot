@@ -1,0 +1,13 @@
+<style>
+  img {
+    width: 72px;
+  }
+</style>
+<a href="/">Home</a>
+<br/>
+<br/>
+<br/>
+<% for (let i = 0; i < cards.reverse().length; i++) { %>
+  <% const card = cards[i]; %>
+  <img src="<%= card.img %>"/>
+<% } %>

@@ -7,7 +7,15 @@
 <br/>
 <br/>
 <br/>
-<% for (let i = 0; i < cards.reverse().length; i++) { %>
+<% for (let i = 0; i < cards.length; i++) { %>
   <% const card = cards[i]; %>
-  <img src="<%= card.img %>"/>
+  <a 
+   style="display: inline-block;text-align: center;"
+   target="_blank"
+   href="https://fifarenderz.com/20/player/<%= card.id %>"
+  >
+    <img src="<%= card.img %>"/>
+    <br/>
+    <%= card.id %>
+  </a>
 <% } %>

@@ -9,18 +9,23 @@ module.exports = async (_y, args) => {
   let id = args[0];
 
   let card = {};
+  let noID = false;
   if (!id) {
     card = cards[
       Math.floor(Math.random() * cards.length)
     ];
     id = card.id;
+    noID = true;
   }
 
   if (id.length > 20) {
     id = id.substring(34);
   }
 
-  if (!cards.find(o => o.id === id)) {
+  if (!noID) {
+    card = cards.find(o => o.id === id);
+  }
+  if (!card) {
     return _y.reply(
       `<a:cross:751443454244159519> | Can't find the player with id#${id}`
     );

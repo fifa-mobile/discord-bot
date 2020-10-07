@@ -115,6 +115,10 @@ function message(m) {
     m.channel.name !== 'test-bot'
     &&
     m.channel.name !== 'bot-chat'
+    &&
+    m.channel.name !== 'server-announcements'
+    && 
+    m.channel.name !== 'bot-updates'
   ) {
     const guilds = {
       '633689372742516746': '636253531812134942', // ahq

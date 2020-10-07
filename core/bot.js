@@ -106,9 +106,27 @@ function message(m) {
   ) return;
   
   if (
-    m.channel.name === 'game-discussion'
+    m.channel.name !== 'bots'
+    && 
+    m.channel.name !== 'commands'
+    &&
+    m.channel.name !== 'test'
+    &&
+    m.channel.name !== 'test-bot'
+    &&
+    m.channel.name !== 'bot-chat'
   ) {
-    return this.y.reply(`Please use it on <#636253531812134942> channel`);
+    const guilds = {
+      '633689372742516746': '636253531812134942', // ahq
+      '743927679476301864': '746842934422405181', // fifa dads
+    };
+
+    const channelID = guilds[m.guild.id]
+      ? guilds[m.guild.id] : 'unknown';
+    
+    return this.y.reply(
+      `Please use it on <#${channelID}> channel`
+    );
   }
   if (
     !m.content.startsWith(prefix)

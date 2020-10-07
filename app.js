@@ -1,8 +1,17 @@
+var base = require('./core/base');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = base.c.mongodb.value;
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.set('useCreateIndex', true);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

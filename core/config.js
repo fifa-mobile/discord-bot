@@ -6,6 +6,7 @@ try {
     google: require(dir + 'google.json'),
     sequelize: require(dir + 'sequelize.json'),
     insource: require(dir + 'insource.json'),
+    mongodb: require(dir + 'mongodb.json'),
   };
 } catch (e) {
   config = {
@@ -13,6 +14,7 @@ try {
     google: JSON.parse(process.env.google),
     sequelize: JSON.parse(process.env.sequelize),
     insource: require(dir + 'insource.json'),
+    google: JSON.parse(process.env.mongodb),
   };
 }
 

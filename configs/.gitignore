@@ -1,3 +1,4 @@
 config.json
 google.json
 sequelize.json
+mongodb.json

@@ -10,7 +10,7 @@ module.exports = async (card) => {
   image = await loadImage(card.playerImg);
   ctx.drawImage(image, 0, 0);
 
-  ctx.font = '32px monospace';
+  ctx.font = 'condensed 32px dinpro';
   ctx.fillStyle = '#eee';
   ctx.strokeStyle = '#111';
   ctx.lineWidth = 4;

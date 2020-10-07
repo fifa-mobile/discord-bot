@@ -14,7 +14,7 @@ try {
     google: JSON.parse(process.env.google),
     sequelize: JSON.parse(process.env.sequelize),
     insource: require(dir + 'insource.json'),
-    google: JSON.parse(process.env.mongodb),
+    mongodb: JSON.parse(process.env.mongodb),
   };
 }
 

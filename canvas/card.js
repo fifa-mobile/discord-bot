@@ -19,7 +19,7 @@ module.exports = async (card) => {
   ctx.fillText(card.rating, 60, 60);
 
   ctx.textAlign = 'center';
-  ctx.font = '12px serif';
+  ctx.font = '12px posterama';
 
   ctx.strokeText(card.position, 78, 80);
   ctx.fillText(card.position, 78, 80);
@@ -30,7 +30,7 @@ module.exports = async (card) => {
   image = await loadImage(card.nationImg);
   ctx.drawImage(image, 62, 140, 30, 18);
 
-  ctx.font = '16px serif';
+  ctx.font = '16px posterama';
 
   ctx.strokeText(card.name, 128, 194);
   ctx.fillText(card.name, 128, 194);

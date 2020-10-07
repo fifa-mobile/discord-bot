@@ -104,6 +104,16 @@ function message(m) {
     !m.content.startsWith(prefix)
     || m.author.bot
   ) return;
+  
+  if (
+    m.channel.name === 'game-discussion'
+  ) {
+    return this.y.reply(`Please use it on <#636253531812134942> channel`);
+  }
+  if (
+    !m.content.startsWith(prefix)
+    || m.author.bot
+  ) return;
 
   const input = m.content.slice(prefix.length).trim();
   const { parseArgsStringToArgv } = require(

@@ -96,6 +96,10 @@ function message(m) {
     &&
     m.channel.name !== 'one_word_story'
     &&
+    m.channel.name !== 'rythm_songrequests'
+    &&
+    m.channel.name !== 'red-card'
+    &&
     !m.content.startsWith(prefix)
     &&
     !m.author.bot

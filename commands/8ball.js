@@ -15,8 +15,8 @@ module.exports = (m, args) => {
     let answer = answers[
       Math.floor(Math.random()* answers.length)
     ];
-    m.channel.reply('<a:8ball:751810566661734460> | ' + answer);
+    m.channel.send('<a:8ball:751810566661734460> | ' + answer);
   } else {
-    m.channel.reply('<a:8ball:751810566661734460> | What do you want to ask?');
+    m.channel.send('<a:8ball:751810566661734460> | What do you want to ask?');
   }
 };

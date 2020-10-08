@@ -1,4 +1,4 @@
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const y = require('../core/base');
   const Card = require('../models/mongoose/card');
 
@@ -26,7 +26,7 @@ module.exports = async (_y, args) => {
     card = cards.find(o => o.id === id);
   }
   if (!card) {
-    return _y.reply(
+    return m.channel.send(
       `<a:cross:751443454244159519> | Can't find the player with id#${id}`
     );
   }
@@ -38,5 +38,5 @@ module.exports = async (_y, args) => {
     .setImage(card.img)
     .setURL(card.img)
   ;
-	_y.reply(embed);
+	m.channel.send(embed);
 };

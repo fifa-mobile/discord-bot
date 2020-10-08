@@ -24,19 +24,19 @@ function table(data) {
   return '```' + lines.join('\n') + '```';
 }
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   let text = "init...";
   const db = require('../models/index.js');
 
   const name = args[0];
   const description = args[1];
-  const username = _y.message.author.username;
+  const username = m.author.username;
 
   if (!name) {
     const tags = await db.Tag.findAll({
       order: [['id']]
     });
-    return _y.reply(table(tags));
+    return m.channel.send(table(tags));
   }
 
   const data = await db.Tag.findOrBuild({
@@ -49,26 +49,26 @@ module.exports = async (_y, args) => {
     tag.username = username;
     tag.description = description;
     await tag.save();
-    return _y.reply(`tag **${name}** created!`);
+    return m.channel.send(`tag **${name}** created!`);
   }
 
   if (tag.username === username && description) {
     tag.description = description;
     await tag.save();
-    return _y.reply(
+    return m.channel.send(
       `tag **${name}**'s`
       + `description updated!`
     );
   } else if (!description) {
     await tag.increment('usage');
     await tag.save();
-    return _y.reply(
+    return m.channel.send(
       `Name: ${tag.name}`
       + `\nDesc: ${tag.description}`
       + `\nusage: ${tag.usage}`
     );
   } else if (tag.username !== username) {
-    return _y.reply(
+    return m.channel.send(
       `tag **${name}** is created by `
       + `**${tag.username}**, `
       + `you can't change its description!`

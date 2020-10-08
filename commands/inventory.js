@@ -1,20 +1,19 @@
-const {User} = require('../models/index.js');
-
-module.exports = async (_y, args) => {
-  const uid = _y.message.author.id;
+module.exports = async (m, args) => {
+  const {User} = require('../models/index.js');
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
 
   if (!user) {
-    return _y.reply('Try having conversation!');
+    return m.channel.send('Try having conversation!');
   }
 
   const items = await user.getItems();
 
   if (
     !items.length
-  )return _y.reply('You have nothing!');
+  )return m.channel.send('You have nothing!');
 
-  return _y.reply(
+  return m.channel.send(
     `you have `
     +
     `${items.map(

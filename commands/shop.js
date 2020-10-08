@@ -37,17 +37,17 @@ function table(data, map) {
   return '```' + lines.join('\n') + '```';
 }
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const cmd = args[0];
   const name = args[1];
   const cost = Number(args[2]);
 
   if (cmd === 'add' || cmd === 'update' && member.hasPermission('ADMINISTRATOR')) {
     if (!name || !cost) {
-      return _y.reply(`name and cost required!`);
+      return m.channel.send(`name and cost required!`);
     }
     if (isNaN(cost)) {
-      return _y.reply(`cost must be a number!`);
+      return m.channel.send(`cost must be a number!`);
     }
     const [item, isNew] = await Shop.findOrBuild({
       where: {
@@ -57,15 +57,15 @@ module.exports = async (_y, args) => {
     item.cost = cost;
     await item.save();
     if (isNew) {
-      return _y.reply(`new item **${name}** created!`);
+      return m.channel.send(`new item **${name}** created!`);
     }
-    return _y.reply(`**${name}** updated!`);
+    return m.channel.send(`**${name}** updated!`);
   }
 
   const shop = await Shop.findAll({
     order: [['id']]
   });
-  return _y.reply(table(shop, [
+  return m.channel.send(table(shop, [
     ['id', 3, 1],
     ['name', 14],
     ['cost', 5, 1],

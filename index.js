@@ -1,5 +1,4 @@
-const y = require('./core/y');
-//require('./core/web')(y);
-require('./core/bot')(y);
-require('./core/cron')(y);
+console.log(`>>> App restarted ${(new Date()).toTimeString()}`);
+require('./core/bot');
+require('./core/cron');
 

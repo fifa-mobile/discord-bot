@@ -1,5 +1,4 @@
-
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   let page = Number(args[0]);
   const numberPerPage = 10;
   const heroesData = require('./hero/data');
@@ -10,12 +9,12 @@ module.exports = async (_y, args) => {
   }
 
   if (isNaN(page)) {
-    return _y.reply(`<a:cross:751443454244159519> | ${page} is not a number!`);
+    return m.channel.send(`<a:cross:751443454244159519> | ${page} is not a number!`);
   }
 
   const maxPage = Math.floor(heroesData.length / numberPerPage);
   if (page > maxPage) {
-    return _y.reply(`<:info:751794158162935838> | The pagination max is ${maxPage}`);
+    return m.channel.send(`<:info:751794158162935838> | The pagination max is ${maxPage}`);
   }
 
   const offset = (heroesData.length - 1) - (page * numberPerPage);
@@ -40,11 +39,13 @@ module.exports = async (_y, args) => {
     );
   }
 
-  _y.replyCode(
+  m.channel.send(
+    '```' +
     heroes.join('\n')
     +
     `\n\n----------------`
     +
     `${page}/${maxPage} page`
+    + '```'
   );
 };

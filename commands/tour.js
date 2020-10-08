@@ -1,9 +1,9 @@
 const y = require('../core/base');
 
-module.exports = (_y, args) => {
+module.exports = (m, args) => {
   args = args.filter(
     arg =>
-      !_y.Discord.MessageMentions
+      !y.Discord.MessageMentions
         .CHANNELS_PATTERN.test(arg)
   );
 
@@ -28,7 +28,7 @@ module.exports = (_y, args) => {
     ];
 
     if (!args[0]) {
-      _y.reply('options: participants');
+      m.channel.send('options: participants');
       return;
     }
 
@@ -46,10 +46,10 @@ module.exports = (_y, args) => {
       args[0] === 'round'
     ) {
       const shuffled = require('./tour/shuffled')(
-        _y, data, await sheets[ids.shuffled].getRows()
+        m, data, await sheets[ids.shuffled].getRows()
       );
       const groups = require('./tour/groups')(
-        _y, data, shuffled 
+        m, data, shuffled 
       );
       const group = groups[args[1] - 1];
 
@@ -63,7 +63,7 @@ module.exports = (_y, args) => {
         args[0] === 'round'
       ) {
         require('./tour/fixture')(
-          _y, args, group
+          m, args, group
           , await sheets[
             ids.groups + (args[1] - 1)
           ].getRows()
@@ -79,14 +79,14 @@ module.exports = (_y, args) => {
       args[0] === 'draw'
     ) {
       teams = require('./tour/participants')(
-        _y, data, sheets[ids.participants]
+        m, data, sheets[ids.participants]
         , await sheets[ids.participants].getRows()
         , args[0] === 'participants'
       );
     }
 
     if (args[0] === 'draw' && !data.locked) {
-      require('./tour/draw')(_y, data, teams);
+      require('./tour/draw')(m, data, teams);
     }
   };
 

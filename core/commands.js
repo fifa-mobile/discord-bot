@@ -1,6 +1,6 @@
 const y = require('./base');
 
-function commands(_y, cmd, args) {
+function commands(_y, cmd, args, curr) {
   const p = y.c.main.prefix;
   try {
     y.l(`executing command: ${cmd}`, args);
@@ -15,7 +15,7 @@ function commands(_y, cmd, args) {
       );
       return;
     }
-    require('../' + path)(_y, args);
+    require('../' + path)(_y, args, curr);
   } catch(e) {
     const c = `${p}${cmd}`;
     console.log(e);

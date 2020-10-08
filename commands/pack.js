@@ -2,9 +2,8 @@ const y = require('../core/base');
 const {User} = require('../models/index.js');
 const cards = require('../data/cards');
 
-module.exports = async (_y, args) => {
-  const curr = _y.currency;
-  const uid = _y.message.author.id;
+module.exports = async (m, args, curr) => {
+  const uid = m.author.id;
   const cost = 10;
   const user = await User.findOne({where: {uid: uid}});
   const balance = curr.getBalance(uid);
@@ -50,13 +49,13 @@ module.exports = async (_y, args) => {
       ;
       lines.push(line);
     }
-    return _y.reply(lines.join('\n'));
+    return m.channel.send(lines.join('\n'));
   }
 
   if (cmd === 'list') {
     const packs = await user.getPacks();
     if (!packs.length) {
-      return _y.reply(`<:info751794158162935838> | You don't have any player.`);
+      return m.channel.send(`<:info751794158162935838> | You don't have any player.`);
     }
     let lines = [];
     for (let i = 0; i < packs.length; i++) {
@@ -71,18 +70,18 @@ module.exports = async (_y, args) => {
       const line = `${amount} - ${type}`;
       lines.push(line);
     }
-    return _y.reply(lines.join('\n'));
+    return m.channel.send(lines.join('\n'));
   }
 
   if (cmd) {
-    return _y.reply(
+    return m.channel.send(
       `<:info:751794158162935838> | Option **${cmd}** not found, `
       + `try, \`list / info\``
     );
   }
 
   if (!user || cost > balance) {
-    return _y.reply(
+    return m.channel.send(
       `<:info:751794158162935838> | You don't have enough coins! Cost: ${cost}<a:coin:751813392989290546>`
     );
   }
@@ -127,5 +126,5 @@ module.exports = async (_y, args) => {
     .setImage(url)
     .setURL(url)
   ;
-	_y.reply(embed);
+	m.channel.send(embed);
 };

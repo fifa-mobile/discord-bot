@@ -1,4 +1,4 @@
-module.exports = (_y, args) => {
+module.exports = (m, args) => {
   const pingTypes = [
     "Testing,testing.Is this thing working?",
     "Match point.Let's see what you've got.",
@@ -31,5 +31,5 @@ module.exports = (_y, args) => {
     Math.floor(Math.random()* pingNames.length)
   ];
   var pong=pongName;
-  _y.reply(`<a:pingPong:751821635199172638> |**Pong.**${pong}`);
+  m.channel.send(`<a:pingPong:751821635199172638> |**Pong.**${pong}`);
 };

@@ -1,24 +1,23 @@
-const y = require('../core/base');
-const { GoogleSpreadsheet } = require(
-  'google-spreadsheet'
-);
-
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
+  const y = require('../core/base');
+  const { GoogleSpreadsheet } = require(
+    'google-spreadsheet'
+  );
   args = args.filter(
     arg =>
-    !_y.Discord.MessageMentions.CHANNELS_PATTERN.test(
+    !y.Discord.MessageMentions.CHANNELS_PATTERN.test(
       arg
     )
   );
 
   for (let i = 0; i < 4; i++) {
     if (!args[i]) {
-      return _y.reply(
+      return m.channel.send(
         `<:info:751794158162935838> | 4 arguments needed:OVR1 Chem1 OVR2 Chem2`
       );
     }
     if (isNaN(Number(args[i]))) {
-      return _y.reply(
+      return m.channel.send(
         `<:info:751794158162935838> | Argument #${i+1} isNaN (Not a Number)!`
       );
     }
@@ -60,7 +59,7 @@ module.exports = async (_y, args) => {
     args[0], args[1], args[2], args[3], data
   );
 
-  return _y.reply(rating.toString());
+  return m.channel.send(rating.toString());
 };
 
 class Rating {

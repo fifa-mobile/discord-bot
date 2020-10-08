@@ -1,5 +1,6 @@
-module.exports = (_y, args) => {
-  const Discord = _y.Discord;
+module.exports = (m, args) => {
+  const y = require('../core/base');
+  const Discord = y.Discord;
   const users = [
     'yuulye <:yuulye:752179480164040764>',
     'juve938383',
@@ -22,5 +23,5 @@ module.exports = (_y, args) => {
     .addField('Use:', 'General purpose', true)
     .setTimestamp()
     .setFooter('@fifa-mobile|AHQ League');
-  _y.reply(botEmbed);
+  m.channel.send(botEmbed);
 };

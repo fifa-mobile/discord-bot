@@ -9,14 +9,14 @@ class UserTotal {
   }
 }
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const users = await User.findAll({
     order: [['id']]
   });
   const data = [];
   for (let i = 0; i < users.length; i++) {
     const user = users[i];
-    const uname = y.uname(_y.message, user.uid);
+    const uname = y.uname(m, user.uid);
 
     const packs = await user.getPacks();
     let total = 0;
@@ -43,6 +43,6 @@ module.exports = async (_y, args) => {
     }
   );
   require('./leader/canvas')(
-    _y, args, result.slice(0, 9)
+    m, args, result.slice(0, 9)
   );
 };

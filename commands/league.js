@@ -1,5 +1,5 @@
 const y = require('../core/base');
 
-module.exports = (_y, args) => {
+module.exports = (m, args) => {
   y.l('league command!');
 };

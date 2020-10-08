@@ -3,12 +3,11 @@ const {User, Hero} = require('../models/index.js');
 const site = 'https://www.superherodb.com';
 const heroesData = require('./hero/data');
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args, curr) => {
   // crawl();return;
   const cmd = args[0];
-  const uid = _y.message.author.id;
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
-  const curr = _y.currency;
   const balance = curr.getBalance(uid);
   const usedHeroes = (await Hero.findAll()).filter(
     hero => hero.userid !== null
@@ -49,7 +48,7 @@ module.exports = async (_y, args) => {
         line += '| ';
         line += (
           await usedHero.getUser()
-        ).uname(_y.message).padEnd(14, ' ');
+        ).uname(m).padEnd(14, ' ');
         lines.push(line);
       }
       if (lines.length) {
@@ -59,7 +58,7 @@ module.exports = async (_y, args) => {
         reply = `Couldn't find any hero!`;
       }
     }
-    return _y.reply(reply);
+    return m.channel.send(reply);
   }
 
   const unusedHeroesData = heroesData.filter(hero => {
@@ -74,14 +73,14 @@ module.exports = async (_y, args) => {
         `<:info:751794158162935838> | You killed yourself... `
         + `you reborn as Puny Human`;
     }
-    return _y.reply(reply);
+    return m.channel.send(reply);
   }
 
   let savedHero = await user.getHero();
 
   if (cmd === 'show' || cmd === 'fight') {
     if (!args[1]) {
-      return _y.reply('<:info:751794158162935838> | Mention a user!');
+      return m.channel.send('<:info:751794158162935838> | Mention a user!');
     }
 
     const uid2 = getUser(args[1]);
@@ -94,30 +93,30 @@ module.exports = async (_y, args) => {
       user.uid === user2.uid
       && cmd === 'fight'
     ) {
-      return _y.reply(`<a:cross:751443454244159519> | You can't fight yourself!`);
+      return m.channel.send(`<a:cross:751443454244159519> | You can't fight yourself!`);
     }
     let otherHero = false;
     try {
       otherHero = await user2.getHero();
     } catch (e) {}
 
-    const otherName = y.uname(_y.message, uid2);
+    const otherName = y.uname(m, uid2);
 
     if (cmd === 'show') {
       if (otherHero)
-        return showHero(_y, otherHero, otherName);
+        return showHero(m, otherHero, otherName);
       else
-        return _y.reply(
+        return m.channel.send(
           `<:info:751794158162935838> | ${otherName} is only a Puny Human.`
         );
     }
 
     if (!user2) {
-      return _y.reply('<a:cross:751443454244159519> | Cannot fight the user!');
+      return m.channel.send('<a:cross:751443454244159519> | Cannot fight the user!');
     }
 
     return fight(
-      _y, savedHero, otherHero
+      m, savedHero, otherHero
       , user, user2
     );
   }
@@ -127,7 +126,7 @@ module.exports = async (_y, args) => {
   } else {
     console.log('... assigning you a hero ...');
     if (!unusedHeroesData.length) {
-      return _y.reply(
+      return m.channel.send(
         '<:info:751794158162935838> | No available hero for you. Kill one!'
       );
     }
@@ -138,7 +137,7 @@ module.exports = async (_y, args) => {
     savedHero = await user.assignHero(source);
   }
 
-  return showHero(_y, savedHero);
+  return showHero(m, savedHero);
 };
 
 function getUser(client, str) {
@@ -276,7 +275,7 @@ function getUser(str) {
 	}
 }
 
-async function showHero(_y, savedHero, name = false) {
+async function showHero(m, savedHero, name = false) {
   const hero = heroesData.find(
     hero => hero.key === savedHero.source
   );
@@ -347,11 +346,11 @@ async function showHero(_y, savedHero, name = false) {
     .setImage('attachment://x.png');
   ;
 
-  return _y.reply(embed);
+  return m.channel.send(embed);
 }
 
 async function fight(
-  _y, savedHero, otherHero, user, user2
+  m, savedHero, otherHero, user, user2
 ) {
   let firstHero, secondHero, firstHP, secondHP;
   try {
@@ -503,7 +502,7 @@ async function fight(
     .setImage('attachment://x.png');
   ;
 
-  return _y.reply(embed);
+  return m.channel.send(embed);
 }
 
 function calculateFight(

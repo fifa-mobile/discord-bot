@@ -1,5 +1,4 @@
 const y = require('./base');
-
 const currency = new y.Discord.Collection();
 const db = require('../models/index.js');
 const User = db.User;
@@ -26,11 +25,14 @@ Reflect.defineProperty(currency, 'add', {
   },
 });
 
-async function ready() {
+const c = y.client;
+c.login(y.c.main.token);
+
+c.once('ready', async () => {
   const storedCoins = await User.findAll();
   storedCoins.forEach(b => currency.set(b.uid, b));
 
-  const client = this.y.client;
+  const client = y.client;
   y.l(`logged in as ${client.user.tag}!`);
 
   client.user.setActivity(
@@ -43,53 +45,9 @@ async function ready() {
       }`
     );
   }).catch(console.error);
-}
+});
 
-function message(m) {
-  this.y.message = m;
-  this.y.reply = text => {
-    m.channel
-      .send(text)
-      .then(
-        message => console.log(
-          `------------ message sent!`
-          +
-          `\nreplyingTo: ${y.uname(m, m.author.id)}`
-          +
-          `\nmessage: ${y.uname(message, message.author.id)}`
-          +
-          `\nonChannel: ${m.channel.id}`
-          +
-          `\nmessage: ${message.channel.id}`
-          +
-          `\ncontent: ${message.content}`
-          +
-          '\nlink: '
-          +`https://discord.com/channels/${message.guild.id}`
-          +`/${message.channel.id}/${message.id}`
-        )
-      )
-      .catch(console.error)
-    ;
-  };
-  this.y.replyCode = text => {
-    m.channel
-      .send('```' + text + '```')
-      .then(
-        message => console.log(
-          `------------ message sent!`
-          +
-          `\nreplyingTo: ${y.uname(m, m.author.id)}`
-          +
-          `\nonChannel: ${m.channel.name}`
-          +
-          `\ncontent: ${message.content}`
-        )
-      )
-      .catch(console.error)
-    ;
-  };
-  this.y.currency = currency;
+c.on('message', m => {
   const { prefix } = y.c.main;
   if (
     m.channel.name !== 'emoji-spam'
@@ -132,7 +90,7 @@ function message(m) {
     const channelID = guilds[m.guild.id]
       ? guilds[m.guild.id] : 'unknown';
     
-    return this.y.reply(
+    return m.channel.send(
       `Please use it on <#${channelID}> channel`
     );
   }
@@ -147,21 +105,5 @@ function message(m) {
   );
   const args = parseArgsStringToArgv(input);
   const cmd = args.shift();
-  require('./commands')(this.y, cmd, args);
-}
-
-class Bot {
-  constructor(_y) {
-    this.y = _y;
-    this.init();
-  }
-
-  init() {
-    const c = this.y.client;
-    c.login(y.c.main.token);
-    c.once('ready', ready.bind(this));
-    c.on('message', message.bind(this));
-  }
-}
-
-module.exports = (y) => new Bot(y);
+  require('./commands')(m, cmd, args, currency);
+});

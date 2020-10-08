@@ -1,14 +1,14 @@
 const y = require('../core/base');
 const {User} = require('../models/index');
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const itemsPerPage = 10;
   const page = args[0];
 
   if (page === undefined) {
     //continue;
   } else if (isNaN(Number(page))) {
-    return _y.reply(`<:info:751794158162935838> | ${page} isn't a number`);
+    return m.channel.send(`<:info:751794158162935838> | ${page} isn't a number`);
   }
 
   const offset = itemsPerPage * page;
@@ -21,17 +21,17 @@ module.exports = async (_y, args) => {
   const maxPage = Math.floor(allUsers.length/itemsPerPage);
 
   if (page > maxPage) {
-    return _y.reply(
+    return m.channel.send(
       `<:info:751794158162935838> | The pagination max is`
       + ` ${maxPage}`
     );
   }
 
-  return _y.reply(
+  return m.channel.send(
     y.table(users, [
       ['id', 3, 1],
       [(uid) => {
-        return [y.uname(_y.message, uid), 'uid']
+        return [y.uname(m, uid), 'uid']
       }, 20],
       ['coins', 10, 1],
     ])

@@ -1,8 +1,8 @@
 const types = require('../data/packTypes');
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const {User} = require('../models/index');
-  const uid = _y.message.author.id;
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const y = require('../core/base');
   const D = y.Discord;
@@ -67,5 +67,5 @@ module.exports = async (_y, args) => {
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.MessageAttachment(buffer, 'x.png');
-  _y.reply({files: [attachment]});
+  m.channel.send({files: [attachment]});
 };

@@ -1,6 +1,6 @@
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const {User} = require('../models/index');
-  const uid = _y.message.author.id;
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const y = require('../core/base');
   const D = y.Discord;
@@ -140,7 +140,7 @@ module.exports = async (_y, args) => {
 
     const attachment = new D.MessageAttachment(canvas.toBuffer(), 'img.png');
 
-    _y.message.channel.send(`Your **${challengeTeam}** collection:`, {files: [attachment]});
+    m.channel.send(`Your **${challengeTeam}** collection:`, {files: [attachment]});
   
 };
   

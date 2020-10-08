@@ -1,8 +1,7 @@
 const y = require('../core/base');
 const D = y.Discord
 
-module.exports = async (_y, args) => {
-  const m = _y.message;
+module.exports = async (m, args) => {
   if (m.member.roles.cache.find(r => r.name === 'Staff')) {
     const attachments = Array.from(m.attachments);
     if (!args[0] && !attachments.length) {
@@ -38,7 +37,7 @@ module.exports = async (_y, args) => {
 
     //console.log(toAttach);
 
-    let result = _y.message.content.replace(
+    let result = m.content.replace(
       /.announce\s?/, ''
     );
 

@@ -12,7 +12,7 @@ function toArray(string) {
   return board;
 }
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const
     y = require('../core/base'),
     D = y.Discord,
@@ -105,7 +105,7 @@ module.exports = async (_y, args) => {
         break;
       }
     } else if (cmd === 'move') {
-      return _y.reply(`<a:cross:751806445246218301> | Invalid move!`);
+      return m.channel.send(`<a:cross:751806445246218301> | Invalid move!`);
     }
   } while(move);
 
@@ -174,7 +174,7 @@ module.exports = async (_y, args) => {
     canvas.toBuffer(), 'img.png'
   );
 
-  _y.message.channel.send(
+  m.channel.send(
     `<a:chess:751820693959868517> | Valid **_${turn}_** moves:`
     + ` ${validMoves.join(' , ')}`
     , {

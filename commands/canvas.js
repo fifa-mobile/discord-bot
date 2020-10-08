@@ -1,4 +1,4 @@
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   const y = require('../core/base');
   const D = y.Discord;
   const { createCanvas, loadImage } = require('canvas');
@@ -36,5 +36,5 @@ module.exports = async (_y, args) => {
 
   const buffer = canvas.toBuffer('image/png');
   const attachment = new D.MessageAttachment(buffer, 'x.png');
-  _y.reply({files: [attachment]});
+  m.channel.send({files: [attachment]});
 };

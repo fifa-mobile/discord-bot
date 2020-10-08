@@ -1,25 +1,25 @@
 const y = require('../core/base');
 const {User} = require('../models/index');
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args) => {
   if (
-    _y.message.member.roles.find(
+    m.member.roles.find(
       r => r.name === 'Staff'
     )
   ) {
     // continue
   } else {
-    return _y.reply(
+    return m.channel.send(
       `You don't have permission to execute this command`
     );
   }
   const users = await User.findAll({
     order: [['id']]
   });
-  return _y.reply(y.table(users, [
+  return m.channel.send(y.table(users, [
     ['id', 3, 1],
     [(uid) => {
-      return [y.uname(_y.message, uid), 'uid']
+      return [y.uname(m, uid), 'uid']
     }, 10],
     ['uid', 20, 1],
   ]));

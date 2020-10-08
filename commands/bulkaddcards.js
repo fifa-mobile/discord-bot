@@ -1,4 +1,4 @@
-module.exports = async(_y, args) => {
+module.exports = async(m, args) => {
   const cards = require('../olddata/cards');
   const Card = require('../models/mongoose/card');
   const dbCards = await Card.find({});
@@ -9,6 +9,6 @@ module.exports = async(_y, args) => {
       o => o.id === id
     ) ? true : false;
     console.log('card#', i, ' id:', id, '...is added?', added);
-    //await require('./addcard')(_y, [cards[i]]);
+    //await require('./addcard')(m, [cards[i]]);
   }
 };

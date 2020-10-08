@@ -1,8 +1,7 @@
-module.exports = (_y, args) => {
-  const m = _y.message;
-
+module.exports = (m, args) => {
+  const y = require('../core/base');
   args = args.filter(
-    arg => !_y.Discord.MessageMentions.CHANNELS_PATTERN.test(arg)
+    arg => !y.Discord.MessageMentions.CHANNELS_PATTERN.test(arg)
   );
 
   let reply = args[0];

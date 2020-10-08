@@ -2,9 +2,8 @@ const y = require('../core/base');
 const D = y.Discord;
 const { User } = require('../models/index');
 
-module.exports = async (_y, args) => {
-  const curr = _y.currency;
-  const uid = _y.message.author.id;
+module.exports = async (m, args, curr) => {
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const quests = await user.quests();
 
@@ -17,7 +16,7 @@ module.exports = async (_y, args) => {
       quests.daily = true;
       await quests.save();
       curr.add(uid, dailyRewardCoins);
-      _y.reply(
+      m.channel.send(
         `You got your daily`
         + ` ${dailyRewardCoins}`
         + ` <a:coin:751813392989290546>!`
@@ -25,7 +24,7 @@ module.exports = async (_y, args) => {
       claimCount++;
     }
     if (!claimCount) {
-      _y.reply(
+      m.channel.send(
         '<:info:751794158162935838> | You have already claimed all quests\' rewards'
       );
     }
@@ -61,5 +60,5 @@ module.exports = async (_y, args) => {
     .setTitle('Quests')
     .setDescription(message)
   ;
-  _y.reply(embed);
+  m.channel.send(embed);
 };

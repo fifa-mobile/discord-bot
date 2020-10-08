@@ -1,6 +1,6 @@
-module.exports = (_y, args) => {
+module.exports = (m, args) => {
   if (!args[0]) {
-    _y.reply("<:info:751794158162935838> | Country name needed.");
+    m.channel.send("<:info:751794158162935838> | Country name needed.");
     return;
   }
   let text = [];
@@ -15,13 +15,13 @@ module.exports = (_y, args) => {
   .then(data => {
     let x = data[country];
     if (!x) {
-      _y.reply(`<a:cross:751443454244159519> | ${country} data not found!`);
+      m.channel.send(`<a:cross:751443454244159519> | ${country} data not found!`);
       return;
     }
     x = x[x.length - 1];
     const result = `Date: ${x.date}\nConfirmed: ${x.confirmed}\n`
       + `Deaths: ${x.deaths}\nRecovered: ${x.recovered}`;
     console.log(result);
-    _y.reply(result);
+    m.channel.send(result);
   });
 };

@@ -1,12 +1,11 @@
-module.exports = async (_y, args) => {
+module.exports = async (m, args, curr) => {
   const {User} = require('../models/index');
   const cards = require('../data/cards');
-  const uid = _y.message.author.id;
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const y = require('../core/base');
   const D = y.Discord;
   const cmd = args[0];
-  const curr = _y.currency;
   const balance = curr.getBalance(uid);
   
   if(cmd === 'price' || cmd === 'prices' || !cmd){
@@ -68,7 +67,7 @@ module.exports = async (_y, args) => {
 
     const buffer = canvas.toBuffer('image/png');
     const attachment = new D.MessageAttachment(buffer, 'x.png');
-    _y.reply({files: [attachment]});
+    m.channel.send({files: [attachment]});
   };
 
   if (cmd === 'sell') {
@@ -76,19 +75,19 @@ module.exports = async (_y, args) => {
     const id = args[1];
     const amount = Number(args[2]);
     if (!id) {
-      return _y.reply('<:info:751794158162935838> | Id required, see `$pack info`.');
+      return m.channel.send('<:info:751794158162935838> | Id required, see `$pack info`.');
     }
     if (!amount || amount < 1) {
-      return _y.reply('<:info:751794158162935838> | Amount number needed!');
+      return m.channel.send('<:info:751794158162935838> | Amount number needed!');
     }
     const pack = await user.getPack(id);
     if (!pack || !pack.amount) {
-      return _y.reply(
+      return m.channel.send(
         `<:info:751794158162935838> | You don't have ${data[id][2]} player.`
       );
     }
     if (amount > pack.amount) {
-      return _y.reply(
+      return m.channel.send(
         `<:info:751794158162935838> | You only have **${pack.amount}**.`
         + ` ${data[id][2]} players.`
       );
@@ -96,7 +95,7 @@ module.exports = async (_y, args) => {
     const price = data[id][1];
     await user.addPack(id, amount);
     curr.add(uid, price * amount);
-    return _y.reply(`<:info:751794158162935838> | You get ${price * amount}<a:coin:751813392989290546>!`);
+    return m.channel.send(`<:info:751794158162935838> | You get ${price * amount}<a:coin:751813392989290546>!`);
   }
   
   if (cmd === 'buy') {
@@ -107,13 +106,13 @@ module.exports = async (_y, args) => {
     const cost = price * amount;
 
     if (!id) {
-      return _y.reply('<:info:751794158162935838> | Id required, see `$pack info`.');
+      return m.channel.send('<:info:751794158162935838> | Id required, see `$pack info`.');
     }
     if (!amount || amount < 1) {
-      return _y.reply('<:info:751794158162935838> | Amount number needed!');
+      return m.channel.send('<:info:751794158162935838> | Amount number needed!');
     }
     if (cost > balance) {
-      return _y.reply('<:info:751794158162935838> | You don\'t have enough coins!');
+      return m.channel.send('<:info:751794158162935838> | You don\'t have enough coins!');
     }
 
     if(amount > 1 || amount === 1){
@@ -167,7 +166,7 @@ module.exports = async (_y, args) => {
             '../data/cards/prime.js'
           );
         } else {
-          return _y.reply(
+          return m.channel.send(
           `<:info:751794158162935838> | The ID ${amount} is not found!`
           );
         }
@@ -188,11 +187,11 @@ module.exports = async (_y, args) => {
           .setImage(url)
           .setURL(url)
           ;
-          _y.reply(embed);
+          m.channel.send(embed);
       }
 
       if(amount > 1){
-        return _y.reply(
+        return m.channel.send(
         `<a:market:752814593159725106> | You purchased ${amount} ${data[id][2]} players.`
         );
       }

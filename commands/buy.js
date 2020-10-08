@@ -1,30 +1,29 @@
 const db = require('../models/index.js');
 const {User, Shop} = db;
 
-module.exports = async (_y, args) => {
+module.exports = async (m, args, curr) => {
   const name = args[0];
-  const curr = _y.currency;
   
   if (!name) {
-    return _y.reply('What do you want to buy?');
+    return m.channel.send('What do you want to buy?');
   }
 
   const item = await Shop.findOne({where: {name: name}});
   if (!item) {
-    return _y.reply(`Can't find **${name}** in shop!`);
+    return m.channel.send(`Can't find **${name}** in shop!`);
   }
   
-  const uid = _y.message.author.id;
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const balance = curr.getBalance(uid);
   if (!balance) {
-    return _y.reply('error getting balance');
+    return m.channel.reply('error getting balance');
   }
   if (!user || item.cost > curr.getBalance(uid)) {
-    return _y.reply(`Try having conversation!`);
+    return m.channel.send(`Try having conversation!`);
   }
 
   curr.add(uid, -item.cost);
   await user.addItem(item);
-  _y.reply(`You've bought a **${item.name}**!`);
+  m.channel.send(`You've bought a **${item.name}**!`);
 };

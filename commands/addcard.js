@@ -1,4 +1,4 @@
-module.exports = async(_y, args) => {
+module.exports = async(m, args) => {
   const Card = require('../models/mongoose/card');
   const y = require('../core/base');
   const D = y.Discord;
@@ -9,7 +9,7 @@ module.exports = async(_y, args) => {
     cardData.buffer, 'card.png'
   );
 
-  const message = await _y.message.channel.send(
+  const message = await m.channel.send(
     {files: [attachment]}
   );
 
@@ -52,7 +52,7 @@ module.exports = async(_y, args) => {
           const type = require('../data/pack/values')[dbData.typeID][2];
           resultText += type;
 
-          return _y.reply(resultText);
+          return m.channel.send(resultText);
         }
       });
       return;
@@ -60,6 +60,6 @@ module.exports = async(_y, args) => {
     const type = require('../data/pack/values')[dbData.typeID][2];
     resultText += type;
 
-    return _y.reply(resultText);
+    return m.channel.send(resultText);
   });
 };

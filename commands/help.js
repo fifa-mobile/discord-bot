@@ -1,6 +1,5 @@
-const y = require('../core/base');
-
-module.exports = (_y, args) => {
+module.exports = (m, args) => {
+  const y = require('../core/base');
   const p = {
     prefix: y.c.main.prefix
   };
@@ -14,5 +13,5 @@ module.exports = (_y, args) => {
       );
     }
   }
-  _y.reply(text);
+  m.channel.send(text);
 };

@@ -1,12 +1,11 @@
-module.exports = async (_y, args) => {
+module.exports = async (m, args, curr) => {
   const {User} = require('../models/index');
   const cards = require('../data/cards');
-  const uid = _y.message.author.id;
+  const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const y = require('../core/base');
   const D = y.Discord;
   const cmd = args[0];
-  const curr = _y.currency;
   const balance = curr.getBalance(uid);
   
   const weeklyIcon = 'Cruyff';
@@ -153,7 +152,7 @@ module.exports = async (_y, args) => {
         weeklyPrime + '<:prime:752816261251072040>'
     )
     .setFooter('The players used in the challenge will be removed from your inventory, so think well before completing.');
-  _y.reply(botEmbed);
+  m.channel.send(botEmbed);
   console.log("list");
   }
  
@@ -175,7 +174,7 @@ module.exports = async (_y, args) => {
     var idR;
     var url;
     if(!args[1] || args[1] > 9 || args[1] < 1){
-      _y.reply('<:info:751794158162935838> | Invalid ID.Check `$sbc` or `$sbc list` for IDs.');
+      m.channel.send('<:info:751794158162935838> | Invalid ID.Check `$sbc` or `$sbc list` for IDs.');
       console.log("invalid");
     }
 
@@ -341,7 +340,7 @@ module.exports = async (_y, args) => {
        ||
        (pack3 && pack3.amount < amount3)
      ){
-      _y.message.channel.send(`<:info:751794158162935838> | You don't have enough players for this SBC!`);
+      m.channel.send(`<:info:751794158162935838> | You don't have enough players for this SBC!`);
      }else{
     const {
         createCanvas, loadImage
@@ -403,7 +402,7 @@ module.exports = async (_y, args) => {
     await user.addPack(idR); 
 
     console.log('bbbbbbbbbbbbbbb');
-    _y.message.channel.send(`<a:sbc:751850029358121000> | SBC completed!`, {files: [attachment]});
+    m.channel.send(`<a:sbc:751850029358121000> | SBC completed!`, {files: [attachment]});
   }
   }
 };

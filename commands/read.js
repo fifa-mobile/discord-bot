@@ -1,7 +1,7 @@
 const y = require('../core/base');
 
-module.exports = (_y, args) => {
-  let msg = _y.message;
+module.exports = (m, args) => {
+  let msg = m;
   let channel = y.client.channels.cache.find(
     ch => ch.name === 'x' || ch.name === 'one_word_story'
   );

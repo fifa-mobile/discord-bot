@@ -1,15 +1,7 @@
 const y = require('./base');
 
-class Y extends y{
-  constructor() {
-    super();
-  }
+y.Discord = y.Discord;
+y.client = y.client;
+y.c = y.c;
 
-  _() {
-    this.Discord = y.Discord;
-    this.client = y.client;
-    this.c = y.c;
-  }
-}
-
-module.exports = new Y();
+module.exports = y;

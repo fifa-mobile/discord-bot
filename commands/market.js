@@ -1,12 +1,12 @@
 module.exports = async (m, args, curr) => {
   const {User} = require('../models/index');
-  const cards = require('../data/cards');
   const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const y = require('../core/base');
   const D = y.Discord;
   const cmd = args[0];
   const balance = curr.getBalance(uid);
+  const Card = require('../models/mongoose/card');
   
   if(cmd === 'price' || cmd === 'prices' || !cmd){
     const {
@@ -125,69 +125,28 @@ module.exports = async (m, args, curr) => {
       console.log(amount, id);
 
       if(amount === 1) {
-        if(id === 1){
-          choices = require (
-            '../data/cards/bronze.js'
-          );
-        }else if(id === 2){
-          choices = require (
-            '../data/cards/silver.js'
-          );
-        }else if(id === 3){
-          choices = require (
-            '../data/cards/gold.js'
-          );
-        }else if(id === 4){
-          choices = require (
-            '../data/cards/elite.js'
-          );
-        }else if(id === 5){
-          choices = require (
-            '../data/cards/elite85.js'
-          );
-        }else if(id === 6){
-          choices = require (
-            '../data/cards/master.js'
-          );
-        }else if(id === 7){
-          choices = require (
-            '../data/cards/master95.js'
-          );
-        }else if(id === 8){
-          choices = require (
-            '../data/cards/legend.js'
-          );
-        }else if(id === 9){
-          choices = require (
-            '../data/cards/icon.js'
-          );
-        }else if(id === 10){
-          choices = require (
-            '../data/cards/prime.js'
-          );
-        } else {
+        choices = await Card.find({typeID: id});
+
+        if (id < 1 || id > 10) {
           return m.channel.send(
-          `<:info:751794158162935838> | The ID ${amount} is not found!`
+            `<:info:751794158162935838> | `
+            + `The ID ${amount} is not found!`
           );
         }
 
         const card = choices[
-        Math.floor(Math.random() * choices.length)
+          Math.floor(Math.random() * choices.length)
         ];
 
         const title = `<a:market:752814593159725106> | You purchased a player`;
-        const url =
-          'https://fifa-mobile.github.io/images/cards/'
-          +
-          `${card}.png`
-          ;
-          const embed = new D.MessageEmbed()
-          .setColor('#0099ff')
-          .setTitle(title)
-          .setImage(url)
-          .setURL(url)
-          ;
-          m.channel.send(embed);
+        const url = card.img;
+        const embed = new D.MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle(title)
+        .setImage(url)
+        .setURL(url)
+        ;
+        m.channel.send(embed);
       }
 
       if(amount > 1){

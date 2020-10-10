@@ -1,128 +1,101 @@
-<!doctype HTML>
-<html>
-<head>
+<script src="/public/js/jquery-3.5.1.min.js"></script>
+<a href="/">Home</a>
+| <a href="/market/graph">Graph</a>
+<hr/>
 
-<title>Market Tracker</title>
+<div>
+  <input type="text" name="search"/>
+  <button id="buttonSearch">Search</button>
+</div>
+<div class="cards"></div>
 
 <style>
-body
-{
-	background-color:#36393f;
+.card {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  color: white;
+  margin: 2px;
+  border: 1px solid black;
+  background: #aaa;
 }
-.title
-{
-	background-color:#202225;
-	height:70px;
-	margin-top:-15px;
-	font-family:arial;
+.card * {
+  position: absolute;
 }
-#title
-{
-	color:#ffffff;
-	text-align:center;
-	padding-top:15px;
+.card .bg, .card .player {
+  width: 100%;
 }
-#playerOptions
-{
-	width:200px;
-	height:40px;
-	margin-left:15px;
-	margin-top:50px;
-	background-color: #202225;
-	color:#ccc;
-	border-radius:20px;
+.card .logo {
+  width: 15%;
+  top: 38%;
+  left: 23%;
 }
-.dropdown
-{
-	width:250px;
+.card .nation {
+  width: 10%;
+  top: 55%;
+  left: 25%;
 }
-#marketChart
-{
-	margin-top:50px;
-	margin-left:20px;
+.card .ovr {
+  top: 10%;
+  left: 25%;
+  font-size: 12px;
+  font-weight: bold;
+}
+.card .pos {
+  top: 25%;
+  left: 25%;
+  font-size: 7px;
+  font-weight: bold;
+}
+.card .name {
+  display: block;
+  width: 100%;
+  text-align: center;
+  bottom: 21%;
+  font-size: 9px;
+  font-weight: bold;
 }
 </style>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['line']});
-      google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+<div
+  id="cardTemplate"
+  class="card"
+  style="display: none"
+  data-id="0"
+>
+  <img class="bg"/>
+  <img class="player"/>
+  <img class="logo"/>
+  <img class="nation"/>
+  <span class="ovr"></span>
+  <span class="pos"></span>
+  <span class="name"></span>
+</div>
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Entry');
-      data.addColumn('number', 'Market 1');
-	  data.addColumn('number', 'Market 2');
-	  data.addColumn('number', 'Market 3');
-
-      data.addRows([
-        [0,  1,  2,  3],
-        [1,  7,  4,  1],
-	[2,  4,  7,  5],
-	[3,  2,  2,  4],
-	[4,  3,  5,  9],
-	[5,  1,  1,  0],
-	[6,  10,  2,  10],
-	[7,  2,  4,  4],
-	[8,  5,  3,  1],
-	[9,  3,  3,  3]
-      ]);
-
-      var options = {
-        chart: {},
-        width: 900,
-        height: 500,
-		title:'Player Name',
-		backgroundColor: '#000000',
-		chartArea:{backgroundColor:'#303030'},
-		legend:{textStyle:{color:'#ccc'}},
-        axes: {
-          x: {
-            0: {side: 'bottom'}
-          },
-		  
-		  y: {1: {title: 'Price'}
-		  }
+<script>
+$(() => {
+  buttonSearch.onclick = () => {
+    var search = $('input[name=search]').val();
+    $.post("/cards/search", {search: search}, (data) => {
+      $(".cards").empty();
+      for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        console.log(item);
+        var tpl = $("#cardTemplate").clone().removeAttr("id");
+        tpl.css('display', 'inline-block');
+        console.log(tpl);
+        tpl.find(".bg").attr("src", item.background);
+        tpl.find(".player").attr("src", item.image);
+        tpl.find(".logo").attr("src", item.clubLogo);
+        tpl.find(".nation").attr("src", item.nationFlag);
+        tpl.find(".ovr").text(item.rating);
+        tpl.find(".pos").text(item.position);
+        tpl.find(".name").text(item.cardName.toUpperCase());
+        $(".cards").append(tpl);
       }
-	  };
-	  
-
-      var chart = new google.charts.Line(document.getElementById('marketChart'));
-
-      chart.draw(data, google.charts.Line.convertOptions(options));
-    }
-  </script>
-
-</head>
-
-<body>
-<div class="title">
-<h1 id="title">
-  <a href="/">Home</a>
-  |
-  MARKET TRACKER
-</h1>
-</div>
-<div class="dropdown">
-<select id="playerOptions">
-	 <option value="0">Select player:</option>
-	 <option value="1">Player1</option>
-	 <option value="2">Player2</option>
-	 <option value="3">Player3</option>
-	 <option value="4">Player4</option>
-
-  </select>
-
-</div>
-
-
-<div id="marketChart"></div>
-
-
-<script> 
-
+    });
+  };
+});
 </script>
 
-</body>
 
-</html>

@@ -1,0 +1,130 @@
+<!doctype HTML>
+<html>
+<head>
+
+<title>Market Tracker</title>
+
+<style>
+body
+{
+	background-color:#36393f;
+}
+.title
+{
+	background-color:#202225;
+	height:70px;
+	margin-top:-15px;
+	font-family:arial;
+}
+#title
+{
+	color:#ffffff;
+	text-align:center;
+	padding-top:15px;
+}
+#playerOptions
+{
+	width:200px;
+	height:40px;
+	margin-left:15px;
+	margin-top:50px;
+	background-color: #202225;
+	color:#ccc;
+	border-radius:20px;
+}
+.dropdown
+{
+	width:250px;
+}
+#marketChart
+{
+	margin-top:50px;
+	margin-left:20px;
+}
+</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Entry');
+      data.addColumn('number', 'Market 1');
+	  data.addColumn('number', 'Market 2');
+	  data.addColumn('number', 'Market 3');
+
+      data.addRows([
+        [0,  1,  2,  3],
+        [1,  7,  4,  1],
+	[2,  4,  7,  5],
+	[3,  2,  2,  4],
+	[4,  3,  5,  9],
+	[5,  1,  1,  0],
+	[6,  10,  2,  10],
+	[7,  2,  4,  4],
+	[8,  5,  3,  1],
+	[9,  3,  3,  3]
+      ]);
+
+      var options = {
+        chart: {},
+        width: 900,
+        height: 500,
+		title:'Player Name',
+		backgroundColor: '#000000',
+		chartArea:{backgroundColor:'#303030'},
+		legend:{textStyle:{color:'#ccc'}},
+        axes: {
+          x: {
+            0: {side: 'bottom'}
+          },
+		  
+		  y: {1: {title: 'Price'}
+		  }
+      }
+	  };
+	  
+
+      var chart = new google.charts.Line(document.getElementById('marketChart'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+
+</head>
+
+<body>
+<div class="title">
+<h1 id="title">
+  <a href="/">Home</a>
+  |
+  <a href="/market">Market</a>
+  |
+  MARKET TRACKER
+</h1>
+</div>
+<div class="dropdown">
+<select id="playerOptions">
+	 <option value="0">Select player:</option>
+	 <option value="1">Player1</option>
+	 <option value="2">Player2</option>
+	 <option value="3">Player3</option>
+	 <option value="4">Player4</option>
+
+  </select>
+
+</div>
+
+
+<div id="marketChart"></div>
+
+
+<script> 
+
+</script>
+
+</body>
+
+</html>

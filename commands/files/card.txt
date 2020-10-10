@@ -1,0 +1,8 @@
+**```ℹ | {{prefix}}card```**
+**Use**:Used to see the picture of a certain FIFA Mobile card from BoT's collection.
+**Command**:{{prefix}}card `[id]`
+
+**Example**:
+`{{prefix}}card xxxxxxxx`-Shows the picture of the player with ID xxxxxxxx.
+
+```> Don't include brackets when using the commands.```

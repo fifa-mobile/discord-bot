@@ -2,6 +2,9 @@ const y = require('../core/base');
 const {User} = require('../models/index.js');
 
 module.exports = async (m, args, curr) => {
+  if ( m.guild.id === '593816759937794065') {
+    return m.channel.send(`Sorry, you can't use the command here`);
+  }
   if (
     m.member.roles.cache.find(
       r => r.name === 'Staff'

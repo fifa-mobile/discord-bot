@@ -178,10 +178,13 @@ module.exports = async (m, args, curr) => {
       console.log("invalid");
     }
 
+    const Card = require('../models/mongoose/card');
+    const typeID = Number(args[1]) + 1;
+    choices = await Card.find({typeID: typeID});
+    let card = choices[Math.floor(Math.random() * choices.length)];
+    url = card.img;
+
     if(args[1] === '1'){
-      choices = require ('../data/cards/silver.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 1;
       amount1 = 4;
       id2 = 0;
@@ -196,9 +199,6 @@ module.exports = async (m, args, curr) => {
       img5 = img1;
       console.log("choice1");
     }else  if(args[1] === '2'){
-      choices = require ('../data/cards/gold.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 1;
       amount1 = 3;
       id2 = 2;
@@ -213,9 +213,6 @@ module.exports = async (m, args, curr) => {
       img5 = img1;
       console.log("choice2");
     }else  if(args[1] === '3'){
-      choices = require ('../data/cards/elite.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 1;
       amount1 = 2;
       id2 = 3;
@@ -230,9 +227,6 @@ module.exports = async (m, args, curr) => {
       img5 = img1;
       console.log("choice3");
     }else  if(args[1] === '4'){
-     choices = require ('../data/cards/elite85.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 3;
       amount1 = 1;
       id2 = 4;
@@ -247,9 +241,6 @@ module.exports = async (m, args, curr) => {
       img5 = img1;
       console.log("choice4");
     }else  if(args[1] === '5'){
-      choices = require ('../data/cards/master.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 3;
       amount1 = 1;
       id2 = 5;
@@ -264,9 +255,6 @@ module.exports = async (m, args, curr) => {
       img5 = img1;
       console.log("choice5");
     }else if(args[1] === '6'){
-      choices = require ('../data/cards/master95.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 5;
       amount1 = 1;
       id2 = 6;
@@ -281,9 +269,6 @@ module.exports = async (m, args, curr) => {
       img5 = img1;
       console.log("choice6");
     }else  if(args[1] === '7'){
-      choices = require ('../data/cards/legend.js');
-      const card = choices[Math.floor(Math.random() * choices.length)];
-      url ='https://fifa-mobile.github.io/images/cards/' +`${card}.png`;
       id1 = 7;
       amount1 = 4;
       id2 = 0;
@@ -310,7 +295,8 @@ module.exports = async (m, args, curr) => {
       img3 = `./images/pack/master95.png`
       img4 = img1;
       img5 = img1;
-      url ='https://fifa-mobile.github.io/images/cards/' + `${weeklyIconID}.png`
+      card = await Card.findOne({id: weeklyIconID});
+      url = card.img
       console.log("choice8");
     }else  if(args[1] === '9'){
       id1 = 9;
@@ -325,7 +311,8 @@ module.exports = async (m, args, curr) => {
       img3 = img1;
       img4 = `./images/pack/legend.png`;
       img5 = img4;
-      url ='https://fifa-mobile.github.io/images/cards/' + `${weeklyPrimeID}.png`
+      card = await Card.findOne({id: weeklyPrimeID});
+      url = card.img
       console.log("choice9");
     }
     imgR = url;

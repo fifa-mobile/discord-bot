@@ -101,9 +101,12 @@ module.exports = async (m, args, curr) => {
   choosen = players[
     Math.floor(Math.random() * players.length)
   ];
-  card = cards[choosen.id][
+
+  const Card = require('../models/mongoose/card');
+  const dbCards = await Card.find({typeID: choosen.id});
+  card = dbCards[
     Math.floor(
-      Math.random() * cards[choosen.id].length
+      Math.random() * dbCards.length
     )
   ];
 
@@ -114,11 +117,7 @@ module.exports = async (m, args, curr) => {
 
   const title = `You got a ${choosen.type} player`;
 
-  const url =
-    'https://fifa-mobile.github.io/images/cards/'
-    +
-    `${card}.png`
-  ;
+  const url = card.img;
   const D = y.Discord;
   const embed = new D.MessageEmbed()
     .setColor('#0099ff')

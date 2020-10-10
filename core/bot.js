@@ -49,6 +49,10 @@ c.once('ready', async () => {
 
 c.on('message', m => {
   console.log('server info:', m.guild.name, m.guild.id);
+  if (m.guild.id === '593816759937794065') {
+    console.log('exception server detected!');
+    //return;
+  }
   const { prefix } = y.c.main;
   if (
     m.channel.name !== 'emoji-spam'

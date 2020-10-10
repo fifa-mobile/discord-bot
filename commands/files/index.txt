@@ -4,6 +4,6 @@
 **1.Info.**<:info:751794158162935838>-`help` `ping` `bot` `user` `cv`;
 **2.Fun**<a:game:752811402866982952>- `read` `8ball` `chess` `hero`;
 **3.Admin**<:staff:752813983639011409>- `announce` `coin`;
-**4.FIFA Mobile**<a:fm:751811132834054255>- `balance` `list` `pack` `market` `leader` `sbc`;
+**4.FIFA Mobile**<a:fm:751811132834054255>- `balance` `list` `pack` `market` `leader` `sbc` `card`;
 
 ```>Don't include brackets when using the commands.```

@@ -48,6 +48,7 @@ c.once('ready', async () => {
 });
 
 c.on('message', m => {
+  console.log('server info:', m.guild.name, m.guild.id);
   const { prefix } = y.c.main;
   if (
     m.channel.name !== 'emoji-spam'

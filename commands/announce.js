@@ -14,7 +14,7 @@ module.exports = async (m, args) => {
    const D = y.Discord;
    const url = 'https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/images/20201011_121401.jpg';
    const attachment = new D.MessageAttachment(url, 'AHQH2H.jpg');
-   m.channel.send("Hello @ everyone ! \nWe hope our H2H Tourney memebers are enjoying/have enjoyed our actual tourney.<a:1peepoJedi:739413703128252448> \nAs we get closer to our <a:one:764910636974604328>st birthday, we are announcing our second **AHQ Anniversary H2H Tourney**!! This tourney is going to be different from our previous ones, encouraging teamwork towards victory. More information to come in the upcoming days. \n\nSo, you know the drill, simply click the reaction below to apply. Applications are open until 15th October reset time. \nGood luck!:vamos: ", {files: [attachment]})
+   m.channel.send("Hello @everyone ! \nWe hope our H2H Tourney memebers are enjoying/have enjoyed our actual tourney.<a:1peepoJedi:739413703128252448> \nAs we get closer to our <a:one:764910636974604328>st birthday, we are announcing our second **AHQ Anniversary H2H Tourney**!! \nThis tourney is going to be different from our previous ones, encouraging teamwork towards victory. More information to come in the upcoming days. \n\nSo, you know the drill, simply click the reaction below to apply. Applications are open until 15th October reset time. \nGood luck!<:vamos:683393120200556556> ", {files: [attachment]})
    m.delete();
    }else{
     const axios = require('axios');

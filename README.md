@@ -1,7 +1,7 @@
 # Answers HQ Discord BoT
 
 
----
+----
 
 ## Cloning local repository
 

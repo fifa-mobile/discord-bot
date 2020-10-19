@@ -40,7 +40,7 @@ module.exports = async (m, args) => {
   );
   members.sort((a, b) => a.ID - b.ID);
   console.log('filtered', members, members.length);
-  const maxPage = Math.floor(members.length/itemsPerPage);
+  const maxPage = Math.ceil(members.length/itemsPerPage) - 1;
 
   const startIndex = isNaN(offset) ? 0 : offset;
   const endIndex = startIndex + itemsPerPage;

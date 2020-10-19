@@ -5,7 +5,8 @@ module.exports = async (header, data) => {
   const { createCanvas, loadImage } = require('canvas');
 
   const h = 36;
-  const canvas = createCanvas(512, h * 11);
+  const truncatedFixWidth = 32;
+  const canvas = createCanvas(512 + truncatedFixWidth, h * 11);
   const ctx = canvas.getContext('2d');
 
   let posY = 0;
@@ -16,7 +17,7 @@ module.exports = async (header, data) => {
     } else {
       ctx.fillStyle = `#00273E`;
     }
-    ctx.fillRect(0, posY, canvas.width, h);
+    ctx.fillRect(0, posY, canvas.width - truncatedFixWidth, h);
     posY += h;
   }
 
@@ -36,7 +37,7 @@ module.exports = async (header, data) => {
     if (i === 0) continue;
     ctx.fillRect(posX - (h / 2), 0, 1, canvas.height);
   }
-  ctx.fillRect(0, h, canvas.width, 1);
+  ctx.fillRect(0, h, canvas.width - truncatedFixWidth, 1);
 
   ctx.font = `18px sans-serif`;
   posY = h;
@@ -54,7 +55,7 @@ module.exports = async (header, data) => {
           posX = nextO.x - (h / 2);
         } else {
           console.log('canvas.width', canvas.width);
-          posX = canvas.width - (h / 2);
+          posX = canvas.width - (h / 2) - truncatedFixWidth;
         }
       } else {
         posX = o.x + (h / 2);

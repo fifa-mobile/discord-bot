@@ -47,13 +47,37 @@ c.once('ready', async () => {
   }).catch(console.error);
 });
 
+c.on("guildMemberRemove", function(member){
+  console.log(
+    `a member leaves ${member.guild.name}, or is kicked:`
+    , member.user.id
+  );
+});
+
+c.on("guildMemberAdd", function(member){
+  console.log(
+    `a user joins  ${member.guild.name}:`
+    , member.user.id
+  );
+});
+
 c.on('message', m => {
-  console.log('server info:', m.guild.name, m.guild.id);
+  const client = y.client;
+
+  console.log(
+    'server:', m.guild.name
+    , '|'
+    , 'author:', m.author.username + '#' + m.author.discriminator
+    , '|'
+    , 'message:', m.content
+  );
   if (m.guild.id === '593816759937794065') {
-    console.log('exception server detected!');
+    //console.log('exception server detected!');
     //return;
   }
+
   const { prefix } = y.c.main;
+
   if (
     m.channel.name !== 'emoji-spam'
     &&
@@ -66,7 +90,11 @@ c.on('message', m => {
     !m.content.startsWith(prefix)
     &&
     !m.author.bot
-  ) currency.add(m.author.id, 1);
+  ) {
+    currency.add(m.author.id, 1);
+    //console.log(client.guilds);
+  }
+
   if (
     !m.content.startsWith(prefix)
     || m.author.bot

@@ -64,6 +64,8 @@ c.on("guildMemberAdd", function(member){
 c.on('message', m => {
   const client = y.client;
 
+  if (!m.guild) return;
+
   console.log(
     'server:', m.guild.name
     , '|'

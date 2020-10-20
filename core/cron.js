@@ -12,20 +12,21 @@ cron.schedule('* * * * *', () => {
 
 // reset daily reward
 const timezone = 'Asia/Jakarta';
-cron.schedule('* 2 * * *', async () => {
+cron.schedule('0 2 * * *', async () => {
   console.log(
     `cron!!! Running a job at 02:00 at ${timezone} timezone`
   );
-  Quest.update({
-    daily: false,
-  }, {
-    where: { daily: true },
-    returning: true,
-    plain: true,
-  })
-  .then( result => {
-    console.log(result);
-  });
+  try {
+    await Quest.update({
+      daily: false,
+    }, {
+      where: { daily: true },
+      returning: true,
+      plain: true,
+    });
+  } catch(err) {
+    console.log('reset daily reward cron error:', err.message);
+  }
 }, {
   scheduled: true,
   timezone: timezone,

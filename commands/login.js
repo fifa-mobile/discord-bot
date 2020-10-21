@@ -12,7 +12,7 @@ module.exports = async (m, args, curr) => {
     uid: user.uid,
     guildID: m.guild.id,
   };
-  const time = 60 * 1;
+  const time = 60 * 60;
   const token = jwt.sign(tokenData, secret, {expiresIn: time});
   m.author.send(
     `your login link: \n\n${

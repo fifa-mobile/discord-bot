@@ -1,5 +1,9 @@
 {
+  "appName": "pixiu",
   "prefix": ".",
   "debug": true,
-  "token": "discord-bot-token"
+  "token": "discord-bot-token",
+  "host": "http://localhost:3000",
+  "sessionSecret": "shhhhhh",
+  "jwtSecret": "shhhhh"
 }

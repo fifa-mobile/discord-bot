@@ -17,8 +17,8 @@
 <body>
   <main><%- body %></main>
   <% if(user) { %>
-  user loggedIn: <%- user.uid %>
-  <a href="/logout">logout</a>
+  <hr>
+  <%- include('../user_nav') %>
   <% } %>
 </body>
 </html>

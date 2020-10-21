@@ -1,0 +1,22 @@
+<style>
+#userLoggedIn {
+  display: inline-block;
+  position: relative;
+  padding-left: 32px;
+  margin: 8px;
+}
+#userAvatar {
+  position: absolute;
+  border-radius: 50%;
+  left: -2px;
+  top: -6px;
+}
+</style>
+
+user loggedIn:
+<div id="userLoggedIn">
+  <img id="userAvatar" src="<%- user.avatar %>">
+  <%- user.nick %><b>@</b><%- user.guild %>
+</div>
+|
+<a href="/logout">logout</a>

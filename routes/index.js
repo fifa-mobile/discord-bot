@@ -7,10 +7,8 @@ router.get('/', function(req, res, next) {
   const user = req.session.user;
   if (user && user.guildID) {
     const guild = base.client.guilds.cache.get(user.guildID);
-    console.log(guild);
     user.guild = guild.name;
     const member = guild.members.cache.get(user.uid);
-    console.log(member);
     user.nick = member.nickname
       ? member.nickname
       : member.user.username + '#' + member.user.discriminator
@@ -19,7 +17,6 @@ router.get('/', function(req, res, next) {
       + `${user.uid}/${member.user.avatar}.png?size=32`
     ;
   }
-  console.log('user', user);
   res.render('index', {user: user ? user : false });
 });
 

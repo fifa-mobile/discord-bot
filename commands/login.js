@@ -9,13 +9,13 @@ module.exports = async (m, args, curr) => {
   const user = await User.findOne({where: {uid: m.author.id}});
   const tokenData = {
     id: user.id,
-    uid: m.author.uid,
+    uid: user.uid,
     guildID: m.guild.id,
   };
   const time = 60 * 1;
   const token = jwt.sign(tokenData, secret, {expiresIn: time});
   m.author.send(
-    `your login link: \n\n ${
+    `your login link: \n\n${
       host + '/login/discord?token=' + token
     }`
     + `\n\n will expire in `

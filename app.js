@@ -5,6 +5,7 @@ var expressLayouts = require('express-ejs-layouts');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
@@ -19,6 +20,15 @@ var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(cookieParser());
+app.use(logger('dev'));
+
+app.use(session({
+  secret: base.c.main.sessionSecret,
+  resave: false,
+  saveUninitialized: false,
+}));
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var marketRouter = require('./routes/market');
@@ -28,10 +38,13 @@ var cardsRouter = require('./routes/cards');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.set('layout', 'layouts/base');
 app.use(expressLayouts);
-
-app.use(cookieParser());
-app.use(logger('dev'));
+app.use((req, res, next) => {
+  res.locals.title = base.c.main.appName;
+  res.locals.user = false;
+  next();
+});
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 

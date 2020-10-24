@@ -8,10 +8,10 @@ module.exports = async (m, args, curr) => {
   const cmd = args[0];
   const balance = curr.getBalance(uid);
   
-  const weeklyIcon = 'Nedvěd';
-  const weeklyIconID = 21502633;
-  const weeklyPrime = 'Lehmann';
-  const weeklyPrimeID = 21502076;
+  const weeklyIcon = 'Blanc';
+  const weeklyIconID = 21502194;
+  const weeklyPrime = 'Pirès';
+  const weeklyPrimeID = 21504675;
   const sbcEmote = '<a:sbc:751850029358121000>';
   
   if(!cmd || cmd === 'list'){

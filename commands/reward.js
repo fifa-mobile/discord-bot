@@ -7,7 +7,7 @@ module.exports = async (m, args, curr) => {
   const cmd = args[0];
   const D = y.Discord;
  
- if(uid === '326432606227005441' || uid === '604194226938314773'){
+ if(uid === '' || uid === '604194226938314773'){
  if(cmd === 'uilwgbuihfuifgiufhd92'){
   await user.addPack(10);
   const url = 'https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/commands/21504033_FR.png';  

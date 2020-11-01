@@ -6,14 +6,14 @@ module.exports = async (m, args, curr) => {
   const user = await User.findOne({where: {uid: uid}});
   const cmd = args[0];
  
- if(uid === 'placeholder'){
+ if(uid === '326432606227005441' || uid === '604194226938314773'){
  if(cmd === 'uilwgbuihfuifgiufhd92'){
   await user.addPack(10);
-  const url = /*upload the image and get its url*/  
+  const url = 'https://raw.githubusercontent.com/fifa-mobile/discord-bot/master/commands/21504033_FR.png';  
   m.delete();
   const embed = new D.MessageEmbed()
     .setColor('#03fc5e')
-    .setTitle('Congratulations!You have won a prize!')
+    .setTitle('Congratulations!You have won a Prime Icon!')
     .setImage(url)
     .setURL(url)
   ;

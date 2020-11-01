@@ -5,6 +5,7 @@ module.exports = async (m, args, curr) => {
   const uid = m.author.id;
   const user = await User.findOne({where: {uid: uid}});
   const cmd = args[0];
+  const D = y.Discord;
  
  if(uid === '326432606227005441' || uid === '604194226938314773'){
  if(cmd === 'uilwgbuihfuifgiufhd92'){

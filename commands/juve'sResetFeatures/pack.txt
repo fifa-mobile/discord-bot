@@ -1,0 +1,180 @@
+const y = require('../core/base');
+const {User} = require('../models/index.js');
+const cards = require('../data/cards');
+
+module.exports = async (m, args, curr) => {
+  const uid = m.author.id;
+  const user = await User.findOne({where: {uid: uid}});
+  const balance = curr.getBalance(uid);
+  const cmd = args[0];
+  var pack1 = {
+  name:"Base Pack",
+  price: 10,
+  values: [
+  [],
+  [400  , 1     , "<:bronze:752816224424951848>│Bronze"],
+  [300  , 5     , "<:silver:752816253487415326>│Silver"],
+  [175  , 10    , "<:gold:752816253151871016>│Gold"],
+  [50   , 15    , "<:elite:752803219083755570>│Elite 80-85"],
+  [30   , 30    , "<:elite85:752816252308684822>│Elite 85+"],
+  [20   , 50    , "<:master:752816257807548417>│Master 90-95"],
+  [10   , 100   , "<:master95:752816259086942270>│Master 95+"],
+  [2    , 500  , "<a:legend:751819076757749860>│Legendary"],
+  [12   , 200   , "<:icon:751819191970955361>│Icon"],
+  [1    , 2000 , "<a:prime:751817179053424704>│Prime Icon"],
+]
+ };
+ var pack2 = {
+  name:"Advanced Pack",
+  price: 100,
+  values: [
+  [],
+  [0    , 1     , "<:bronze:752816224424951848>│Bronze"],
+  [0    , 5     , "<:silver:752816253487415326>│Silver"],
+  [0    , 10    , "<:gold:752816253151871016>│Gold"],
+  [25   , 15    , "<:elite:752803219083755570>│Elite 80-85"],
+  [20   , 30    , "<:elite85:752816252308684822>│Elite 85+"],
+  [18   , 50    , "<:master:752816257807548417>│Master 90-95"],
+  [12   , 100   , "<:master95:752816259086942270>│Master 95+"],
+  [7    , 500  , "<a:legend:751819076757749860>│Legendary"],
+  [15   , 200   , "<:icon:751819191970955361>│Icon"],
+  [3    , 2000 , "<a:prime:751817179053424704>│Prime Icon"],
+]
+ };
+  if (cmd === 'info') {
+	  if(!args[1]){
+	   return m.channel.send("__**Store**__\n\n**1**."+pack1.name+"- Cost:"+pack1.price
+	   +" <a:coin:751813392989290546>\n**2**."+pack2.name+"- Cost:"+pack2.price+" <a:coin:751813392989290546>"
+	   +"\n\n```For more information about packs use $pack info [id].```");
+	  }
+	  var data1;
+	  var title;
+	  if(args[1] === "1"){
+		 data1 = pack1.values;
+		 title = pack1.name;
+	  }else if(args[1] === "2"){
+		 data1 = pack2.values;
+		 title = pack2.name;
+	  }
+    let total = 0;
+    for (let i = 0; i < data1.length; i++) {
+      const item = data1[i];
+      if (!item.length) continue;
+      const [possibility,, type] = item;
+      total += possibility;
+    }
+    for (let i = 0; i < data1.length; i++) {
+      const item = data1[i];
+      if (!item.length) continue;
+      const [possibility,, type] = item;
+      const percentage = (
+        possibility / total * 100
+      ).toLocaleString(
+          undefined, {minimumFractionDigits: 1}
+      );
+      data1[i].push(percentage);
+    }
+    let lines = [
+      '__**'+title+'**__'+'\n\n·Id │<a:coin:751813392989290546>Value│ Chance'
+    ];
+    for (let i = data1.length - 1; i >= 0; i--) {
+      const item = data1[i];
+      if (!item.length) continue;
+      let [, price, type, percentage] = item;
+      const id = String(i).padStart(2, ' ');
+      price = String(
+        price
+      ).substring(0, 5).padStart(6, ' ');
+      percentage = String(
+        percentage
+      ).substring(0, 6).padStart(6, ' ');
+      const line =
+        `\`·${id}│${price}  |${percentage} %\` │`
+        + `${type}`
+      ;
+      lines.push(line);
+    }
+    return m.channel.send(lines.join('\n'));
+  }
+
+  if (cmd === 'list') {
+    const packs = await user.getPacks();
+    if (!packs.length) {
+      return m.channel.send(`<:info751794158162935838> | You don't have any player.`);
+    }
+    let lines = [];
+    for (let i = 0; i < packs.length; i++) {
+      const pack = packs[i];
+      const [,,type] = pack1.values[pack.packid];
+      if(type === undefined){
+      break;
+      }
+      const amount = '`' + '·' + String(
+        pack.amount
+      ).padStart(4, ' ') + '`';
+      const line = `${amount} - ${type}`;
+      lines.push(line);
+    }
+    return m.channel.send(lines.join('\n'));
+  }
+ 
+	if(cmd === "1" || cmd === "2"){
+ 
+   var packS;
+	if(cmd === "1"){
+		packS = pack1;
+    }else if(cmd === "2"){
+		packS = pack2;
+	}
+   const data = packS.values;
+   const cost = packS.price;
+  
+  if (!user || packS.price > balance) {
+    return m.channel.send(
+      `<:info:751794158162935838> | You don't have enough coins! Cost: ${cost}<a:coin:751813392989290546>`
+    );
+  }
+  let players = [];
+  for (let i = 0; i < data.length; i++) {
+    if (!data[i].length) continue;
+    const [multiplier,, player] = data[i];
+    for (let j = 0; j < multiplier; j++) {
+      players.push({id: i, type: player});
+	}
+  }
+  let choosen = {};
+  let card = -1;
+
+  choosen = players[
+    Math.floor(Math.random() * players.length)
+  ];
+  const Card = require('../models/mongoose/card');
+ const dbCards = await Card.find({typeID: choosen.id});
+  card = dbCards[
+    Math.floor(
+      Math.random() * dbCards.length
+    )
+  ];
+console.log(card);
+  curr.add(uid, -cost);
+  console.log('choosen.id', choosen.id);
+  await user.addPack(choosen.id);
+
+  const title = `You got a ${choosen.type} player`;
+
+  const url = card.img;
+  const D = y.Discord;
+  const embed = new D.MessageEmbed()
+    .setColor('#0099ff')
+    .setTitle(title)
+    .setImage(url)
+    .setURL(url)
+  ;
+	m.channel.send(embed);}else{
+    return m.channel.send(
+      `<:info:751794158162935838> | Option **${cmd}** not found, `
+      + `try, \`list / info\``
+    );
+  }
+
+};
